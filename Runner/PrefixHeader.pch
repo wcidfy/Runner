@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  Runner
+//
+//  Created by lxx on 16/6/22.
+//  Copyright © 2016年 lxx. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+// 屏幕尺寸
+#define kScreenSize                 [UIScreen mainScreen].bounds.size
+#define kScreenWidth                [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight               [UIScreen mainScreen].bounds.size.height
+#define kScreenScale                [UIScreen mainScreen].scale
+#define kScreenRatio                (kScreenWidth/320)
+
+#define kViewContentMargin              10.0f
+
+//根据720分辨率计算size
+#define kSizeFrom720(x)                (x*kScreenRatio*320/720)
+
+
+
+
+
+#define ViewWidth self.bounds.size.width
+#define ViewHeight self.bounds.size.height
+
+//Base Header
+#import "BKTableView.h"
+
+//Catagory Header
+#import "UIColor+Hex.h"
+#import "UIView+Extension.h"
+#import "UIImage+Extention.h"
+
+//lib Header
+//masonry 宏定义
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+#import "MJRefresh.h"
+
+#import "RegexKitLite.h"
+
+
+#endif /* PrefixHeader_pch */
+
+
+
+//自定义日志
+#ifdef DEBUG
+#define XXLog(...) NSLog(@"%s\n %@\n\n",__func__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#endif

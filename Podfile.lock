@@ -1,0 +1,24 @@
+PODS:
+  - iOS-Slide-Menu (1.5)
+  - ITRAirSideMenu (1.0.0)
+  - Masonry (1.0.1)
+  - MJRefresh (3.1.9)
+  - RegexKitLite (4.0)
+
+DEPENDENCIES:
+  - iOS-Slide-Menu (= 1.5)
+  - ITRAirSideMenu (= 1.0.0)
+  - Masonry (= 1.0.1)
+  - MJRefresh (= 3.1.9)
+  - RegexKitLite (= 4.0)
+
+SPEC CHECKSUMS:
+  iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
+  ITRAirSideMenu: 6071d664ccc6aff4a4f956808fdc9db170e3d9e8
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
+
+PODFILE CHECKSUM: 71f3168961444d966d2151a4cffeb7ac957cded1
+
+COCOAPODS: 1.0.0.beta.4
