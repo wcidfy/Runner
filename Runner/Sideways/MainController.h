@@ -12,5 +12,4 @@
  *  主界面
  */
 @interface MainController : UIViewController<SlideNavigationControllerDelegate>
-
 @end

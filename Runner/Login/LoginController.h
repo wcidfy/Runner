@@ -11,5 +11,4 @@
  *  登录 Controller
  */
 @interface LoginController : UIViewController
-
 @end

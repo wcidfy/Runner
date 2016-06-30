@@ -7,4 +7,6 @@ pod 'ITRAirSideMenu', '1.0.0'
 pod 'iOS-Slide-Menu', '1.5'
 pod 'MJRefresh', '3.1.9'
 pod 'RegexKitLite', '4.0'
+pod 'MBProgressHUD'
+pod 'JGProgressHUD','1.3.3'
 end

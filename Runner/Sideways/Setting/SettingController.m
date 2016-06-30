@@ -10,7 +10,9 @@
 #import "EatGifRefresh.h"
 #import "SlideNavigationController.h"
 #import "LeftViewController.h"
-#import "qqViewController.h"
+#import "OneController.h"
+#import "BaseWebController.h"
+#import "LoginController.h"
 @interface SettingController ()
 @property(nonatomic,strong)NSArray *arrayTable;
 @end
@@ -26,6 +28,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
+    if (![[ud objectForKey:@"loginName"] isEqualToString:@"123"]||![[ud objectForKey:@"loginPass"] isEqualToString:@"123"]) {
+        [self presentViewController:[LoginController new] animated:YES completion:nil];
+    }else
+    {
+    
+    
+    }
 //    self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
     self.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
 //    self.navigationController.navigationBar.hidden=YES;
@@ -81,7 +91,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        [self.navigationController pushViewController:[qqViewController new] animated:YES];
+        [self.navigationController pushViewController:[OneController new] animated:YES];
+    }else if (indexPath.row==1) {
+        BaseWebController *web=[[BaseWebController alloc]init];
+       web.urlString=@"http://blog.sina.com.cn/s/blog_5102c0360100yq6u.html";
+    
+//        web.rootTitle=@"122";
+        [self.navigationController pushViewController:web animated:YES];
     }
 
 

@@ -44,9 +44,9 @@
 #define MAS_SHORTHAND_GLOBALS
 #import "Masonry.h"
 #import "MJRefresh.h"
-
+#import "MBProgressHUD.h"
 #import "RegexKitLite.h"
-
+#import "MBProgressHUD+HM.h"
 
 #endif /* PrefixHeader_pch */
 

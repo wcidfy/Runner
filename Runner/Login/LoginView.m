@@ -11,6 +11,8 @@
 {
     UIView *_lineNameBotton;
     UIView *_linePassBotton;
+//    半透膜
+    UIVisualEffectView *bgView;
 
 }
 @end
@@ -20,12 +22,10 @@
     self=[super initWithFrame:frame];
     if (self) {
         self.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"hh1.jpg"]];
-//        UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-//        //创建模糊view
-//        UIVisualEffectView * effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
-//        effectView.frame = CGRectMake(0, 0, ViewWidth, 200);
-//        [self addSubview:effectView];
-        
+        bgView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+        bgView.alpha = 0.5f;
+        bgView.clipsToBounds = YES;
+        [self addSubview:bgView];
         
        
         UIView *leftNameView=[[UIView alloc]init];
@@ -82,6 +82,7 @@
         [_sinaShareButton setImage:[UIImage imageNamed:@"login_sina_icon_click"] forState:UIControlStateHighlighted];
         [_sinaShareButton setTitle:@"新浪分享" forState:UIControlStateNormal];
         [self addSubview:_sinaShareButton];
+       
     }
     
     
@@ -104,6 +105,8 @@
     _wxShareButton.frame=CGRectMake(20+shareWidth, ViewHeight-150, shareWidth, shareWidth);
     
     _sinaShareButton.frame=CGRectMake(30+shareWidth*2, ViewHeight-150, shareWidth, shareWidth);
+    bgView.frame = CGRectMake(0, 0, ViewWidth, ViewHeight);
+
 }
 
 @end

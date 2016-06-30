@@ -13,7 +13,6 @@
 @end
 
 @implementation MainController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -31,6 +30,8 @@
    
     
 }
+
+   
 #pragma mark - SlideNavigationController Methods -
 #pragma mark 左滑
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

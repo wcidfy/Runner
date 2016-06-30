@@ -16,6 +16,7 @@
     self=[super initWithFrame:frame];
     if (self) {
         self.backgroundColor=[UIColor whiteColor];
+      
         _tableView=[[BKTableView alloc]init];
         _tableView.backgroundColor=[UIColor whiteColor];
        [self addSubview:_tableView]; 
