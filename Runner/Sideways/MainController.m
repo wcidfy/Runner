@@ -8,6 +8,9 @@
 
 #import "MainController.h"
 #import "LeftViewController.h"
+#import "NewFeatureController.h"
+#define CZVersionKey @"version"
+
 @interface MainController ()
 
 @end
@@ -27,11 +30,39 @@
     
     UIBarButtonItem *leftButton=[[UIBarButtonItem alloc]initWithCustomView:button];
     [SlideNavigationController sharedInstance].leftBarButtonItem=leftButton;
-   
-    
+   //根据版本号添加新特性
+    [self Vesion];
 }
 
-   
+-(void)Vesion
+{
+
+    // 1.获取当前的版本号
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    
+    // 2.获取上一次的版本号
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:CZVersionKey];
+    
+    if (![currentVersion isEqualToString:lastVersion]) { // 有最新的版本号
+        
+        // 有最新的版本号
+        
+        // 进入新特性界面
+        // 如果有新特性，进入新特性界面
+        NewFeatureController *vc = [[NewFeatureController alloc] init];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+        
+        // 保持当前的版本，用偏好设置
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:CZVersionKey];
+        
+        
+        
+        
+    }
+
+
+}
 #pragma mark - SlideNavigationController Methods -
 #pragma mark 左滑
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

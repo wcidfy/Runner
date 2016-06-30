@@ -19,6 +19,10 @@
 		B52A242D1D229E19001373AD /* BaseWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A242C1D229E19001373AD /* BaseWebController.m */; };
 		B52A24311D236A02001373AD /* ChooseWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24301D236A02001373AD /* ChooseWindow.m */; };
 		B52A24351D2373D0001373AD /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24341D2373D0001373AD /* MBProgressHUD+HM.m */; };
+		B52A24551D24FF4B001373AD /* TopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24541D24FF4B001373AD /* TopModel.m */; };
+		B52A24581D250DEB001373AD /* States.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24571D250DEB001373AD /* States.m */; };
+		B52A245B1D250E01001373AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A245A1D250E01001373AD /* User.m */; };
+		B52A24621D252801001373AD /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24611D252801001373AD /* NewFeatureController.m */; };
 		B531A3E11D1A6C21005E5A9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3E01D1A6C21005E5A9F /* main.m */; };
 		B531A3E41D1A6C21005E5A9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3E31D1A6C21005E5A9F /* AppDelegate.m */; };
 		B531A3E71D1A6C21005E5A9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3E61D1A6C21005E5A9F /* ViewController.m */; };
@@ -82,6 +86,14 @@
 		B52A24301D236A02001373AD /* ChooseWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseWindow.m; sourceTree = "<group>"; };
 		B52A24331D2373D0001373AD /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
 		B52A24341D2373D0001373AD /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		B52A24531D24FF4B001373AD /* TopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModel.h; sourceTree = "<group>"; };
+		B52A24541D24FF4B001373AD /* TopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopModel.m; sourceTree = "<group>"; };
+		B52A24561D250DEB001373AD /* States.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = States.h; sourceTree = "<group>"; };
+		B52A24571D250DEB001373AD /* States.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = States.m; sourceTree = "<group>"; };
+		B52A24591D250E01001373AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B52A245A1D250E01001373AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B52A24601D252801001373AD /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
+		B52A24611D252801001373AD /* NewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureController.m; sourceTree = "<group>"; };
 		B531A3DC1D1A6C21005E5A9F /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B531A3E01D1A6C21005E5A9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B531A3E21D1A6C21005E5A9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -184,6 +196,15 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		B52A245C1D2525E7001373AD /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				B52A24601D252801001373AD /* NewFeatureController.h */,
+				B52A24611D252801001373AD /* NewFeatureController.m */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		B531A3D31D1A6C21005E5A9F = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +268,7 @@
 		B531A4121D1A6C69005E5A9F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B52A245C1D2525E7001373AD /* NewFeature */,
 				B52A24321D2373A9001373AD /* Lib */,
 				B531A4281D1A8680005E5A9F /* Base */,
 				B531A41E1D1A8602005E5A9F /* Catagory */,
@@ -361,6 +383,12 @@
 				B52A24281D226AF6001373AD /* 2.jpg */,
 				B52A24231D226727001373AD /* 3.jpg */,
 				B52A24251D22684C001373AD /* image_normal.png */,
+				B52A24531D24FF4B001373AD /* TopModel.h */,
+				B52A24541D24FF4B001373AD /* TopModel.m */,
+				B52A24561D250DEB001373AD /* States.h */,
+				B52A24571D250DEB001373AD /* States.m */,
+				B52A24591D250E01001373AD /* User.h */,
+				B52A245A1D250E01001373AD /* User.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -565,9 +593,12 @@
 				B531A4301D1A86C2005E5A9F /* BKTableViewCell.m in Sources */,
 				B531A4541D1B7EBA005E5A9F /* LeftAdapter.m in Sources */,
 				B531A3E71D1A6C21005E5A9F /* ViewController.m in Sources */,
+				B52A24581D250DEB001373AD /* States.m in Sources */,
 				B5467D4A1D1D63AB0007EF4A /* SettingController.m in Sources */,
+				B52A245B1D250E01001373AD /* User.m in Sources */,
 				B5B2626D1D1C2231007B961E /* MainController.m in Sources */,
 				B531A4441D1A8954005E5A9F /* UIView+Extension.m in Sources */,
+				B52A24621D252801001373AD /* NewFeatureController.m in Sources */,
 				B52A24181D224DA7001373AD /* OneController.m in Sources */,
 				B531A4191D1A6D53005E5A9F /* LoginController.m in Sources */,
 				B531A4511D1B786C005E5A9F /* LeftView.m in Sources */,
@@ -576,6 +607,7 @@
 				B52A24221D2257EF001373AD /* OneView.m in Sources */,
 				B531A4421D1A8954005E5A9F /* UIColor+Hex.m in Sources */,
 				B531A4311D1A86C2005E5A9F /* BKTableView.m in Sources */,
+				B52A24551D24FF4B001373AD /* TopModel.m in Sources */,
 				B531A41C1D1A6D6E005E5A9F /* LoginView.m in Sources */,
 				B52A24311D236A02001373AD /* ChooseWindow.m in Sources */,
 				B531A3E11D1A6C21005E5A9F /* main.m in Sources */,

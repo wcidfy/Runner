@@ -8,7 +8,8 @@
 
 #import "OneController.h"
 #import "OneView.h"
-
+#import "TopModel.h"
+#import "States.h"
 @interface OneController ()<JCTopicDelegate>
 @property(nonatomic,strong)OneView *oneView;
 @property(nonatomic,strong)NSMutableArray *imageArray;
@@ -20,18 +21,40 @@
 {
     if (_imageArray==nil) {
         _imageArray=[[NSMutableArray alloc]init];
+        //本地图片
+        //***********************//
+        //key pic = 本地 UIImage
+        //key title = 显示的标题 NSString
+        //key isLoc = 是否本地图片 Bool
+        //***********************//
+
         UIImage * image = [UIImage imageNamed:@"1.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image ,@"PIC1",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image ,@"第一张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
         UIImage * image2 = [UIImage imageNamed:@"2.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image2 ,@"PIC2",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://163.54114.com/upimg/allimg/120619/5-120619112512.jpg" ,@"PIC3",@NO] forKeys:@[@"pic",@"title",@"isLoc"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image2 ,@"第二张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1308/10/c6/24351557_1376142714149.jpg" ,@"第三张图片",@NO] forKeys:@[@"pic",@"title",@"isLoc"]]];
         //网络图片加载失败
         UIImage * PlaceholderImage = [UIImage imageNamed:@"3.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://s.doyo.cn/img/52/cf/91779e9e784d2c000003.jpg" ,@"PIC4",@NO,PlaceholderImage] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.ycwb.com/news/attachement/jpg/site2/20100827/001558e890930de166d02f.jpg" ,@"第四张图片",@NO,PlaceholderImage] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
        
+        NSDictionary *dict=@
+        {
+        @"aa":@"111111",
+            @"bb":@"2222",
+            @"user":@{@"name":@"2222",
+                      @"pid":@111,
+                      },
+            @"arr":@[@{@"cc":@"qqqq",@"dd":@"dddddddd"},@{@"cc":@"eeeeeee",@"dd":@"eeeeeeeep"}],
+        };
+        States *sta=[States mj_objectWithKeyValues:dict];
+        XXLog(@"%@",sta);
+        for (aaid *Aid in sta.arr) {
+             NSLog(@"cc=%@, dd=%@", Aid.cc, Aid.dd);
+        }
     }
     return _imageArray;
 }
+
 //-(void)loadView
 //{
 //    [super loadView];
@@ -46,6 +69,7 @@
     // Do any additional setup after loading the view.
 
     self.view.backgroundColor=[UIColor whiteColor];
+    
 //    [self showSuccessTip:@"知道了"];
 //    [_oneView setCarousel:self.imageArray];
     
@@ -58,34 +82,10 @@
     _Topic = [[JCTopic alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-64)];
     //代理
     _Topic.JCdelegate = self;
-    //创建数据
-    NSMutableArray * tempArray = [[NSMutableArray alloc]init];
-    //本地图片
-    //***********************//
-    //key pic = 本地 UIImage
-    //key title = 显示的标题 NSString
-    //key isLoc = 是否本地图片 Bool
-    //***********************//
-    UIImage * image = [UIImage imageNamed:@"1.jpg"];
-    [tempArray addObject:[NSDictionary dictionaryWithObjects:@[image ,@"第一张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-    UIImage * image2 = [UIImage imageNamed:@"2.jpg"];
-    [tempArray addObject:[NSDictionary dictionaryWithObjects:@[image2 ,@"第二张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-    //网络图片
-    //***********************//
-    //key pic = 地址 NSString
-    //key title = 显示的标题 NSString
-    //key isLoc = 是否本地图片 Bool
-    //key placeholderImage = 网络图片加载失败时显示的图片 UIImage
-    //***********************//
-    UIImage * PlaceholderImage = [UIImage imageNamed:@"3.jpg"];
-    [tempArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1308/10/c6/24351557_1376142714149.jpg" ,@"第三张图片",@NO,PlaceholderImage] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
-    
-    [tempArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.ycwb.com/news/attachement/jpg/site2/20100827/001558e890930de166d02f.jpg" ,@"第四张图片",@NO,PlaceholderImage] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
-    
     
     
     //加入数据
-    _Topic.pics = tempArray;
+    _Topic.pics = self.imageArray;
     //更新
     [_Topic upDate];
     [self.view addSubview:_Topic];
@@ -94,7 +94,7 @@
     _pangeControl.pageIndicatorTintColor = [UIColor grayColor];
     _pangeControl.enabled = YES;
     
-    _pangeControl.numberOfPages=tempArray.count;
+    _pangeControl.numberOfPages=self.imageArray.count;
     [self.view addSubview:_pangeControl];
     [_pangeControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.Topic.bottom).offset(10);

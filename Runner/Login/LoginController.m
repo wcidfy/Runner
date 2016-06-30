@@ -12,7 +12,6 @@
 #import "MainController.h"
 #import "SlideNavigationController.h"
 #import "LeftViewController.h"
-#import "ITRAirSideMenu.h"
 
 @interface LoginController ()
 {
@@ -74,7 +73,6 @@
         i++;
         [MBProgressHUD showError:[NSString stringWithFormat:@"账号或者密码输入错误 %ld次",i]];
     }
-   
    
   
    

@@ -44,6 +44,7 @@
 //    view.backgroundColor=[UIColor grayColor];
 //    [self.view addSubview:view];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStyleDone target:self action:@selector(BackClick)];
+     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(cancelClick)];
 }
 -(void)BackClick
 {
@@ -56,6 +57,13 @@
 //    }
     
     [[SlideNavigationController sharedInstance]toggleLeftMenu];
+
+}
+-(void)cancelClick
+{
+     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"loginName"];
+     [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"loginPass"];
+    [[SlideNavigationController sharedInstance]popViewControllerAnimated:YES];
 
 }
 -(void)loadDate

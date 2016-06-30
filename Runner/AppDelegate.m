@@ -13,6 +13,9 @@
 #import "SlideNavigationController.h"
 #import "LeftViewController.h"
 #import "ChooseWindow.h"
+#import "NewFeatureController.h"
+#define CZVersionKey @"version"
+
 @interface AppDelegate ()
 
 @end
@@ -24,25 +27,10 @@
     // Override point for customization after application launch.
    
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-   
-//    self.window.rootViewController=[LoginController new];
-    
-    
-   
-    
-    
-    
-    
-//    MainController *main=[[MainController alloc]init];
-//    SlideNavigationController *slide=[[SlideNavigationController alloc]initWithRootViewController:main
-//                                      ];
-//    LeftViewController *left=[[LeftViewController alloc]init];
-//    [SlideNavigationController sharedInstance].leftMenu=left;
-//    self.window.rootViewController=slide;
-//    self.window.backgroundColor = [UIColor whiteColor];
         [self.window makeKeyAndVisible];
     [ChooseWindow ChooseController:self.window];
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"loginName"];
+   
+       
     return YES;
 }
 

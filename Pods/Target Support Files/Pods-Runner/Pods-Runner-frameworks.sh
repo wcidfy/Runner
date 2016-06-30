@@ -84,18 +84,18 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ITRAirSideMenu/ITRAirSideMenu.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/JGProgressHUD/JGProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/MJExtension/MJExtension.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/RegexKitLite/RegexKitLite.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/iOS-Slide-Menu/iOS_Slide_Menu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/ITRAirSideMenu/ITRAirSideMenu.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/JGProgressHUD/JGProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/MJExtension/MJExtension.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/RegexKitLite/RegexKitLite.framework"
