@@ -7,8 +7,16 @@
 //
 
 #import "NewFeatureController.h"
-
+#import "TopModel.h"
+#import "LoginController.h"
+#import "SlideNavigationController.h"
+#import "MainController.h"
 @interface NewFeatureController ()<JCTopicDelegate>
+
+{
+    UIButton *but;
+
+}
 @property(nonatomic,strong)NSMutableArray *imageArray;
 @property(nonatomic, strong) UIPageControl *pangeControl;
 
@@ -50,8 +58,10 @@
     _topPic.JCdelegate=self;
     _topPic.pics=self.imageArray;
     [_topPic upDate];
-//    [_topPic releaseTimer];
+    [_topPic releaseTimer];
+
     [self.view addSubview:_topPic];
+  
     
     
     _pangeControl = [UIPageControl new];
@@ -63,15 +73,39 @@
     _pangeControl.frame=CGRectMake(0, kScreenHeight-40, kScreenWidth, 40);
     [self.view addSubview:_pangeControl];
     
+    but=[UIButton buttonWithType:UIButtonTypeCustom];
+    but.frame=CGRectMake(0, 100, 100, 40);
+    but.backgroundColor=[UIColor redColor];
+    [but setTitle:@"立即体验" forState:UIControlStateNormal];
+    [but setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    but.hidden=YES;
+    [but addTarget:self action:@selector(butClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:but];
 }
+
+-(void)butClick
+{
+    [self dismissViewControllerAnimated:NO completion:nil];
+
+    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
+    if (![[ud objectForKey:@"loginName"] isEqualToString:@"123"]||![[ud objectForKey:@"loginPass"] isEqualToString:@"123"]) {
+        [self presentViewController:[LoginController new] animated:NO completion:nil];
+        
+    }
+
+}
+
 #pragma mark jctop 代理
 -(void)didClick:(id)data
 {
+    but.hidden=NO;
 
 }
+
 -(void)currentPage:(int)page total:(NSUInteger)total
 {
     _pangeControl.currentPage=page;
     
+    [_topPic releaseTimer];
 }
 @end

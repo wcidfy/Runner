@@ -25,6 +25,7 @@
     // 判断当前是否有新的版本
            // 创建tabBarVc
         MainController *main=[[MainController alloc]init];
+    
             SlideNavigationController *slide=[[SlideNavigationController alloc]initWithRootViewController:main
                                               ];
             LeftViewController *left=[[LeftViewController alloc]init];
@@ -33,8 +34,9 @@
         
         // 设置窗口的根控制器
         window.rootViewController = slide;
-        
-        
+    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:YES];
+   
+    
 //    if (![currentVersion isEqualToString:lastVersion]) { // 有最新的版本号
 //        
 // // 有最新的版本号

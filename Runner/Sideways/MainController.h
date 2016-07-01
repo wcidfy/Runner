@@ -11,5 +11,5 @@
 /**
  *  主界面
  */
-@interface MainController : UIViewController<SlideNavigationControllerDelegate>
+@interface MainController : UITabBarController<SlideNavigationControllerDelegate>
 @end

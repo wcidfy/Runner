@@ -13,6 +13,7 @@
 #import "OneController.h"
 #import "BaseWebController.h"
 #import "LoginController.h"
+#import "MainController.h"
 @interface SettingController ()
 @property(nonatomic,strong)NSArray *arrayTable;
 @end
@@ -21,7 +22,7 @@
 -(NSArray *)arrayTable
 {
     if (_arrayTable==nil) {
-        _arrayTable=[[NSArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6", nil];
+        _arrayTable=[[NSArray alloc]initWithObjects:@"__________滚动图片__________",@"__________webview__________",@"__________3__________",@"__________4__________",@"__________5__________",@"__________6__________", nil];
         
     }
     return _arrayTable;
@@ -36,28 +37,22 @@
     
     
     }
-//    self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
+    // 告诉self.view约束需要更新
+    [self.view setNeedsUpdateConstraints];
+    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+    [self.view updateConstraintsIfNeeded];
+
     self.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
-//    self.navigationController.navigationBar.hidden=YES;
-//    UIView *view=[[UIView alloc]init];
-//    view.frame=CGRectMake(0, 0, self.view.bounds.size.width, 44);
-//    view.backgroundColor=[UIColor grayColor];
-//    [self.view addSubview:view];
+
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStyleDone target:self action:@selector(BackClick)];
      self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(cancelClick)];
 }
 -(void)BackClick
 {
-//    for (UIViewController *vc in self.navigationController.viewControllers) {
-//        if([vc isKindOfClass:[LeftViewController class]])
-//        {
-//            LeftViewController *left=(LeftViewController *)vc;
-//         [[SlideNavigationController sharedInstance]popToViewController:left animated:YES];
-//        }
-//    }
-    
+    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
     [[SlideNavigationController sharedInstance]toggleLeftMenu];
 
+    
 }
 -(void)cancelClick
 {
@@ -92,7 +87,11 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    cell.textLabel.textAlignment=NSTextAlignmentCenter;
     cell.textLabel.text=self.arrayTable[indexPath.row];
+    cell.opaque=NO;
+    cell.textLabel.backgroundColor=[UIColor clearColor];
+    cell.backgroundColor=[UIColor clearColor];
     return cell;
 }
 

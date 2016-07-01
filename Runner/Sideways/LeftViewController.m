@@ -9,7 +9,7 @@
 #import "LeftViewController.h"
 #import "LeftView.h"
 #import "LeftAdapter.h"
-
+#import "MainController.h"
 
 #import "SettingController.h"
 #import "SlideNavigationController.h"
@@ -54,12 +54,18 @@
 -(void)buttonClick
 {
     [_leftView.withdrawButton addTarget:self action:@selector(withdrawButtonClick) forControlEvents:UIControlEventTouchUpInside];
-
+    UITapGestureRecognizer *touch=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TouchAction)];
+    [_leftView.headView addGestureRecognizer:touch];
 }
 -(void)withdrawButtonClick
 {
 
     NSLog(@"vdcvgdfdsgfd");
+}
+-(void)TouchAction
+{
+     NSLog(@"vdcvgdfdsgfd");
+    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
 }
 #pragma mark tableView 点击代理
 -(void)didTableViewSelected:(NSInteger)index

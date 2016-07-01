@@ -16,6 +16,7 @@
 @interface LoginController ()
 {
     NSInteger i;
+    NSTimer *timer;
 
 }
 @property(nonatomic,strong)LoginView *loginView;
@@ -46,10 +47,13 @@
 }
 -(void)loginButtonClick
 {
-    if(i>3)
+    if(i==2)
     {
-        [MBProgressHUD showError:@"对不起你输入次数过多,账号锁定五分钟"];
-        NSTimer *timer=[NSTimer scheduledTimerWithTimeInterval:300.0f target:self selector:@selector(TimeAction) userInfo:nil repeats:YES];
+        _loginView.loginButton.enabled=NO;
+        _loginView.loginButton.backgroundColor=[UIColor grayColor];
+        [MBProgressHUD showError:@"对不起你输入次数过多,账号锁定10秒钟"];
+       
+      timer=[NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(TimeAction) userInfo:nil repeats:YES];
 
         return;
     
@@ -81,7 +85,9 @@
 -(void)TimeAction
 {
     i=0;
-
+    [timer invalidate];
     XXLog(@"1");
+    _loginView.loginButton.enabled=YES;
+    _loginView.loginButton.backgroundColor=[UIColor colorWithHex:0xE10F51];
 }
 @end
