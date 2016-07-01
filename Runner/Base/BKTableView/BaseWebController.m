@@ -12,6 +12,10 @@
 {
      UILabel *_titleLabel;
      BOOL _viewAppeared;
+    
+    
+    UIView *_topView;
+    UIButton *_leftButton;
 }
 
 @end
@@ -50,6 +54,27 @@
 
     [_webView reload];
     [self setShareBarButtonItemWithAction:@selector(shareItemClicked)];
+    [self Navgitionbar];
+}
+#pragma mark 导航栏定制
+-(void)Navgitionbar
+{
+    _topView=[UIView new];
+    _topView.frame=CGRectMake(20, 20, kScreenWidth, 44);
+    [self.view addSubview:_topView];
+    _leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _leftButton.frame=CGRectMake(0, 0, 44, 44);
+    [_leftButton setTitle:@"设置" forState:UIControlStateNormal];
+    [_leftButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+
+    [_leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [_topView addSubview:_leftButton];
+    
+}
+-(void)leftButtonAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 -(void)shareItemClicked
 {

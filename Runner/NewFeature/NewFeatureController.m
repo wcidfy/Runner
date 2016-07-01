@@ -32,16 +32,15 @@
         //key pic = 本地 UIImage
         //key title = 显示的标题 NSString
         //key isLoc = 是否本地图片 Bool
+         //网络图片加载失败 placeholderimage
         //***********************//
         
         UIImage * image = [UIImage imageNamed:@"1.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image ,@"第一张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-        UIImage * image2 = [UIImage imageNamed:@"2.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image2 ,@"第二张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1308/10/c6/24351557_1376142714149.jpg" ,@"第三张图片",@NO] forKeys:@[@"pic",@"title",@"isLoc"]]];
-        //网络图片加载失败
-        UIImage * PlaceholderImage = [UIImage imageNamed:@"3.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.ycwb.com/news/attachement/jpg/site2/20100827/001558e890930de166d02f.jpg" ,@"第四张图片",@NO,PlaceholderImage] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://e.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=73326db1d300baa1ba794fbd7720952a/55e736d12f2eb938775fdaafd7628535e5dd6fb9.jpg" ,@"第一张图片",@NO,@"placeholderImage"] forKeys:@[@"pic",@"title",@"isLoc",image]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://e.hiphotos.baidu.com/zhidao/pic/item/574e9258d109b3de487503f0ccbf6c81810a4c64.jpg" ,@"第二张图片",@NO,@"placeholderImage"] forKeys:@[@"pic",@"title",@"isLoc",image]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://wenwen.soso.com/p/20100103/20100103113127-1008909770.jpg" ,@"第三张图片",@NO,@"placeholderImage"] forKeys:@[@"pic",@"title",@"isLoc",image]]];
+       
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[[UIImage imageNamed:@"llo"],@"第四张图片",@YES,image] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
          }
     return _imageArray;
 }

@@ -14,11 +14,21 @@
 #import "BaseWebController.h"
 #import "LoginController.h"
 #import "MainController.h"
-@interface SettingController ()
+#import "SettingView.h"
+@interface SettingController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    UIView *_topView;
+    UIButton *_leftButton;
+    UIButton *_rightButton;
+
+}
 @property(nonatomic,strong)NSArray *arrayTable;
+@property(nonatomic,strong)SettingView *settingview;
+
 @end
 
 @implementation SettingController
+
 -(NSArray *)arrayTable
 {
     if (_arrayTable==nil) {
@@ -26,6 +36,14 @@
         
     }
     return _arrayTable;
+}
+-(void)loadView
+{
+    _settingview=[SettingView new];
+    self.view=_settingview;
+    _settingview.tableView.delegate=self;
+    _settingview.tableView.dataSource=self;
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,12 +60,12 @@
     // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
     [self.view updateConstraintsIfNeeded];
 
-    self.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
+   _settingview.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
 
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStyleDone target:self action:@selector(BackClick)];
-     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(cancelClick)];
+    [_settingview.leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)BackClick
+
+-(void)leftButtonAction
 {
     [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
     [[SlideNavigationController sharedInstance]toggleLeftMenu];
@@ -65,7 +83,7 @@
 {
 
     sleep(3);
-    [self.tableView.mj_header endRefreshing];
+    [_settingview.tableView.mj_header endRefreshing];
 }
 
 

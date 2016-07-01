@@ -10,34 +10,49 @@
 #import "LeftViewController.h"
 #import "NewFeatureController.h"
 #import "LoginController.h"
+#import "HomeController.h"
+#import "DiscoverController.h"
 #define CZVersionKey @"version"
 
 @interface MainController ()
+{
+    UIView *_topView;
+    UIButton *_leftButton;
+
+}
+@property(nonatomic,strong)HomeController *home;
+@property(nonatomic,strong)DiscoverController *discover;
 
 @end
 
 @implementation MainController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    [[SlideNavigationController sharedInstance]toggleLeftMenu];
-   
-      self.view.backgroundColor=[UIColor whiteColor];
-    UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame=CGRectMake(0, 0, 44, 44);
-//    [button setTitle:@"左边" forState:UIControlStateNormal];
-//    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"login_QQ_icon_click"] forState:UIControlStateNormal];
-    [button addTarget:[SlideNavigationController sharedInstance] action:@selector(toggleLeftMenu) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftButton=[[UIBarButtonItem alloc]initWithCustomView:button];
-        [SlideNavigationController sharedInstance].leftBarButtonItem=leftButton;
-    [[SlideNavigationController sharedInstance].navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsCompact];
+    [[SlideNavigationController sharedInstance].navigationBar setHidden:YES];
+    self.view.backgroundColor=[UIColor redColor];
+    [self Navgitionbar];
     self.tabBar.backgroundImage=[UIImage new] ;
-   
+    self.tabBar.backgroundColor=[UIColor orangeColor];
     [self addControllers];
 }
+#pragma mark 导航栏定制
+-(void)Navgitionbar
+{
+    _topView=[UIView new];
+    _topView.frame=CGRectMake(20, 20, kScreenWidth, 44);
+    [self.view addSubview:_topView];
+    _leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _leftButton.frame=CGRectMake(0, 0, 44, 44);
+    [_leftButton setBackgroundImage:[UIImage imageNamed:@"login_QQ_icon_click"] forState:UIControlStateNormal];
+    [_leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [_topView addSubview:_leftButton];
+    
+}
+-(void)leftButtonAction
+{
 
+    [[SlideNavigationController sharedInstance]toggleLeftMenu];
+}
 -(void)Vesion
 {
 
@@ -69,9 +84,11 @@
 }
 -(void)addControllers
 {
-    UIViewController *vv=[UIViewController new];
-    [self addController:vv imageNol:[UIImage imageNamed:@"tabBar_essence_icon"] imageSelected:[UIImage imageNamed:@"tabBar_essence_click_icon"] titleStr:@"1232"];
+   _home=[HomeController new];
+    [self addController:_home imageNol:[UIImage imageNamed:@"tabBar_essence_icon"] imageSelected:[UIImage imageNamed:@"tabBar_essence_click_icon"] titleStr:@"主页"];
 
+    _discover=[DiscoverController new];
+    [self addController:_discover imageNol:[UIImage imageNamed:@"tabBar_friendTrends_icon"] imageSelected:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] titleStr:@"发现"];
 }
 
 -(void)addController:(UIViewController *)vc imageNol:(UIImage *)imageNol imageSelected:(UIImage *)imageSelected titleStr:(NSString *)titleStr
@@ -84,8 +101,11 @@
     
 
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    
     //根据版本号添加新特性
     [self Vesion];
     NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];

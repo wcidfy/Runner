@@ -41,6 +41,9 @@
 		B531A44B1D1B7305005E5A9F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A44A1D1B7305005E5A9F /* LeftViewController.m */; };
 		B531A4511D1B786C005E5A9F /* LeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A4501D1B786C005E5A9F /* LeftView.m */; };
 		B531A4541D1B7EBA005E5A9F /* LeftAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A4531D1B7EBA005E5A9F /* LeftAdapter.m */; };
+		B53E7D7C1D266419000B8D94 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D7B1D266419000B8D94 /* HomeController.m */; };
+		B53E7D801D266478000B8D94 /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D7F1D266478000B8D94 /* DiscoverController.m */; };
+		B53E7D831D269DA1000B8D94 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D821D269DA1000B8D94 /* SettingView.m */; };
 		B5467D4A1D1D63AB0007EF4A /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5467D491D1D63AB0007EF4A /* SettingController.m */; };
 		B5B2626D1D1C2231007B961E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B2626C1D1C2231007B961E /* MainController.m */; };
 		BFF91FAC7F172CCC9C321945 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FABEBDBDE854AE32998544 /* Pods_Runner.framework */; };
@@ -133,6 +136,12 @@
 		B531A4501D1B786C005E5A9F /* LeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftView.m; sourceTree = "<group>"; };
 		B531A4521D1B7EBA005E5A9F /* LeftAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftAdapter.h; sourceTree = "<group>"; };
 		B531A4531D1B7EBA005E5A9F /* LeftAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftAdapter.m; sourceTree = "<group>"; };
+		B53E7D7A1D266419000B8D94 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		B53E7D7B1D266419000B8D94 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		B53E7D7E1D266478000B8D94 /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
+		B53E7D7F1D266478000B8D94 /* DiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverController.m; sourceTree = "<group>"; };
+		B53E7D811D269DA1000B8D94 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
+		B53E7D821D269DA1000B8D94 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		B5467D481D1D63AB0007EF4A /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		B5467D491D1D63AB0007EF4A /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		B5B2626B1D1C2231007B961E /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
@@ -295,6 +304,8 @@
 		B531A4151D1A6CF4005E5A9F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B53E7D7D1D26643C000B8D94 /* Discover */,
+				B53E7D731D2661E7000B8D94 /* Home */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -370,6 +381,24 @@
 			path = Sideways;
 			sourceTree = "<group>";
 		};
+		B53E7D731D2661E7000B8D94 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B53E7D7A1D266419000B8D94 /* HomeController.h */,
+				B53E7D7B1D266419000B8D94 /* HomeController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B53E7D7D1D26643C000B8D94 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				B53E7D7E1D266478000B8D94 /* DiscoverController.h */,
+				B53E7D7F1D266478000B8D94 /* DiscoverController.m */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		B5467D471D1D63540007EF4A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +418,8 @@
 				B52A24571D250DEB001373AD /* States.m */,
 				B52A24591D250E01001373AD /* User.h */,
 				B52A245A1D250E01001373AD /* User.m */,
+				B53E7D811D269DA1000B8D94 /* SettingView.h */,
+				B53E7D821D269DA1000B8D94 /* SettingView.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -588,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B531A4471D1ABB02005E5A9F /* circularButton.m in Sources */,
+				B53E7D831D269DA1000B8D94 /* SettingView.m in Sources */,
 				B52A242D1D229E19001373AD /* BaseWebController.m in Sources */,
 				B52A24151D224943001373AD /* BaseViewController.m in Sources */,
 				B531A4301D1A86C2005E5A9F /* BKTableViewCell.m in Sources */,
@@ -595,6 +627,7 @@
 				B531A3E71D1A6C21005E5A9F /* ViewController.m in Sources */,
 				B52A24581D250DEB001373AD /* States.m in Sources */,
 				B5467D4A1D1D63AB0007EF4A /* SettingController.m in Sources */,
+				B53E7D801D266478000B8D94 /* DiscoverController.m in Sources */,
 				B52A245B1D250E01001373AD /* User.m in Sources */,
 				B5B2626D1D1C2231007B961E /* MainController.m in Sources */,
 				B531A4441D1A8954005E5A9F /* UIView+Extension.m in Sources */,
@@ -615,6 +648,7 @@
 				B52A24351D2373D0001373AD /* MBProgressHUD+HM.m in Sources */,
 				B531A44B1D1B7305005E5A9F /* LeftViewController.m in Sources */,
 				B531A4321D1A86C2005E5A9F /* BKTableViewAdapter.m in Sources */,
+				B53E7D7C1D266419000B8D94 /* HomeController.m in Sources */,
 				B52A24081D1FE20D001373AD /* EatGifRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

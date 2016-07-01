@@ -29,8 +29,7 @@
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
         [self.window makeKeyAndVisible];
     [ChooseWindow ChooseController:self.window];
-   
-       
+  
     return YES;
 }
 

@@ -24,7 +24,8 @@
        
         _headerView = [[UIView alloc]init];
         _headerView.backgroundColor = [UIColor whiteColor];
-        self.dataTableView.tableHeaderView = _headerView;
+//        self.dataTableView.tableHeaderView = _headerView;
+        [self addSubview:_headerView];
        
          self.dataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _defaultImage = [UIImageView new];
@@ -46,7 +47,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    _headerView.frame=CGRectMake(0, 0, ViewWidth, ViewHeight);
+    _headerView.frame=CGRectMake(0, 64, ViewWidth, ViewHeight);
     [_defaultImage makeConstraints:^(MASConstraintMaker *make) {
         make.top.width.centerX.equalTo(_headerView);
         make.height.equalTo(200);

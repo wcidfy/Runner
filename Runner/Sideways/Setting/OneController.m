@@ -11,6 +11,10 @@
 #import "TopModel.h"
 #import "States.h"
 @interface OneController ()<JCTopicDelegate>
+{
+    UIView *_topView;
+    UIButton *_leftButton;
+}
 @property(nonatomic,strong)OneView *oneView;
 @property(nonatomic,strong)NSMutableArray *imageArray;
 @property(nonatomic, strong) UIPageControl *pangeControl;
@@ -29,9 +33,8 @@
         //***********************//
 
         UIImage * image = [UIImage imageNamed:@"1.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image ,@"第一张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
-        UIImage * image2 = [UIImage imageNamed:@"2.jpg"];
-        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[image2 ,@"第二张图片",@YES] forKeys:@[@"pic",@"title",@"isLoc"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://image.tianjimedia.com/uploadImages/2014/233/51/82AJ9043Y24I.jpg" ,@"第一张图片",@NO,image] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
+        [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://pic.yesky.com/uploadImages/2015/026/13/2XS3609A211Y.jpg" ,@"第二张图片",@NO,image] forKeys:@[@"pic",@"title",@"isLoc",@"placeholderImage"]]];
         [_imageArray addObject:[NSDictionary dictionaryWithObjects:@[@"http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1308/10/c6/24351557_1376142714149.jpg" ,@"第三张图片",@NO] forKeys:@[@"pic",@"title",@"isLoc"]]];
         //网络图片加载失败
         UIImage * PlaceholderImage = [UIImage imageNamed:@"3.jpg"];
@@ -72,14 +75,28 @@
     
 //    [self showSuccessTip:@"知道了"];
 //    [_oneView setCarousel:self.imageArray];
-    
+    [self Navgitionbar];
     [self loadScrolImage];
+}
+#pragma mark 导航栏定制
+-(void)Navgitionbar
+{
+    _topView=[UIView new];
+    _topView.frame=CGRectMake(20, 20, kScreenWidth, 44);
+    [self.view addSubview:_topView];
+    _leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _leftButton.frame=CGRectMake(0, 0, 44, 44);
+    [_leftButton setTitle:@"返回" forState:UIControlStateNormal];
+    [_leftButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [_topView addSubview:_leftButton];
+    
 }
 -(void)loadScrolImage
 {
   
     //实例化
-    _Topic = [[JCTopic alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-64)];
+    _Topic = [[JCTopic alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)];
     //代理
     _Topic.JCdelegate = self;
     
@@ -103,7 +120,10 @@
 
     
 }
-
+-(void)leftButtonAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - JCDelegate
 
 - (void)didClick:(id)data {
