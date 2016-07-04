@@ -27,9 +27,15 @@
     // Override point for customization after application launch.
    
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-        [self.window makeKeyAndVisible];
-    [ChooseWindow ChooseController:self.window];
-  
+   
+    [self.window makeKeyAndVisible];
+    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"loginName"]isEqualToString:@"123"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"loginPass"]isEqualToString:@"123"])
+    {
+       [ChooseWindow ChooseController:self.window];
+    }else
+    {
+    self.window.rootViewController=[LoginController new];
+    }
     return YES;
 }
 

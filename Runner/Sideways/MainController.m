@@ -22,18 +22,29 @@
 }
 @property(nonatomic,strong)HomeController *home;
 @property(nonatomic,strong)DiscoverController *discover;
+//是否准备好刷新 （判断tabbar是否再次点击）
+@property (nonatomic, assign) BOOL isReady;
+@property (nonatomic, strong) UITabBarItem *selectedItem;
+
 
 @end
 
 @implementation MainController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SlideNavigationController sharedInstance].navigationBar setHidden:YES];
+
+
+    self.navigationController.navigationBar.hidden=YES;
     self.view.backgroundColor=[UIColor redColor];
     [self Navgitionbar];
-    self.tabBar.backgroundImage=[UIImage new] ;
+    
+        self.tabBar.backgroundImage=[UIImage new] ;
     self.tabBar.backgroundColor=[UIColor orangeColor];
     [self addControllers];
+    
+        self.selectedItem=self.childViewControllers[0].tabBarItem;
+        _isReady=YES;
+   
 }
 #pragma mark 导航栏定制
 -(void)Navgitionbar
@@ -53,35 +64,7 @@
 
     [[SlideNavigationController sharedInstance]toggleLeftMenu];
 }
--(void)Vesion
-{
 
-    // 1.获取当前的版本号
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-    
-    // 2.获取上一次的版本号
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:CZVersionKey];
-    
-    if (![currentVersion isEqualToString:lastVersion]) { // 有最新的版本号
-        
-        // 有最新的版本号
-        
-        // 进入新特性界面
-        // 如果有新特性，进入新特性界面
-        NewFeatureController *vc = [[NewFeatureController alloc] init];
-        
-        [self presentViewController:vc animated:NO completion:nil];
-        
-        // 保持当前的版本，用偏好设置
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:CZVersionKey];
-        
-        
-        
-        
-    }
-
-
-}
 -(void)addControllers
 {
    _home=[HomeController new];
@@ -102,18 +85,16 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    
-    
-    //根据版本号添加新特性
-    [self Vesion];
-    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
-    if (![[ud objectForKey:@"loginName"] isEqualToString:@"123"]||![[ud objectForKey:@"loginPass"] isEqualToString:@"123"]) {
-        [self presentViewController:[LoginController new] animated:NO completion:nil];
+    if (self.selectedItem==item&&_isReady==YES) {
+        _isReady=NO;
+        XXLog(@"2");
+
     }
-
-
+    self.selectedItem=item;
+    XXLog(@"1");
 }
 #pragma mark - SlideNavigationController Methods -
 #pragma mark 左滑

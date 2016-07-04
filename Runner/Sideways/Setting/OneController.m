@@ -7,7 +7,6 @@
 //
 
 #import "OneController.h"
-#import "OneView.h"
 #import "TopModel.h"
 #import "States.h"
 @interface OneController ()<JCTopicDelegate>
@@ -15,7 +14,6 @@
     UIView *_topView;
     UIButton *_leftButton;
 }
-@property(nonatomic,strong)OneView *oneView;
 @property(nonatomic,strong)NSMutableArray *imageArray;
 @property(nonatomic, strong) UIPageControl *pangeControl;
 @end
@@ -58,23 +56,14 @@
     return _imageArray;
 }
 
-//-(void)loadView
-//{
-//    [super loadView];
-//    _oneView=[[OneView alloc]init];
-//    _oneView.backgroundColor=[UIColor clearColor];
-//    _oneView.topScrollView.JCdelegate=self;
-//    self.view=_oneView;
-//
-//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
     self.view.backgroundColor=[UIColor whiteColor];
     
-//    [self showSuccessTip:@"知道了"];
-//    [_oneView setCarousel:self.imageArray];
+    self.navigationController.navigationBar.hidden=YES;
     [self Navgitionbar];
     [self loadScrolImage];
 }

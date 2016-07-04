@@ -47,29 +47,16 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
-    if (![[ud objectForKey:@"loginName"] isEqualToString:@"123"]||![[ud objectForKey:@"loginPass"] isEqualToString:@"123"]) {
-        [self presentViewController:[LoginController new] animated:YES completion:nil];
-    }else
-    {
-    
-    
-    }
-    // 告诉self.view约束需要更新
-    [self.view setNeedsUpdateConstraints];
-    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
-    [self.view updateConstraintsIfNeeded];
-
-   _settingview.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
-
+      _settingview.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
+    self.navigationController.navigationBar.hidden=YES;
     [_settingview.leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [SlideNavigationController sharedInstance].navigationBar.backgroundColor=[UIColor redColor];
 }
 
 -(void)leftButtonAction
 {
-    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
+//    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
     [[SlideNavigationController sharedInstance]toggleLeftMenu];
-
     
 }
 -(void)cancelClick
@@ -119,7 +106,7 @@
         [self.navigationController pushViewController:[OneController new] animated:YES];
     }else if (indexPath.row==1) {
         BaseWebController *web=[[BaseWebController alloc]init];
-       web.urlString=@"http://blog.sina.com.cn/s/blog_5102c0360100yq6u.html";
+       web.urlString=@"http://www.cocoachina.com/bbs/read.php?tid=5917";
     
 //        web.rootTitle=@"122";
         [self.navigationController pushViewController:web animated:YES];

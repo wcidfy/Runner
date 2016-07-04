@@ -11,7 +11,6 @@
 		B52A24151D224943001373AD /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24141D224943001373AD /* BaseViewController.m */; };
 		B52A24181D224DA7001373AD /* OneController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24171D224DA7001373AD /* OneController.m */; };
 		B52A241C1D22518A001373AD /* JCTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A241B1D22518A001373AD /* JCTopic.m */; };
-		B52A24221D2257EF001373AD /* OneView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52A24211D2257EF001373AD /* OneView.m */; };
 		B52A24241D226727001373AD /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B52A24231D226727001373AD /* 3.jpg */; };
 		B52A24261D22684C001373AD /* image_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B52A24251D22684C001373AD /* image_normal.png */; };
 		B52A24291D226AF6001373AD /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B52A24271D226AF6001373AD /* 1.jpg */; };
@@ -77,8 +76,6 @@
 		B52A24171D224DA7001373AD /* OneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneController.m; sourceTree = "<group>"; };
 		B52A241A1D22518A001373AD /* JCTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTopic.h; sourceTree = "<group>"; };
 		B52A241B1D22518A001373AD /* JCTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTopic.m; sourceTree = "<group>"; };
-		B52A24201D2257EF001373AD /* OneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneView.h; sourceTree = "<group>"; };
-		B52A24211D2257EF001373AD /* OneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneView.m; sourceTree = "<group>"; };
 		B52A24231D226727001373AD /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		B52A24251D22684C001373AD /* image_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_normal.png; sourceTree = "<group>"; };
 		B52A24271D226AF6001373AD /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -406,8 +403,6 @@
 				B5467D491D1D63AB0007EF4A /* SettingController.m */,
 				B52A24161D224DA7001373AD /* OneController.h */,
 				B52A24171D224DA7001373AD /* OneController.m */,
-				B52A24201D2257EF001373AD /* OneView.h */,
-				B52A24211D2257EF001373AD /* OneView.m */,
 				B52A24271D226AF6001373AD /* 1.jpg */,
 				B52A24281D226AF6001373AD /* 2.jpg */,
 				B52A24231D226727001373AD /* 3.jpg */,
@@ -637,7 +632,6 @@
 				B531A4511D1B786C005E5A9F /* LeftView.m in Sources */,
 				B52A241C1D22518A001373AD /* JCTopic.m in Sources */,
 				B531A3E41D1A6C21005E5A9F /* AppDelegate.m in Sources */,
-				B52A24221D2257EF001373AD /* OneView.m in Sources */,
 				B531A4421D1A8954005E5A9F /* UIColor+Hex.m in Sources */,
 				B531A4311D1A86C2005E5A9F /* BKTableView.m in Sources */,
 				B52A24551D24FF4B001373AD /* TopModel.m in Sources */,

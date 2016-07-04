@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.navigationController.navigationBar.translucent = NO;
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -138,7 +138,7 @@
                                    action:nil];
     flexSpacer.width = -8 * kScreenRatio;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc]
-                                 initWithImage:[UIImage imageNamed:@"icon_back_white_normal"]
+                                 initWithTitle:@" 返回"
                                  style:UIBarButtonItemStylePlain
                                  target:self
                                  action:action];
@@ -160,4 +160,6 @@
     [self.navigationItem setRightBarButtonItems:@[ shareItem, flexSpacer ]
                                        animated:YES];
 }
+
+
 @end

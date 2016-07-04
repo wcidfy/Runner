@@ -23,9 +23,10 @@
         [_leftButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 
         [_topView addSubview:_leftButton];
+        _tableView=[UITableView new];
+        [self addSubview:_tableView];
     }
-    _tableView=[UITableView new];
-    [self addSubview:_tableView];
+   
 
     return self;
 }

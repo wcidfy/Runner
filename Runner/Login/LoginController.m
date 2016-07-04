@@ -63,7 +63,19 @@
         NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
         [ud setObject:@"123" forKey:@"loginName"];
          [ud setObject:@"123" forKey:@"loginPass"];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        MainController *main=[[MainController alloc]init];
+        
+        SlideNavigationController *slide=[[SlideNavigationController alloc]initWithRootViewController:main
+                                          ];
+        LeftViewController *left=[[LeftViewController alloc]init];
+        [SlideNavigationController sharedInstance].leftMenu=left;
+//        //隐藏导航栏（自定义导航栏）
+//         [[SlideNavigationController sharedInstance].navigationBar setHidden:YES];
+          [UIApplication sharedApplication].keyWindow.rootViewController = slide;
+      
+        
+       
     }else if([_loginView.loginName.text isEqualToString:@""])
     {
         [MBProgressHUD showError:@"请输入账号"];

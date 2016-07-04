@@ -67,6 +67,7 @@
      NSLog(@"vdcvgdfdsgfd");
     [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
 }
+
 #pragma mark tableView 点击代理
 -(void)didTableViewSelected:(NSInteger)index
 {

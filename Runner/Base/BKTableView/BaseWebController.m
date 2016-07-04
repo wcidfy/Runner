@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.navigationController.navigationBar setHidden:NO];
     if (self.title.length == 0) {
         self.title = @"加载中...";
     }
@@ -54,31 +54,13 @@
 
     [_webView reload];
     [self setShareBarButtonItemWithAction:@selector(shareItemClicked)];
-    [self Navgitionbar];
+//    [self setBackBarButtonItemWithAction:@selector(backItemClick)];
 }
-#pragma mark 导航栏定制
--(void)Navgitionbar
-{
-    _topView=[UIView new];
-    _topView.frame=CGRectMake(20, 20, kScreenWidth, 44);
-    [self.view addSubview:_topView];
-    _leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    _leftButton.frame=CGRectMake(0, 0, 44, 44);
-    [_leftButton setTitle:@"设置" forState:UIControlStateNormal];
-    [_leftButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 
-    [_leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [_topView addSubview:_leftButton];
-    
-}
--(void)leftButtonAction
-{
-    [self.navigationController popViewControllerAnimated:YES];
 
-}
 -(void)shareItemClicked
 {
-    XXLog(@"1232");
+    XXLog(@"222222");
 
 }
 - (void)setTitle:(NSString *)title {
@@ -105,10 +87,13 @@
     }
     return request;
 }
-- (void)backItemClicked {
+- (void)backItemClick {
     if ([self.webView canGoBack]) {
         [self.webView goBack];
         return;
+    }else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 #pragma mark - UIWebViewDelegate
@@ -129,10 +114,11 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.titleString = webTitle;
     if ([_webView canGoBack]) {
-        [self setBackBarButtonItemWithAction:@selector(backItemClicked)];
+        [self setBackBarButtonItemWithAction:@selector(backItemClick)];
+        self.navigationItem.rightBarButtonItem=nil;
     } else {
         self.titleString = self.rootTitle;
-//        self.navigationItem.leftBarButtonItems = nil;
+        [self setShareBarButtonItemWithAction:@selector(shareItemClicked)];
     }
      [self hideLoading];
 }
@@ -142,5 +128,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     [self hideLoading];
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setHidden:YES];
+}
 @end
