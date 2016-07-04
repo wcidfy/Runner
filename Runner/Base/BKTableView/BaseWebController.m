@@ -54,7 +54,7 @@
 
     [_webView reload];
     [self setShareBarButtonItemWithAction:@selector(shareItemClicked)];
-//    [self setBackBarButtonItemWithAction:@selector(backItemClick)];
+    [self setBackBarButtonItemWithAction:@selector(backItemClick)];
 }
 
 
