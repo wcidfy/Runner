@@ -12,6 +12,9 @@
 #import "LoginController.h"
 #import "HomeController.h"
 #import "DiscoverController.h"
+
+
+#import "NewsController.h"
 #define CZVersionKey @"version"
 
 @interface MainController ()
@@ -22,6 +25,7 @@
 }
 @property(nonatomic,strong)HomeController *home;
 @property(nonatomic,strong)DiscoverController *discover;
+@property(nonatomic,strong)NewsController *news;
 //是否准备好刷新 （判断tabbar是否再次点击）
 @property (nonatomic, assign) BOOL isReady;
 @property (nonatomic, strong) UITabBarItem *selectedItem;
@@ -67,8 +71,8 @@
 
 -(void)addControllers
 {
-   _home=[HomeController new];
-    [self addController:_home imageNol:[UIImage imageNamed:@"tabBar_essence_icon"] imageSelected:[UIImage imageNamed:@"tabBar_essence_click_icon"] titleStr:@"主页"];
+   _news=[NewsController new];
+    [self addController:_news imageNol:[UIImage imageNamed:@"tabBar_essence_icon"] imageSelected:[UIImage imageNamed:@"tabBar_essence_click_icon"] titleStr:@"新闻"];
 
     _discover=[DiscoverController new];
     [self addController:_discover imageNol:[UIImage imageNamed:@"tabBar_friendTrends_icon"] imageSelected:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] titleStr:@"发现"];

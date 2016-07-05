@@ -43,7 +43,24 @@
 		B53E7D7C1D266419000B8D94 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D7B1D266419000B8D94 /* HomeController.m */; };
 		B53E7D801D266478000B8D94 /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D7F1D266478000B8D94 /* DiscoverController.m */; };
 		B53E7D831D269DA1000B8D94 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D821D269DA1000B8D94 /* SettingView.m */; };
+		B53E7D861D2A86F6000B8D94 /* NewsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D851D2A86F6000B8D94 /* NewsBaseController.m */; };
+		B53E7D891D2A873A000B8D94 /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D881D2A873A000B8D94 /* NewsController.m */; };
+		B53E7D8F1D2AB181000B8D94 /* NewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D8E1D2AB181000B8D94 /* NewsListController.m */; };
+		B53E7D911D2B3AB8000B8D94 /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53E7D901D2B3AB8000B8D94 /* NewsURLs.plist */; };
+		B53E7D951D2B3B0A000B8D94 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D941D2B3B0A000B8D94 /* NewsModel.m */; };
+		B53E7D9C1D2B735F000B8D94 /* XXNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D9B1D2B735F000B8D94 /* XXNetWorking.m */; };
+		B53E7D9F1D2B7794000B8D94 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7D9E1D2B7794000B8D94 /* HttpTool.m */; };
+		B53E7DA21D2B9524000B8D94 /* XXHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DA11D2B9524000B8D94 /* XXHTTPManager.m */; };
+		B53E7DA61D2BA74E000B8D94 /* ThreeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DA51D2BA74E000B8D94 /* ThreeViewCell.m */; };
+		B53E7DA91D2BAFFC000B8D94 /* NewsListItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DA81D2BAFFC000B8D94 /* NewsListItems.m */; };
+		B53E7DAC1D2BB5D4000B8D94 /* NSObject+AddTimeid.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DAB1D2BB5D4000B8D94 /* NSObject+AddTimeid.m */; };
+		B53E7DAF1D2BB92E000B8D94 /* GetNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DAE1D2BB92E000B8D94 /* GetNewsListCell.m */; };
+		B53E7DB21D2BC5D5000B8D94 /* Messagecell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53E7DB11D2BC5D5000B8D94 /* Messagecell.m */; };
 		B5467D4A1D1D63AB0007EF4A /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5467D491D1D63AB0007EF4A /* SettingController.m */; };
+		B5A034F01D2BEEC6002DA9A9 /* NewsHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A034EF1D2BEEC6002DA9A9 /* NewsHeadView.m */; };
+		B5A034F31D2BF847002DA9A9 /* NewsHeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A034F21D2BF847002DA9A9 /* NewsHeadModel.m */; };
+		B5A034F71D2C2140002DA9A9 /* NewsPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A034F61D2C2140002DA9A9 /* NewsPhotoController.m */; };
+		B5A034FB1D2C25D0002DA9A9 /* NewsPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A034FA1D2C25D0002DA9A9 /* NewsPhotoModel.m */; };
 		B5B2626D1D1C2231007B961E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B2626C1D1C2231007B961E /* MainController.m */; };
 		BFF91FAC7F172CCC9C321945 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FABEBDBDE854AE32998544 /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
@@ -139,8 +156,41 @@
 		B53E7D7F1D266478000B8D94 /* DiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverController.m; sourceTree = "<group>"; };
 		B53E7D811D269DA1000B8D94 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		B53E7D821D269DA1000B8D94 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
+		B53E7D841D2A86F6000B8D94 /* NewsBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsBaseController.h; path = ../Main/Home/NewsBaseController.h; sourceTree = "<group>"; };
+		B53E7D851D2A86F6000B8D94 /* NewsBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsBaseController.m; path = ../Main/Home/NewsBaseController.m; sourceTree = "<group>"; };
+		B53E7D871D2A873A000B8D94 /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsController.h; path = ../Main/Home/NewsController.h; sourceTree = "<group>"; };
+		B53E7D881D2A873A000B8D94 /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsController.m; path = ../Main/Home/NewsController.m; sourceTree = "<group>"; };
+		B53E7D8D1D2AB181000B8D94 /* NewsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListController.h; sourceTree = "<group>"; };
+		B53E7D8E1D2AB181000B8D94 /* NewsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListController.m; sourceTree = "<group>"; };
+		B53E7D901D2B3AB8000B8D94 /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
+		B53E7D931D2B3B0A000B8D94 /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		B53E7D941D2B3B0A000B8D94 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		B53E7D9A1D2B735F000B8D94 /* XXNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNetWorking.h; sourceTree = "<group>"; };
+		B53E7D9B1D2B735F000B8D94 /* XXNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNetWorking.m; sourceTree = "<group>"; };
+		B53E7D9D1D2B7794000B8D94 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		B53E7D9E1D2B7794000B8D94 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		B53E7DA01D2B9524000B8D94 /* XXHTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXHTTPManager.h; sourceTree = "<group>"; };
+		B53E7DA11D2B9524000B8D94 /* XXHTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXHTTPManager.m; sourceTree = "<group>"; };
+		B53E7DA41D2BA74E000B8D94 /* ThreeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeViewCell.h; sourceTree = "<group>"; };
+		B53E7DA51D2BA74E000B8D94 /* ThreeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewCell.m; sourceTree = "<group>"; };
+		B53E7DA71D2BAFFC000B8D94 /* NewsListItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListItems.h; sourceTree = "<group>"; };
+		B53E7DA81D2BAFFC000B8D94 /* NewsListItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListItems.m; sourceTree = "<group>"; };
+		B53E7DAA1D2BB5D4000B8D94 /* NSObject+AddTimeid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddTimeid.h"; sourceTree = "<group>"; };
+		B53E7DAB1D2BB5D4000B8D94 /* NSObject+AddTimeid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddTimeid.m"; sourceTree = "<group>"; };
+		B53E7DAD1D2BB92E000B8D94 /* GetNewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNewsListCell.h; sourceTree = "<group>"; };
+		B53E7DAE1D2BB92E000B8D94 /* GetNewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNewsListCell.m; sourceTree = "<group>"; };
+		B53E7DB01D2BC5D5000B8D94 /* Messagecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messagecell.h; sourceTree = "<group>"; };
+		B53E7DB11D2BC5D5000B8D94 /* Messagecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messagecell.m; sourceTree = "<group>"; };
 		B5467D481D1D63AB0007EF4A /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		B5467D491D1D63AB0007EF4A /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
+		B5A034EE1D2BEEC6002DA9A9 /* NewsHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHeadView.h; sourceTree = "<group>"; };
+		B5A034EF1D2BEEC6002DA9A9 /* NewsHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHeadView.m; sourceTree = "<group>"; };
+		B5A034F11D2BF847002DA9A9 /* NewsHeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHeadModel.h; sourceTree = "<group>"; };
+		B5A034F21D2BF847002DA9A9 /* NewsHeadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHeadModel.m; sourceTree = "<group>"; };
+		B5A034F51D2C2140002DA9A9 /* NewsPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoController.h; sourceTree = "<group>"; };
+		B5A034F61D2C2140002DA9A9 /* NewsPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoController.m; sourceTree = "<group>"; };
+		B5A034F91D2C25D0002DA9A9 /* NewsPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsPhotoModel.h; sourceTree = "<group>"; };
+		B5A034FA1D2C25D0002DA9A9 /* NewsPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsPhotoModel.m; sourceTree = "<group>"; };
 		B5B2626B1D1C2231007B961E /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		B5B2626C1D1C2231007B961E /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		CB6C538040033D745330C8C3 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +245,7 @@
 		B52A24321D2373A9001373AD /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B53E7D991D2B72D4000B8D94 /* AFNHttp */,
 				B52A24331D2373D0001373AD /* MBProgressHUD+HM.h */,
 				B52A24341D2373D0001373AD /* MBProgressHUD+HM.m */,
 				B52A24191D22514E001373AD /* JCTopic */,
@@ -239,6 +290,7 @@
 				B531A4121D1A6C69005E5A9F /* Classes */,
 				B531A3EB1D1A6C21005E5A9F /* Assets.xcassets */,
 				B531A3F01D1A6C21005E5A9F /* Info.plist */,
+				B53E7D901D2B3AB8000B8D94 /* NewsURLs.plist */,
 				B531A3DF1D1A6C21005E5A9F /* Supporting Files */,
 			);
 			path = Runner;
@@ -302,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				B53E7D7D1D26643C000B8D94 /* Discover */,
+				B53E7D8C1D2AB024000B8D94 /* News */,
 				B53E7D731D2661E7000B8D94 /* Home */,
 			);
 			path = Main;
@@ -396,6 +449,66 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
+		B53E7D8C1D2AB024000B8D94 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B5A034F41D2C210E002DA9A9 /* Photo */,
+				B53E7DA31D2BA709000B8D94 /* View */,
+				B53E7D921D2B3AD7000B8D94 /* Model */,
+				B53E7D841D2A86F6000B8D94 /* NewsBaseController.h */,
+				B53E7D851D2A86F6000B8D94 /* NewsBaseController.m */,
+				B53E7D871D2A873A000B8D94 /* NewsController.h */,
+				B53E7D881D2A873A000B8D94 /* NewsController.m */,
+				B53E7D8D1D2AB181000B8D94 /* NewsListController.h */,
+				B53E7D8E1D2AB181000B8D94 /* NewsListController.m */,
+			);
+			name = News;
+			path = ../News;
+			sourceTree = "<group>";
+		};
+		B53E7D921D2B3AD7000B8D94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B53E7D931D2B3B0A000B8D94 /* NewsModel.h */,
+				B53E7D941D2B3B0A000B8D94 /* NewsModel.m */,
+				B53E7DA71D2BAFFC000B8D94 /* NewsListItems.h */,
+				B53E7DA81D2BAFFC000B8D94 /* NewsListItems.m */,
+				B53E7DAA1D2BB5D4000B8D94 /* NSObject+AddTimeid.h */,
+				B53E7DAB1D2BB5D4000B8D94 /* NSObject+AddTimeid.m */,
+				B5A034F11D2BF847002DA9A9 /* NewsHeadModel.h */,
+				B5A034F21D2BF847002DA9A9 /* NewsHeadModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B53E7D991D2B72D4000B8D94 /* AFNHttp */ = {
+			isa = PBXGroup;
+			children = (
+				B53E7D9A1D2B735F000B8D94 /* XXNetWorking.h */,
+				B53E7D9B1D2B735F000B8D94 /* XXNetWorking.m */,
+				B53E7D9D1D2B7794000B8D94 /* HttpTool.h */,
+				B53E7D9E1D2B7794000B8D94 /* HttpTool.m */,
+				B53E7DA01D2B9524000B8D94 /* XXHTTPManager.h */,
+				B53E7DA11D2B9524000B8D94 /* XXHTTPManager.m */,
+			);
+			path = AFNHttp;
+			sourceTree = "<group>";
+		};
+		B53E7DA31D2BA709000B8D94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B53E7DA41D2BA74E000B8D94 /* ThreeViewCell.h */,
+				B53E7DA51D2BA74E000B8D94 /* ThreeViewCell.m */,
+				B53E7DAD1D2BB92E000B8D94 /* GetNewsListCell.h */,
+				B53E7DAE1D2BB92E000B8D94 /* GetNewsListCell.m */,
+				B53E7DB01D2BC5D5000B8D94 /* Messagecell.h */,
+				B53E7DB11D2BC5D5000B8D94 /* Messagecell.m */,
+				B5A034EE1D2BEEC6002DA9A9 /* NewsHeadView.h */,
+				B5A034EF1D2BEEC6002DA9A9 /* NewsHeadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B5467D471D1D63540007EF4A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +530,25 @@
 				B53E7D821D269DA1000B8D94 /* SettingView.m */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B5A034F41D2C210E002DA9A9 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				B5A034F81D2C2166002DA9A9 /* Model */,
+				B5A034F51D2C2140002DA9A9 /* NewsPhotoController.h */,
+				B5A034F61D2C2140002DA9A9 /* NewsPhotoController.m */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		B5A034F81D2C2166002DA9A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5A034F91D2C25D0002DA9A9 /* NewsPhotoModel.h */,
+				B5A034FA1D2C25D0002DA9A9 /* NewsPhotoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E6277D2A71EA8F6EFB886263 /* Frameworks */ = {
@@ -539,6 +671,7 @@
 				B531A3EC1D1A6C21005E5A9F /* Assets.xcassets in Resources */,
 				B52A24291D226AF6001373AD /* 1.jpg in Resources */,
 				B52A242A1D226AF6001373AD /* 2.jpg in Resources */,
+				B53E7D911D2B3AB8000B8D94 /* NewsURLs.plist in Resources */,
 				B52A24261D22684C001373AD /* image_normal.png in Resources */,
 				B52A24241D226727001373AD /* 3.jpg in Resources */,
 			);
@@ -618,31 +751,47 @@
 				B52A242D1D229E19001373AD /* BaseWebController.m in Sources */,
 				B52A24151D224943001373AD /* BaseViewController.m in Sources */,
 				B531A4301D1A86C2005E5A9F /* BKTableViewCell.m in Sources */,
+				B53E7DA91D2BAFFC000B8D94 /* NewsListItems.m in Sources */,
+				B5A034F31D2BF847002DA9A9 /* NewsHeadModel.m in Sources */,
 				B531A4541D1B7EBA005E5A9F /* LeftAdapter.m in Sources */,
+				B53E7D8F1D2AB181000B8D94 /* NewsListController.m in Sources */,
 				B531A3E71D1A6C21005E5A9F /* ViewController.m in Sources */,
 				B52A24581D250DEB001373AD /* States.m in Sources */,
 				B5467D4A1D1D63AB0007EF4A /* SettingController.m in Sources */,
 				B53E7D801D266478000B8D94 /* DiscoverController.m in Sources */,
 				B52A245B1D250E01001373AD /* User.m in Sources */,
+				B53E7D861D2A86F6000B8D94 /* NewsBaseController.m in Sources */,
 				B5B2626D1D1C2231007B961E /* MainController.m in Sources */,
 				B531A4441D1A8954005E5A9F /* UIView+Extension.m in Sources */,
+				B53E7DA21D2B9524000B8D94 /* XXHTTPManager.m in Sources */,
 				B52A24621D252801001373AD /* NewFeatureController.m in Sources */,
 				B52A24181D224DA7001373AD /* OneController.m in Sources */,
 				B531A4191D1A6D53005E5A9F /* LoginController.m in Sources */,
 				B531A4511D1B786C005E5A9F /* LeftView.m in Sources */,
 				B52A241C1D22518A001373AD /* JCTopic.m in Sources */,
+				B53E7D951D2B3B0A000B8D94 /* NewsModel.m in Sources */,
 				B531A3E41D1A6C21005E5A9F /* AppDelegate.m in Sources */,
+				B53E7D9F1D2B7794000B8D94 /* HttpTool.m in Sources */,
+				B53E7DAC1D2BB5D4000B8D94 /* NSObject+AddTimeid.m in Sources */,
+				B53E7DA61D2BA74E000B8D94 /* ThreeViewCell.m in Sources */,
+				B5A034FB1D2C25D0002DA9A9 /* NewsPhotoModel.m in Sources */,
 				B531A4421D1A8954005E5A9F /* UIColor+Hex.m in Sources */,
 				B531A4311D1A86C2005E5A9F /* BKTableView.m in Sources */,
+				B53E7DB21D2BC5D5000B8D94 /* Messagecell.m in Sources */,
+				B5A034F71D2C2140002DA9A9 /* NewsPhotoController.m in Sources */,
 				B52A24551D24FF4B001373AD /* TopModel.m in Sources */,
 				B531A41C1D1A6D6E005E5A9F /* LoginView.m in Sources */,
 				B52A24311D236A02001373AD /* ChooseWindow.m in Sources */,
 				B531A3E11D1A6C21005E5A9F /* main.m in Sources */,
 				B531A4431D1A8954005E5A9F /* UIImage+Extention.m in Sources */,
+				B5A034F01D2BEEC6002DA9A9 /* NewsHeadView.m in Sources */,
 				B52A24351D2373D0001373AD /* MBProgressHUD+HM.m in Sources */,
 				B531A44B1D1B7305005E5A9F /* LeftViewController.m in Sources */,
 				B531A4321D1A86C2005E5A9F /* BKTableViewAdapter.m in Sources */,
+				B53E7DAF1D2BB92E000B8D94 /* GetNewsListCell.m in Sources */,
 				B53E7D7C1D266419000B8D94 /* HomeController.m in Sources */,
+				B53E7D9C1D2B735F000B8D94 /* XXNetWorking.m in Sources */,
+				B53E7D891D2A873A000B8D94 /* NewsController.m in Sources */,
 				B52A24081D1FE20D001373AD /* EatGifRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

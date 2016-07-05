@@ -28,7 +28,7 @@
 
 #define ViewWidth self.bounds.size.width
 #define ViewHeight self.bounds.size.height
-
+#import <UIKit/UIKit.h>
 //Base Header
 #import "BKTableView.h"
 
