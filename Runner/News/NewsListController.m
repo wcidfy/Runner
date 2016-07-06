@@ -15,7 +15,9 @@
 #import "NewsHeadModel.h"
 #import "NewsPhotoController.h"
 @interface NewsListController ()
-
+{
+    NSString *ss;
+}
 @property (nonatomic, assign) NSInteger lastTimeid;
 @property (nonatomic, strong) NSMutableArray<NewsListItems *> *newsListArray;
 
@@ -37,6 +39,19 @@
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
     
     [self lanuchRefresh];
+    
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStat:) name:@"networkState" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkStat:)
+                                                 name:@"networkState"
+                                               object:nil];
+}
+-(void)networkStat:(NSNotification *)notification
+{
+    
+   ss= [notification object];
+    XXLog(@"___%@",ss);
+
 }
 #pragma mark 设置头部view
 -(void)setHeadView
@@ -76,12 +91,13 @@
 #pragma mark 下拉刷新
 -(void)downRefresh
 {
-    [HttpTool getNewsListWithPgmid:self.pgmid count:1 timeid:self.lastTimeid complete:^(NSArray *array) {
+    [HttpTool getTopicNewsListWithPgmid:self.pgmid count:1 timeid:self.lastTimeid complete:^(NSArray *array) {
+        
         [self.newsListArray addObjectsFromArray:(NSMutableArray*)array];
+        [self setHeadView];
         self.lastTimeid=self.newsListArray.lastObject.timeid;
-        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
     }];
-
 }
 #pragma mark - Table view data source
 

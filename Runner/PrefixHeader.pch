@@ -46,6 +46,7 @@
 #import "MBProgressHUD.h"
 #import "RegexKitLite.h"
 #import "MBProgressHUD+HM.h"
+#import "AFNetworking.h"
 
 #endif /* PrefixHeader_pch */
 

@@ -17,7 +17,9 @@
 #define CZVersionKey @"version"
 
 @interface AppDelegate ()
-
+{
+    NSString *networkStr;
+}
 @end
 
 @implementation AppDelegate
@@ -36,9 +38,53 @@
     {
     self.window.rootViewController=[LoginController new];
     }
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkMonitor:) name:@"networkMonitor" object:nil];
+    
+    
+    [self networkMonitor];
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"networkState" object:self userInfo:@{@"networkMonitor":networkStr}];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"networkState" object:networkStr];
     return YES;
 }
-
+-(void)networkMonitor
+{
+   
+   __weak typeof(self) weakSelf = self;
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    // 2.设置网络状态改变后的处理
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        // 当网络状态改变了, 就会调用这个block
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown: // 未知网络
+                NSLog(@"未知网络");
+                networkStr=@"未知网络";
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
+                NSLog(@"没有网络(断网)");
+                 networkStr=@"没有网络(断网)";
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
+                NSLog(@"手机自带网络");
+                 networkStr=@"手机自带网络";
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
+                NSLog(@"WIFI");
+                 networkStr=@"WIFI";
+                break;
+        }
+        
+        
+    }];
+    
+    // 3.开始监控
+    [mgr startMonitoring];
+   
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
