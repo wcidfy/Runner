@@ -55,8 +55,10 @@
 
 -(void)leftButtonAction
 {
-//    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
-    [[SlideNavigationController sharedInstance]toggleLeftMenu];
+    
+    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
+     [[SlideNavigationController sharedInstance]toggleLeftMenu];
+//
     
 }
 -(void)cancelClick

@@ -84,14 +84,7 @@
 
 -(void)butClick
 {
-    [self dismissViewControllerAnimated:NO completion:nil];
-
-    NSUserDefaults *ud=[NSUserDefaults standardUserDefaults];
-    if (![[ud objectForKey:@"loginName"] isEqualToString:@"123"]||![[ud objectForKey:@"loginPass"] isEqualToString:@"123"]) {
-        [self presentViewController:[LoginController new] animated:NO completion:nil];
-        
-    }
-
+[self presentViewController:[LoginController new] animated:NO completion:nil];
 }
 
 #pragma mark jctop 代理

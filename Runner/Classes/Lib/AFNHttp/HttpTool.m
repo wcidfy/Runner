@@ -12,6 +12,7 @@
 #import "NewsListItems.h"
 #import "NSObject+AddTimeid.h"
 #import "NewsPhotoModel.h"
+#import "AVVideoList.h"
 @implementation HttpTool
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete
 {
@@ -58,5 +59,30 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+}
+
++(void)getAllAVVideoController:(void (^)(NSArray *))complete
+{
+    [XXNetWorking GET:@"http://c.m.163.com/nc/video/topiclist.html" parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        complete(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
+}
++(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete
+{
+    NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount];
+    [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSArray<AVVideoList *> *array=[AVVideoList mj_objectArrayWithKeyValuesArray:responseObject[tid]];
+        complete(array);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        XXLog(@"%@",error);
+    }];
+
 }
 @end

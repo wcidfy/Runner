@@ -56,8 +56,10 @@
 #pragma mark 设置内容滚动 scrollView
 -(void)setContentScrollView
 {
+   
      self.automaticallyAdjustsScrollViewInsets = NO;
-    UIScrollView *contentScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 100, kScreenWidth, kScreenHeight)];
+    UIScrollView *contentScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, _titleScrollView.y+35, kScreenWidth, kScreenHeight)];
+    contentScrollView.backgroundColor=[UIColor whiteColor];
     contentScrollView.delegate=self;
     CGFloat contentWidth=self.childViewControllers.count*kScreenWidth;
     contentScrollView.contentSize=CGSizeMake(contentWidth, 0);
@@ -66,10 +68,12 @@
     contentScrollView.pagingEnabled=YES;
     //点击设备状态栏时滚动到顶部 yes
     contentScrollView.scrollsToTop=NO;
+   
+    
     [self.view addSubview:contentScrollView];
     self.contentScrollView=contentScrollView;
 
-
+ 
 }
 #pragma mark  设置滚动栏按钮
 -(void)setTitleScrollViewBtn
@@ -82,7 +86,6 @@
             self.selectedBtn=btn;
             [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
             btn.transform=CGAffineTransformMakeScale(1.2, 1.2);
-            
         }else
         {
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -130,6 +133,7 @@
     
     [self.titleScrollView setContentOffset:CGPointMake(offSet, 0) animated:YES];
      [self showTableViewWithIndex:btn.tag];
+   
 }
 #pragma mark 结束滚动时调用
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -142,21 +146,23 @@
 #pragma mark 展示点击button所在的tableView
 -(void)showTableViewWithIndex:(NSInteger)index
 {
-    UITableViewController *tableVc=(UITableViewController *)self.childViewControllers[index];
+    UITableViewController *tableVc=self.childViewControllers[index];
    //判断视图是否第一次加载
     if (tableVc.tableView.window==nil) {
         [self setLayout:tableVc.tableView index:index];
     }
-    
 }
 #pragma mark 抽取设置tableview 设置frame方法
 -(void)setLayout:(UITableView*)tableView index:(NSInteger)index
 {
+    //顶部多出部分
+    _contentScrollView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
+    tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-64-35-49);
+//    tableView.contentInset = UIEdgeInsetsMake(20, 0, 49, 0);
+     XXLog(@"XXXXXX%@   %@",NSStringFromCGRect(tableView.frame),NSStringFromCGRect(_contentScrollView.frame));
     [self.contentScrollView addSubview:tableView];
-    tableView.frame=CGRectMake(kScreenWidth*index, -99, kScreenWidth, kScreenHeight);
-    tableView.contentInset = UIEdgeInsetsMake(99, 0, 49, 0);
-    tableView.contentOffset=CGPointMake(0, -99);
-    
+   
   
 }
+
 @end

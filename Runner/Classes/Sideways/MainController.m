@@ -10,10 +10,12 @@
 #import "LeftViewController.h"
 #import "NewFeatureController.h"
 #import "LoginController.h"
+#import "NewsController.h"
+#import "AVVideoController.h"
 #import "DiscoverController.h"
 
 
-#import "NewsController.h"
+
 #define CZVersionKey @"version"
 
 @interface MainController ()
@@ -22,8 +24,10 @@
     UIButton *_leftButton;
 
 }
-@property(nonatomic,strong)DiscoverController *discover;
 @property(nonatomic,strong)NewsController *news;
+@property(nonatomic,strong)AVVideoController *AVVideo;
+@property(nonatomic,strong)DiscoverController *discover;
+
 //是否准备好刷新 （判断tabbar是否再次点击）
 @property (nonatomic, assign) BOOL isReady;
 @property (nonatomic, strong) UITabBarItem *selectedItem;
@@ -71,7 +75,9 @@
 {
    _news=[NewsController new];
     [self addController:_news imageNol:[UIImage imageNamed:@"tabBar_essence_icon"] imageSelected:[UIImage imageNamed:@"tabBar_essence_click_icon"] titleStr:@"新闻"];
-
+    
+    _AVVideo=[AVVideoController new];
+    [self addController:_AVVideo imageNol:[UIImage imageNamed:@"tabbar_icon_media_normal"] imageSelected:[UIImage imageNamed:@"tabbar_icon_media_highlight"] titleStr:@"视听"];
     _discover=[DiscoverController new];
     [self addController:_discover imageNol:[UIImage imageNamed:@"tabBar_friendTrends_icon"] imageSelected:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] titleStr:@"发现"];
 }

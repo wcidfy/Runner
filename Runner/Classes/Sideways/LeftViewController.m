@@ -65,7 +65,9 @@
 -(void)TouchAction
 {
      NSLog(@"vdcvgdfdsgfd");
-    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
+//    [[SlideNavigationController sharedInstance]pushViewController:[MainController new] animated:NO];
+    [[SlideNavigationController sharedInstance]toggleLeftMenu];
+
 }
 
 #pragma mark tableView 点击代理

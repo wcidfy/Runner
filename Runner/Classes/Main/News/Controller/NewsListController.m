@@ -125,6 +125,7 @@
     
     id cell = [GetNewsListCell CellWithTable:tableView item:item indexPath:indexPath];
     [cell setContItem:item];
+   
     return cell;
 
 }

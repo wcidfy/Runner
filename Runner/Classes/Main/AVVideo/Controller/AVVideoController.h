@@ -6,10 +6,10 @@
 //  Copyright © 2016年 lxx. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AVVideoBaseController.h"
 /**
  *  视听tableviewController 添加
  */
-@interface AVVideoController : UITableViewController
+@interface AVVideoController : AVVideoBaseController
 
 @end

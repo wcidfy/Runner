@@ -34,7 +34,9 @@ static NSString *headId=@"headId";
     if(self)
     {
         _titleLable=[UILabel new];
+        _titleLable.font=[UIFont systemFontOfSize:16];
         _titleLable.textColor=[UIColor redColor];
+        _titleLable.numberOfLines=0;
         [self addSubview:_titleLable];
         
         _pageControl=[UIPageControl new];
@@ -48,8 +50,8 @@ static NSString *headId=@"headId";
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    _titleLable.frame=CGRectMake(0, 180, kScreenWidth, 20);
-    _pageControl.frame=CGRectMake(kScreenWidth-100, 180, 100, 20);
+    _titleLable.frame=CGRectMake(10, 180, kScreenWidth-20, 20);
+    _pageControl.frame=CGRectMake(kScreenWidth-80, 170, 80, 10);
 }
 -(void)setContItem:(NewsListItems *)contItem
 {

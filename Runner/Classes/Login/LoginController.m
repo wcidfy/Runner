@@ -71,7 +71,7 @@
         LeftViewController *left=[[LeftViewController alloc]init];
         [SlideNavigationController sharedInstance].leftMenu=left;
 //        //隐藏导航栏（自定义导航栏）
-//         [[SlideNavigationController sharedInstance].navigationBar setHidden:YES];
+         [[SlideNavigationController sharedInstance].navigationBar setHidden:YES];
           [UIApplication sharedApplication].keyWindow.rootViewController = slide;
       
         
