@@ -74,7 +74,7 @@
 -(void)setContentScrollView
 {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UIScrollView *contentScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 99, kScreenWidth, kScreenHeight)];
+    UIScrollView *contentScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, _topTitleScrollView.y+35, kScreenWidth, kScreenHeight)];
     contentScrollView.delegate=self;
     CGFloat contentWidth=self.childViewControllers.count*kScreenWidth;
     contentScrollView.contentSize=CGSizeMake(contentWidth, 0);
@@ -119,19 +119,57 @@
 #pragma mark 获取需要展示的tableview
 -(void)showTableViewWithIndex:(NSInteger)index
 {
-    //顶部多出部分
-    self.contentScrollView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
-    UITableViewController *tableVc=(UITableViewController *)self.childViewControllers[index];
+   
+    UITableViewController *tableVc=self.childViewControllers[index];
     //判断是否第一次加载
     if (tableVc.tableView.window==nil) {
-       
-        tableVc.tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-64-35);
-        tableVc.tableView.contentInset=UIEdgeInsetsMake(20, 0, 49, 0);
-         [self.contentScrollView addSubview:tableVc.tableView];
+        [self setLayout:tableVc.tableView index:index];
+        
     }
-   
     
+    // 对左右两个新闻界面进行缓存
+    if (index == 0) {
+        
+        
+        UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
+        if (!rightTableVC.tableView.window) {
+            [self.contentScrollView addSubview:rightTableVC.view];
+            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
+            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    } else if (index == self.childViewControllers.count-1) {
+        UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
+        if (!leftTableVC.tableView.window) {
+            [self.contentScrollView addSubview:leftTableVC.view];
+            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
+            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    } else {
+        UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
+        if (!rightTableVC.tableView.window) {
+            [self.contentScrollView addSubview:rightTableVC.view];
+            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
+            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+        UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
+        if (!leftTableVC.tableView.window) {
+            [self.contentScrollView addSubview:leftTableVC.view];
+            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
+            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    }
 }
+#pragma mark 抽取设置tableview 设置frame方法
+-(void)setLayout:(UITableView*)tableView index:(NSInteger)index
+{
+    //顶部多出部分
+    _contentScrollView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
+    tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-64-35-49+20);
+//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    XXLog(@"XXXXXX%@   %@",NSStringFromCGRect(tableView.frame),NSStringFromCGRect(_contentScrollView.frame));
+    [self.contentScrollView addSubview:tableView];
+}
+
 #pragma mark 滚动结束
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -139,5 +177,9 @@
     UIButton *btn=self.titleButArray[index];
     if (self.selectedButton==btn)return;
     [self btnClick:btn];
+    
+    
+   
 }
+
 @end

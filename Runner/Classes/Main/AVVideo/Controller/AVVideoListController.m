@@ -26,7 +26,6 @@ static NSString *cellId=@"AVVideoIdd";
 //上一次存在的 indexPath
 @property(nonatomic,strong)NSIndexPath *previousIndexPath;
 
-@property(nonatomic,strong)AVVideoListCell * currentCell;
 
 @end
 
@@ -64,6 +63,7 @@ static NSString *cellId=@"AVVideoIdd";
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(bottonRefresh)];
     [self.tableView.mj_header beginRefreshing];
     [self.tableView setRowHeight:200];
+    
     
   
 }
@@ -132,7 +132,6 @@ static NSString *cellId=@"AVVideoIdd";
     self.avPlayVc.player=nil;
     self.avPlayVc = nil;
     
-    self.currentCell=[tableView cellForRowAtIndexPath:indexPath];
     AVDetailsController *avDetails=[AVDetailsController new];
     avDetails.avList=avList;
     [self.navigationController pushViewController:avDetails animated:YES];
@@ -166,18 +165,11 @@ static NSString *cellId=@"AVVideoIdd";
            
         }
     }
-    self.currentCell=(AVVideoListCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     if (self.previousIndexPath&&indexPath.row!=self.previousIndexPath.row) {
         [self.tableView reloadRowsAtIndexPaths:@[self.previousIndexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
     self.previousIndexPath=indexPath;
-    self.avPlayItem=nil;
-    self.avPlayer=nil;
-    [self.avPlayVc.view removeFromSuperview];
-    [self.avPlayVc removeFromParentViewController];
-    self.avPlayVc.player=nil;
-    self.avPlayVc=nil;
-    
+       
       
    
     if (self.avPlayVc) {
@@ -220,6 +212,53 @@ static NSString *cellId=@"AVVideoIdd";
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-
+    
+    
+   
 }
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+   
+    if (scrollView==self.tableView) {
+         CGFloat firstY=scrollView.contentOffset.y;
+        
+        if (_avPlayVc==nil) return;
+      
+//        if (-self.tableView.contentOffset.y<=-200*(self.previousIndexPath.row+1)) {
+//            
+//            self.avPlayItem=nil;
+//            self.avPlayer=nil;
+//            [self.avPlayVc.view removeFromSuperview];
+//            [self.avPlayVc removeFromParentViewController];
+//            self.avPlayVc.player=nil;
+//            self.avPlayVc=nil;
+//
+//        }
+//        if(self.tableView.contentOffset.y==0)
+//        {
+//            self.avPlayItem=nil;
+//            self.avPlayer=nil;
+//            [self.avPlayVc.view removeFromSuperview];
+//            [self.avPlayVc removeFromParentViewController];
+//            self.avPlayVc.player=nil;
+//            self.avPlayVc=nil;
+//        }
+//         XXLog(@"%f   %f",self.tableView.contentOffset.y,firstY);
+//
+//        判断cell移除屏幕释放播放器控件
+        AVVideoListCell *cell=[self.tableView cellForRowAtIndexPath:self.previousIndexPath];
+        if(cell==nil)
+        {
+            self.avPlayItem=nil;
+            self.avPlayer=nil;
+            [self.avPlayVc.view removeFromSuperview];
+            [self.avPlayVc removeFromParentViewController];
+            self.avPlayVc.player=nil;
+            self.avPlayVc=nil;
+        
+        }
+}
+}
+
 @end

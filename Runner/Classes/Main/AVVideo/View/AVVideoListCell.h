@@ -15,4 +15,7 @@
 @property(nonatomic,strong)AVVideoList *videoList;
 @property(nonatomic,strong)void(^movieBlock)(NSString *,UIView *);
 @property(nonatomic,strong)void(^shareClick)(AVVideoList *);
+
+//视屏背景图
+@property(nonatomic,strong)UIImageView *imageV;
 @end

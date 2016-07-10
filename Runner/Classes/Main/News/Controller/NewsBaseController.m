@@ -151,6 +151,40 @@
     if (tableVc.tableView.window==nil) {
         [self setLayout:tableVc.tableView index:index];
     }
+    
+    
+    // 对左右两个新闻界面进行缓存
+    if (index == 0) {
+        
+      
+        UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
+        if (!rightTableVC.tableView.window) {
+            [self.contentScrollView addSubview:rightTableVC.view];
+            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
+            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    } else if (index == self.childViewControllers.count-1) {
+        UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
+        if (!leftTableVC.tableView.window) {
+            [self.contentScrollView addSubview:leftTableVC.view];
+            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
+            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    } else {
+        UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
+        if (!rightTableVC.tableView.window) {
+            [self.contentScrollView addSubview:rightTableVC.view];
+            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
+            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+        UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
+        if (!leftTableVC.tableView.window) {
+            [self.contentScrollView addSubview:leftTableVC.view];
+            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
+            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        }
+    }
+
 }
 #pragma mark 抽取设置tableview 设置frame方法
 -(void)setLayout:(UITableView*)tableView index:(NSInteger)index
@@ -161,7 +195,8 @@
 //    tableView.contentInset = UIEdgeInsetsMake(20, 0, 49, 0);
      XXLog(@"XXXXXX%@   %@",NSStringFromCGRect(tableView.frame),NSStringFromCGRect(_contentScrollView.frame));
     [self.contentScrollView addSubview:tableView];
-   
+
+    
   
 }
 

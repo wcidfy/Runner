@@ -11,8 +11,7 @@
 @interface AVVideoListCell()
 //主题
 @property(nonatomic,strong)UILabel *titleLable;
-//视屏背景图
-@property(nonatomic,strong)UIImageView *imageV;
+
 //视屏播放按钮
 @property(nonatomic,strong)UIButton *playButton;
 //左下角view
