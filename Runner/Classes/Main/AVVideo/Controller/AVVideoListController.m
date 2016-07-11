@@ -65,7 +65,7 @@ static NSString *cellId=@"AVVideoIdd";
     [self.tableView setRowHeight:200];
     
     
-  
+    
 }
 
 #pragma mark 下拉刷新
@@ -219,10 +219,11 @@ static NSString *cellId=@"AVVideoIdd";
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-   
     if (scrollView==self.tableView) {
-         CGFloat firstY=scrollView.contentOffset.y;
-        
+       
+        if (scrollView.contentOffset.y==-20||scrollView.contentOffset.y==20) {
+            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
+        }
         if (_avPlayVc==nil) return;
       
 //        if (-self.tableView.contentOffset.y<=-200*(self.previousIndexPath.row+1)) {
@@ -258,7 +259,7 @@ static NSString *cellId=@"AVVideoIdd";
             self.avPlayVc=nil;
         
         }
-}
+        }
 }
 
 @end

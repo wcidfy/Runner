@@ -19,6 +19,16 @@
 		B53936A81D2E342200EA7674 /* AVVideoList.m in Sources */ = {isa = PBXBuildFile; fileRef = B53936A71D2E342200EA7674 /* AVVideoList.m */; };
 		B53936AB1D309C8700EA7674 /* AVVideoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53936AA1D309C8700EA7674 /* AVVideoListCell.m */; };
 		B53E7D911D2B3AB8000B8D94 /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53E7D901D2B3AB8000B8D94 /* NewsURLs.plist */; };
+		B560A5AE1D328D6C00A14DA0 /* TalkListFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5AD1D328D6C00A14DA0 /* TalkListFrame.m */; };
+		B560A5B11D332D9600A14DA0 /* TalkDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5B01D332D9600A14DA0 /* TalkDetailController.m */; };
+		B560A5B41D33308900A14DA0 /* TalkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5B31D33308900A14DA0 /* TalkDetailView.m */; };
+		B560A5B71D337D1900A14DA0 /* TalkDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5B61D337D1900A14DA0 /* TalkDetailCell.m */; };
+		B560A5BA1D33919D00A14DA0 /* TalkAskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5B91D33919D00A14DA0 /* TalkAskDetail.m */; };
+		B560A5BD1D33924100A14DA0 /* TalkAnswerDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */; };
+		B560A5C01D3392E300A14DA0 /* AskAndAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */; };
+		B56245F81D3266D00058D355 /* TalkController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245F71D3266D00058D355 /* TalkController.m */; };
+		B56245FC1D3271210058D355 /* TalkListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FB1D3271210058D355 /* TalkListItem.m */; };
+		B56246001D3274120058D355 /* TalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FF1D3274120058D355 /* TalkListCell.m */; };
 		B5A035661D2DF3CE002DA9A9 /* AVVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035401D2DF3CE002DA9A9 /* AVVideoController.m */; };
 		B5A035671D2DF3CE002DA9A9 /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035451D2DF3CE002DA9A9 /* DiscoverController.m */; };
 		B5A035681D2DF3CE002DA9A9 /* NewsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035491D2DF3CE002DA9A9 /* NewsBaseController.m */; };
@@ -117,6 +127,26 @@
 		B53936A91D309C8700EA7674 /* AVVideoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVVideoListCell.h; sourceTree = "<group>"; };
 		B53936AA1D309C8700EA7674 /* AVVideoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVVideoListCell.m; sourceTree = "<group>"; };
 		B53E7D901D2B3AB8000B8D94 /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
+		B560A5AC1D328D6C00A14DA0 /* TalkListFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListFrame.h; sourceTree = "<group>"; };
+		B560A5AD1D328D6C00A14DA0 /* TalkListFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkListFrame.m; sourceTree = "<group>"; };
+		B560A5AF1D332D9600A14DA0 /* TalkDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkDetailController.h; sourceTree = "<group>"; };
+		B560A5B01D332D9600A14DA0 /* TalkDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkDetailController.m; sourceTree = "<group>"; };
+		B560A5B21D33308900A14DA0 /* TalkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkDetailView.h; sourceTree = "<group>"; };
+		B560A5B31D33308900A14DA0 /* TalkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkDetailView.m; sourceTree = "<group>"; };
+		B560A5B51D337D1900A14DA0 /* TalkDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkDetailCell.h; sourceTree = "<group>"; };
+		B560A5B61D337D1900A14DA0 /* TalkDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkDetailCell.m; sourceTree = "<group>"; };
+		B560A5B81D33919D00A14DA0 /* TalkAskDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkAskDetail.h; sourceTree = "<group>"; };
+		B560A5B91D33919D00A14DA0 /* TalkAskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkAskDetail.m; sourceTree = "<group>"; };
+		B560A5BB1D33924100A14DA0 /* TalkAnswerDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkAnswerDetail.h; sourceTree = "<group>"; };
+		B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkAnswerDetail.m; sourceTree = "<group>"; };
+		B560A5BE1D3392E300A14DA0 /* AskAndAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskAndAnswer.h; sourceTree = "<group>"; };
+		B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskAndAnswer.m; sourceTree = "<group>"; };
+		B56245F61D3266D00058D355 /* TalkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkController.h; sourceTree = "<group>"; };
+		B56245F71D3266D00058D355 /* TalkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkController.m; sourceTree = "<group>"; };
+		B56245FA1D3271210058D355 /* TalkListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListItem.h; sourceTree = "<group>"; };
+		B56245FB1D3271210058D355 /* TalkListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkListItem.m; sourceTree = "<group>"; };
+		B56245FE1D3274120058D355 /* TalkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListCell.h; sourceTree = "<group>"; };
+		B56245FF1D3274120058D355 /* TalkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkListCell.m; sourceTree = "<group>"; };
 		B5A0353F1D2DF3CE002DA9A9 /* AVVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVVideoController.h; sourceTree = "<group>"; };
 		B5A035401D2DF3CE002DA9A9 /* AVVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVVideoController.m; sourceTree = "<group>"; };
 		B5A035441D2DF3CE002DA9A9 /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
@@ -344,9 +374,53 @@
 			path = Catagory;
 			sourceTree = "<group>";
 		};
+		B56245F51D3266880058D355 /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				B56245F61D3266D00058D355 /* TalkController.h */,
+				B56245F71D3266D00058D355 /* TalkController.m */,
+				B560A5AF1D332D9600A14DA0 /* TalkDetailController.h */,
+				B560A5B01D332D9600A14DA0 /* TalkDetailController.m */,
+				B56245FD1D3273DC0058D355 /* View */,
+				B56245F91D3270EA0058D355 /* Model */,
+			);
+			path = Talk;
+			sourceTree = "<group>";
+		};
+		B56245F91D3270EA0058D355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B56245FA1D3271210058D355 /* TalkListItem.h */,
+				B56245FB1D3271210058D355 /* TalkListItem.m */,
+				B560A5B81D33919D00A14DA0 /* TalkAskDetail.h */,
+				B560A5B91D33919D00A14DA0 /* TalkAskDetail.m */,
+				B560A5BB1D33924100A14DA0 /* TalkAnswerDetail.h */,
+				B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */,
+				B560A5BE1D3392E300A14DA0 /* AskAndAnswer.h */,
+				B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B56245FD1D3273DC0058D355 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B56245FE1D3274120058D355 /* TalkListCell.h */,
+				B56245FF1D3274120058D355 /* TalkListCell.m */,
+				B560A5AC1D328D6C00A14DA0 /* TalkListFrame.h */,
+				B560A5AD1D328D6C00A14DA0 /* TalkListFrame.m */,
+				B560A5B21D33308900A14DA0 /* TalkDetailView.h */,
+				B560A5B31D33308900A14DA0 /* TalkDetailView.m */,
+				B560A5B51D337D1900A14DA0 /* TalkDetailCell.h */,
+				B560A5B61D337D1900A14DA0 /* TalkDetailCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B5A0353C1D2DF3CE002DA9A9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B56245F51D3266880058D355 /* Talk */,
 				B5A035461D2DF3CE002DA9A9 /* News */,
 				B5A0353D1D2DF3CE002DA9A9 /* AVVideo */,
 				B5A035431D2DF3CE002DA9A9 /* Discover */,
@@ -820,16 +894,20 @@
 			files = (
 				B5A035981D2DF436002DA9A9 /* LoginController.m in Sources */,
 				B5A0359D1D2DF436002DA9A9 /* LeftViewController.m in Sources */,
+				B560A5BA1D33919D00A14DA0 /* TalkAskDetail.m in Sources */,
 				B5A035E21D2DF81A002DA9A9 /* AVVideoListController.m in Sources */,
 				B5DD0FA71D30DA3300328FB4 /* ShareButton.m in Sources */,
 				B5A035D41D2DF526002DA9A9 /* BKTableView.m in Sources */,
+				B56245F81D3266D00058D355 /* TalkController.m in Sources */,
 				B5A035B11D2DF456002DA9A9 /* ChooseWindow.m in Sources */,
 				B5A0356A1D2DF3CE002DA9A9 /* NewsListController.m in Sources */,
 				B531A4471D1ABB02005E5A9F /* circularButton.m in Sources */,
 				B5A035DC1D2DF526002DA9A9 /* MBProgressHUD+HM.m in Sources */,
+				B560A5C01D3392E300A14DA0 /* AskAndAnswer.m in Sources */,
 				B5A035D61D2DF526002DA9A9 /* BKTableViewCell.m in Sources */,
 				B5A035681D2DF3CE002DA9A9 /* NewsBaseController.m in Sources */,
 				B5A035691D2DF3CE002DA9A9 /* NewsController.m in Sources */,
+				B560A5AE1D328D6C00A14DA0 /* TalkListFrame.m in Sources */,
 				B5A035701D2DF3CE002DA9A9 /* NewsPhotoController.m in Sources */,
 				B5A035A81D2DF436002DA9A9 /* User.m in Sources */,
 				B5A035A31D2DF436002DA9A9 /* OneController.m in Sources */,
@@ -838,9 +916,11 @@
 				B5A035A41D2DF436002DA9A9 /* SettingController.m in Sources */,
 				B5A035711D2DF3CE002DA9A9 /* GetNewsListCell.m in Sources */,
 				B5A035721D2DF3CE002DA9A9 /* Messagecell.m in Sources */,
+				B560A5B71D337D1900A14DA0 /* TalkDetailCell.m in Sources */,
 				B5A035D51D2DF526002DA9A9 /* BKTableViewAdapter.m in Sources */,
 				B5DD0FA41D30D80100328FB4 /* ShareView.m in Sources */,
 				B5A035741D2DF3CE002DA9A9 /* ThreeViewCell.m in Sources */,
+				B56245FC1D3271210058D355 /* TalkListItem.m in Sources */,
 				B531A4441D1A8954005E5A9F /* UIView+Extension.m in Sources */,
 				B5A035671D2DF3CE002DA9A9 /* DiscoverController.m in Sources */,
 				B5A035D91D2DF526002DA9A9 /* XXHTTPManager.m in Sources */,
@@ -852,12 +932,14 @@
 				B5A035DB1D2DF526002DA9A9 /* JCTopic.m in Sources */,
 				B5A035661D2DF3CE002DA9A9 /* AVVideoController.m in Sources */,
 				B5A0356F1D2DF3CE002DA9A9 /* NewsPhotoModel.m in Sources */,
+				B560A5B41D33308900A14DA0 /* TalkDetailView.m in Sources */,
 				B5A035A71D2DF436002DA9A9 /* TopModel.m in Sources */,
 				B53936A81D2E342200EA7674 /* AVVideoList.m in Sources */,
 				B5A035DF1D2DF7C3002DA9A9 /* AVVideoBaseController.m in Sources */,
 				B5A0359A1D2DF436002DA9A9 /* NewFeatureController.m in Sources */,
 				B5A035B01D2DF456002DA9A9 /* AppDelegate.m in Sources */,
 				B5A0359C1D2DF436002DA9A9 /* LeftView.m in Sources */,
+				B560A5BD1D33924100A14DA0 /* TalkAnswerDetail.m in Sources */,
 				B5A035D31D2DF526002DA9A9 /* BaseWebController.m in Sources */,
 				B53936AB1D309C8700EA7674 /* AVVideoListCell.m in Sources */,
 				B5A0356E1D2DF3CE002DA9A9 /* NSObject+AddTimeid.m in Sources */,
@@ -865,12 +947,14 @@
 				B5A035B21D2DF456002DA9A9 /* ViewController.m in Sources */,
 				B531A3E11D1A6C21005E5A9F /* main.m in Sources */,
 				B5A035D81D2DF526002DA9A9 /* HttpTool.m in Sources */,
+				B56246001D3274120058D355 /* TalkListCell.m in Sources */,
 				B531A4431D1A8954005E5A9F /* UIImage+Extention.m in Sources */,
 				B5A035D21D2DF526002DA9A9 /* BaseViewController.m in Sources */,
 				B5A0359E1D2DF436002DA9A9 /* MainController.m in Sources */,
 				B5A035991D2DF436002DA9A9 /* LoginView.m in Sources */,
 				B5A0356C1D2DF3CE002DA9A9 /* NewsListItems.m in Sources */,
 				B5A035A61D2DF436002DA9A9 /* States.m in Sources */,
+				B560A5B11D332D9600A14DA0 /* TalkDetailController.m in Sources */,
 				B5A035D71D2DF526002DA9A9 /* EatGifRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,9 @@
 #import "NSObject+AddTimeid.h"
 #import "NewsPhotoModel.h"
 #import "AVVideoList.h"
+#import "TalkListItem.h"
+#import "AskAndAnswer.h"
+
 @implementation HttpTool
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete
 {
@@ -84,5 +87,75 @@
         XXLog(@"%@",error);
     }];
 
+}
+
++(void)getTalkListWithPageCount:(NSInteger)pageCount complete:(void(^)(id))complete
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/expert/%ld0-10.html",pageCount+1];
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSArray <TalkListItem *>*array=[TalkListItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"expertList"]];
+        complete(array);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
+}
++(void)getTalkDetailWithExpertId:(NSString *)expertId isNew:(NSInteger)isNew pageCount:(NSInteger)pageCount complete:(void (^)(NSMutableArray *))complete
+{
+    if (isNew==1) {
+        [self getTalkNewTalkDetailwithExpertId:expertId pageCount:pageCount complete:complete];
+    }else
+    {
+        [self getTalkHotTalkDetailwithExpertId:expertId pageCount:pageCount complete:complete];
+    
+    }
+
+}
+
++(void)getTalkNewTalkDetailwithExpertId:(NSString *)expertId pageCount:(NSInteger)pageCount complete:(void(^)(NSMutableArray *))complete
+{
+     NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/latestqa/%@/%ld0-10.html",expertId,(long)pageCount+1];
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSMutableArray *askAnswerArray=[[NSMutableArray alloc]init];
+       
+        for (NSDictionary *dict in responseObject[@"data"]) {
+            AskAndAnswer *item=[[AskAndAnswer alloc]init];
+            item.askTalk = [TalkAskDetail mj_objectWithKeyValues:dict[@"question"]];
+            item.answerTalk=[TalkAnswerDetail mj_objectWithKeyValues:dict[@"answer"]];
+            [askAnswerArray addObject:item];
+        }
+        complete(askAnswerArray);
+        
+       
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
+
+}
++(void)getTalkHotTalkDetailwithExpertId:(NSString *)expertId pageCount:(NSInteger)pageCount complete:(void(^)(NSMutableArray *))complete
+{
+     NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/latestqa/%@/%ld0-10.html",expertId,(long)pageCount];
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSMutableArray *askAnswerArray=[[NSMutableArray alloc]init];
+        
+        for (NSDictionary *dict in responseObject[@"data"]) {
+            AskAndAnswer *item=[[AskAndAnswer alloc]init];
+            item.askTalk = [TalkAskDetail mj_objectWithKeyValues:dict[@"question"]];
+            item.answerTalk=[TalkAnswerDetail mj_objectWithKeyValues:dict[@"answer"]];
+            [askAnswerArray addObject:item];
+        }
+        complete(askAnswerArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+    
 }
 @end

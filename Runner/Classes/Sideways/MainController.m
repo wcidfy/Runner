@@ -13,7 +13,7 @@
 #import "NewsController.h"
 #import "AVVideoController.h"
 #import "DiscoverController.h"
-
+#import "TalkController.h"
 
 
 #define CZVersionKey @"version"
@@ -27,7 +27,7 @@
 @property(nonatomic,strong)NewsController *news;
 @property(nonatomic,strong)AVVideoController *AVVideo;
 @property(nonatomic,strong)DiscoverController *discover;
-
+@property(nonatomic,strong)TalkController *talk;
 //是否准备好刷新 （判断tabbar是否再次点击）
 @property (nonatomic, assign) BOOL isReady;
 @property (nonatomic, strong) UITabBarItem *selectedItem;
@@ -78,6 +78,10 @@
     
     _AVVideo=[AVVideoController new];
     [self addController:_AVVideo imageNol:[UIImage imageNamed:@"tabbar_icon_media_normal"] imageSelected:[UIImage imageNamed:@"tabbar_icon_media_highlight"] titleStr:@"视听"];
+    
+    _talk=[TalkController new];
+    [self addController:_talk imageNol:[UIImage imageNamed:@"tabbar_icon_found_normal"] imageSelected:[UIImage imageNamed:@"tabbar_icon_found_highlight"] titleStr:@"话题"];
+    
     _discover=[DiscoverController new];
     [self addController:_discover imageNol:[UIImage imageNamed:@"tabBar_friendTrends_icon"] imageSelected:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] titleStr:@"发现"];
 }

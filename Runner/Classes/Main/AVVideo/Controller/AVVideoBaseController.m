@@ -162,10 +162,9 @@
 #pragma mark 抽取设置tableview 设置frame方法
 -(void)setLayout:(UITableView*)tableView index:(NSInteger)index
 {
-    //顶部多出部分
-    _contentScrollView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
+ 
     tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-64-35-49+20);
-//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     XXLog(@"XXXXXX%@   %@",NSStringFromCGRect(tableView.frame),NSStringFromCGRect(_contentScrollView.frame));
     [self.contentScrollView addSubview:tableView];
 }
@@ -173,13 +172,19 @@
 #pragma mark 滚动结束
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+   
+    
    NSInteger index=scrollView.contentOffset.x/kScreenWidth;
     UIButton *btn=self.titleButArray[index];
+      UITableViewController *tableVc=self.childViewControllers[index];
+    tableVc.tableView.mj_header.hidden=NO;
     if (self.selectedButton==btn)return;
     [self btnClick:btn];
     
-    
+    if (scrollView.contentOffset.y==-20) {
+       
+        tableVc.tableView.mj_header.hidden=YES;
+    }
    
 }
-
 @end
