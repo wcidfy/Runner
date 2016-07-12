@@ -13,6 +13,7 @@
 #import "AVDetailsController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import "FeHandwriting.h"
 static NSString *cellId=@"AVVideoIdd";
 @interface AVVideoListController()
 @property(nonatomic,strong)NSArray<AVVideoList *> *AVVideoArray;
@@ -23,6 +24,10 @@ static NSString *cellId=@"AVVideoIdd";
 @property(nonatomic,strong)AVPlayerItem *avPlayItem;
 @property(nonatomic,strong)AVPlayer *avPlayer;
 @property(nonatomic,strong)AVPlayerViewController *avPlayVc;
+//背景图
+@property(nonatomic,strong)UIImageView *imageBgV;
+//加载动画
+@property(nonatomic,strong)FeHandwriting *feHandWriting;
 //上一次存在的 indexPath
 @property(nonatomic,strong)NSIndexPath *previousIndexPath;
 
@@ -30,7 +35,30 @@ static NSString *cellId=@"AVVideoIdd";
 @end
 
 @implementation AVVideoListController
-
+-(UIImageView *)imageBgV
+{
+    if (_imageBgV==nil) {
+        _imageBgV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"zz1"]];
+        [_imageBgV sizeToFit];
+        _imageBgV.center=self.view.center;
+        [self.view addSubview:_imageBgV];
+        
+    }
+    return _imageBgV;
+}
+-(FeHandwriting *)feHandWriting
+{
+    if (_feHandWriting==nil) {
+        _feHandWriting=[[FeHandwriting alloc]initWithView:self.view];
+        [self.view addSubview:_feHandWriting];
+        [_feHandWriting showWhileExecutingBlock:^{
+            
+        } completion:^{
+            
+        }];
+    }
+    return _feHandWriting;
+}
 -(NSArray *)AVVideoArray
 {
     if (_AVVideoArray==nil) {
@@ -66,7 +94,8 @@ static NSString *cellId=@"AVVideoIdd";
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    
+    [self.view addSubview:self.imageBgV];
+    [self.view addSubview:self.feHandWriting];
 }
 
 #pragma mark 下拉刷新
@@ -75,6 +104,8 @@ static NSString *cellId=@"AVVideoIdd";
    [HttpTool getAVVidelListWithTid:self.tid pageCount:0 complete:^(NSArray *array) {
        XXLog(@"————%@",array);
        self.AVVideoArray=array;
+       [self.imageBgV removeFromSuperview];
+       [self.feHandWriting removeFromSuperview];
        [self.tableView.mj_header endRefreshing];
            [self.tableView reloadData];
        self.tableView.separatorStyle = UITableViewCellStyleDefault;

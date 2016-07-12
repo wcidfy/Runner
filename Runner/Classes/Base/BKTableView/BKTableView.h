@@ -43,6 +43,10 @@
  *  设置 footView
  */
 -(void)setFootView:(UIView *)view;
+/**
+ *  设置背景图片
+ */
+-(void)setBackgroundView:(UIView *)view;
 -(void)setRefresh;
 -(void)endRefresh;
 @end

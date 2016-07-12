@@ -41,11 +41,11 @@
 
 
     self.navigationController.navigationBar.hidden=YES;
-    self.view.backgroundColor=[UIColor redColor];
+    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"zz1"]];
     [self Navgitionbar];
     
         self.tabBar.backgroundImage=[UIImage new] ;
-    self.tabBar.backgroundColor=[UIColor orangeColor];
+    self.tabBar.backgroundColor=[UIColor clearColor];
     [self addControllers];
     
         self.selectedItem=self.childViewControllers[0].tabBarItem;
@@ -56,10 +56,11 @@
 -(void)Navgitionbar
 {
     _topView=[UIView new];
-    _topView.frame=CGRectMake(20, 20, kScreenWidth, 44);
+    _topView.frame=CGRectMake(0, 20, kScreenWidth, 44);
+    _topView.backgroundColor=[UIColor clearColor];
     [self.view addSubview:_topView];
     _leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    _leftButton.frame=CGRectMake(0, 0, 44, 44);
+    _leftButton.frame=CGRectMake(20, 0, 44, 44);
     [_leftButton setBackgroundImage:[UIImage imageNamed:@"login_QQ_icon_click"] forState:UIControlStateNormal];
     [_leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [_topView addSubview:_leftButton];

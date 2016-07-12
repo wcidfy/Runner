@@ -8,23 +8,23 @@
 
 #import "NewsPhotoController.h"
 #import "HttpTool.h"
-#import "NewsPhotoModel.h"
 #import "UIImageView+WebCache.h"
-
+#import "PhotoTitle.h"
 static NSString * const ID = @"collecPhoto";
 @interface NewsPhotoController()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property(nonatomic,strong)NSArray<NewsPhotoModel*> *photoArray;
+
 @property(nonatomic,strong)UICollectionView *imageCollecV;
+@property(nonatomic,strong)PhotoTitle *photoTitle;
 @end
 @implementation NewsPhotoController
--(NSArray *)photoArray
-{
-    if (_photoArray==nil) {
-        _photoArray=[[NSArray alloc]init];
-        
-    }
-    return _photoArray;
-}
+//-(NSArray *)photoArray
+//{
+//    if (_photoArray==nil) {
+//        _photoArray=[[NSArray alloc]init];
+//        
+//    }
+//    return _photoArray;
+//}
 -(void)viewDidLoad
 {
     [self setcollectionV];
@@ -34,10 +34,19 @@ static NSString * const ID = @"collecPhoto";
         self.photoArray=array;
         self.imageCollecV.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         [self.imageCollecV reloadData];
-        
+        [self setDetailview];
     }];
    
     [self setTopBack];
+}
+-(void)setDetailview
+{
+    _photoTitle=[[PhotoTitle alloc]init];
+    _photoTitle.photoItem=self.photoArray[0];
+    CGFloat H=[PhotoTitle heightWithPhoto:self.photoArray[0]];
+    _photoTitle.frame=CGRectMake(0, kScreenHeight-H-10, kScreenWidth-10, H);
+    _photoTitle.pageCountL.text=[NSString stringWithFormat:@"1/%ld",(unsigned long)_photoArray.count];
+    [self.view addSubview:_photoTitle];
 }
 #pragma mark  创建collectionView
 -(void)setcollectionV
@@ -65,6 +74,11 @@ static NSString * const ID = @"collecPhoto";
     [collecV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
     [self.view addSubview:collecV];
     self.imageCollecV=collecV;
+}
+-(void)setPhotoArray:(NSArray*)photoArray
+{
+
+    _photoArray=photoArray;
 }
 #pragma mark 上面的返回按钮
 -(void)setTopBack
@@ -107,5 +121,15 @@ static NSString * const ID = @"collecPhoto";
 {
      [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x/kScreenWidth;
+    self.photoTitle.photoItem = _photoArray[index];
+    self.photoTitle.pageCountL.text = [NSString stringWithFormat:@"%ld/%ld",index+1,_photoArray.count];
+    CGFloat H=[PhotoTitle heightWithPhoto:self.photoArray[index]];
+    _photoTitle.frame=CGRectMake(0, kScreenHeight-H-10, kScreenWidth-10, H);
+    [self.view addSubview:_photoTitle];
 }
 @end

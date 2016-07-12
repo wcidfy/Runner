@@ -25,6 +25,7 @@
     cell.imageView.image=[UIImage imageNamed:@"tabBar_essence_icon"];
     cell.detailTextLabel.text=@"123";
    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;//cell的右边有一个小箭头，距离右边有
+    cell.backgroundColor=[UIColor clearColor];
     return cell;
 }
 

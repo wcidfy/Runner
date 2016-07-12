@@ -27,6 +27,7 @@
 		B560A5BD1D33924100A14DA0 /* TalkAnswerDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */; };
 		B560A5C01D3392E300A14DA0 /* AskAndAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */; };
 		B560A5C41D34946C00A14DA0 /* FeHandwriting.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5C31D34946C00A14DA0 /* FeHandwriting.m */; };
+		B560A5FC1D34D8FD00A14DA0 /* PhotoTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5FB1D34D8FD00A14DA0 /* PhotoTitle.m */; };
 		B56245F81D3266D00058D355 /* TalkController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245F71D3266D00058D355 /* TalkController.m */; };
 		B56245FC1D3271210058D355 /* TalkListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FB1D3271210058D355 /* TalkListItem.m */; };
 		B56246001D3274120058D355 /* TalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FF1D3274120058D355 /* TalkListCell.m */; };
@@ -142,8 +143,10 @@
 		B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkAnswerDetail.m; sourceTree = "<group>"; };
 		B560A5BE1D3392E300A14DA0 /* AskAndAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskAndAnswer.h; sourceTree = "<group>"; };
 		B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskAndAnswer.m; sourceTree = "<group>"; };
-		B560A5C21D34946C00A14DA0 /* FeHandwriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHandwriting.h; sourceTree = "<group>"; };
-		B560A5C31D34946C00A14DA0 /* FeHandwriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHandwriting.m; sourceTree = "<group>"; };
+		B560A5C21D34946C00A14DA0 /* FeHandwriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeHandwriting.h; path = ../FeHandwriting.h; sourceTree = "<group>"; };
+		B560A5C31D34946C00A14DA0 /* FeHandwriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeHandwriting.m; path = ../FeHandwriting.m; sourceTree = "<group>"; };
+		B560A5FA1D34D8FD00A14DA0 /* PhotoTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTitle.h; sourceTree = "<group>"; };
+		B560A5FB1D34D8FD00A14DA0 /* PhotoTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTitle.m; sourceTree = "<group>"; };
 		B56245F61D3266D00058D355 /* TalkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkController.h; sourceTree = "<group>"; };
 		B56245F71D3266D00058D355 /* TalkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkController.m; sourceTree = "<group>"; };
 		B56245FA1D3271210058D355 /* TalkListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListItem.h; sourceTree = "<group>"; };
@@ -380,10 +383,27 @@
 		B560A5C11D3493E200A14DA0 /* AddDataBefore */ = {
 			isa = PBXGroup;
 			children = (
+				B560A5FD1D3519EE00A14DA0 /* HandWriting */,
+			);
+			path = AddDataBefore;
+			sourceTree = "<group>";
+		};
+		B560A5F91D34D8D100A14DA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B560A5FA1D34D8FD00A14DA0 /* PhotoTitle.h */,
+				B560A5FB1D34D8FD00A14DA0 /* PhotoTitle.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B560A5FD1D3519EE00A14DA0 /* HandWriting */ = {
+			isa = PBXGroup;
+			children = (
 				B560A5C21D34946C00A14DA0 /* FeHandwriting.h */,
 				B560A5C31D34946C00A14DA0 /* FeHandwriting.m */,
 			);
-			path = AddDataBefore;
+			path = HandWriting;
 			sourceTree = "<group>";
 		};
 		B56245F51D3266880058D355 /* Talk */ = {
@@ -539,6 +559,7 @@
 		B5A035571D2DF3CE002DA9A9 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				B560A5F91D34D8D100A14DA0 /* View */,
 				B5A035581D2DF3CE002DA9A9 /* Model */,
 				B5A0355B1D2DF3CE002DA9A9 /* NewsPhotoController.h */,
 				B5A0355C1D2DF3CE002DA9A9 /* NewsPhotoController.m */,
@@ -906,6 +927,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5A035981D2DF436002DA9A9 /* LoginController.m in Sources */,
+				B560A5FC1D34D8FD00A14DA0 /* PhotoTitle.m in Sources */,
 				B5A0359D1D2DF436002DA9A9 /* LeftViewController.m in Sources */,
 				B560A5BA1D33919D00A14DA0 /* TalkAskDetail.m in Sources */,
 				B5A035E21D2DF81A002DA9A9 /* AVVideoListController.m in Sources */,
@@ -1097,8 +1119,10 @@
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = lxx.adqer.com.Runner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1112,8 +1136,10 @@
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = lxx.adqer.com.Runner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

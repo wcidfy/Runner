@@ -38,6 +38,9 @@
     _leftAdapter.delegate=self;
     [self.tableView setAdapter:_leftAdapter];
     _leftAdapter.dataArray=self.tableArray;
+    
+    
+    [self.tableView setFootView:[UIView new]];
 
 }
 - (void)viewDidLoad {
@@ -45,7 +48,7 @@
     // Do any additional setup after loading the view.
     [self buttonClick];
 //    [self.tableView setRefresh];
-   
+    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"hh1.jpg"]];
    
   
     

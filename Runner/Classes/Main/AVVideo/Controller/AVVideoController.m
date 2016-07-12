@@ -14,7 +14,7 @@
 {
     [super viewDidLoad];
     [self setTittle];
-    self.view.backgroundColor=[UIColor grayColor];
+//    self.view.backgroundColor=[UIColor grayColor];
     [HttpTool getAllAVVideoController:^(NSArray *array) {
         [self setChildControllersWithArray:array];
         //获取到所在的tableViewController 进行布局

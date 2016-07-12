@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsListItems.h"
+#import "NewsPhotoModel.h"
 /**
  *  图集控制器
  */
@@ -15,6 +16,7 @@
 /**
  *  用来获取选择的图集cell数据
  */
+@property(nonatomic,strong)NSArray<NewsPhotoModel*> *photoArray;
 @property(nonatomic,copy)NSString *photoUrl;
 @property(nonatomic,strong)NewsListItems *listItem;
 @end

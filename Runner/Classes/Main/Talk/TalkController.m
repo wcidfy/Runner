@@ -12,15 +12,46 @@
 #import "TalkListFrame.h"
 #import "TalkListItem.h"
 #import "TalkDetailController.h"
+#import "FeHandwriting.h"
 @interface TalkController()<UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic, assign) NSInteger refreshCount;
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)NSMutableArray *talkArray;
+//背景图
+@property(nonatomic,strong)UIImageView *bgImageV;
+//加载动画
+@property(nonatomic,strong)FeHandwriting *handWriting;
 
 @end
 @implementation TalkController
-
+-(UIImageView*)bgImageV
+{
+    if (_bgImageV==nil) {
+        _bgImageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"zz1"]];
+        _bgImageV.center=self.view.center;
+        [_bgImageV sizeToFit];
+        [self.view addSubview:_bgImageV];
+        
+    }
+    
+    return _bgImageV;
+}
+-(FeHandwriting *)handWriting
+{
+    if (_handWriting==nil) {
+        _handWriting=[[FeHandwriting alloc]initWithView:self.view];
+        
+        [self.view addSubview:_handWriting];
+        
+        [_handWriting showWhileExecutingBlock:^{
+            //            [self myTask];
+        } completion:^{
+            //            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
+    return _handWriting;
+}
 -(NSMutableArray *)talkArray
 {
     if (_talkArray==nil) {
@@ -35,8 +66,12 @@
     [self setTableView];
 //    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshClick)];
+    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.view addSubview:self.bgImageV];
+    [self.view addSubview:self.handWriting];
 }
 #pragma mark 设置标题
 -(void)setTittle
@@ -59,9 +94,13 @@
     _tableView.dataSource=self;
     [self.view addSubview:_tableView];
 }
+#pragma mark下拉
 -(void)refreshClick
 {
     [HttpTool getTalkListWithPageCount:0 complete:^(NSArray *array) {
+        
+        [self.bgImageV removeFromSuperview];
+        [self.handWriting removeFromSuperview];
         for (TalkListItem *listItem in array ) {
             TalkListFrame *talkFrame=[[TalkListFrame alloc]init];
             talkFrame.listItem=listItem;
@@ -73,6 +112,23 @@
         [self.tableView reloadData];
         self.tableView.separatorStyle = UITableViewCellStyleDefault;
     }];
+
+}
+#pragma mark 上啦
+-(void)topRefresh
+{
+    [HttpTool getTalkListWithPageCount:++self.refreshCount complete:^(NSArray *array) {
+        NSMutableArray *arr=[[NSMutableArray alloc]init];
+        for (TalkListItem *Item in array) {
+            TalkListFrame *talkFrame=[[TalkListFrame alloc]init];
+            talkFrame.listItem=Item;
+            [arr addObject:talkFrame];
+        }
+        [self.talkArray addObjectsFromArray:arr];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+    }];
+
 
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

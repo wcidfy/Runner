@@ -7,7 +7,9 @@
 //
 
 #import "LeftView.h"
+@interface LeftView()
 
+@end
 @implementation LeftView
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -15,15 +17,18 @@
     
     self=[super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor whiteColor];
+       
       
         _tableView=[[BKTableView alloc]init];
-        _tableView.backgroundColor=[UIColor whiteColor];
-       [self addSubview:_tableView]; 
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"zz1"]];
+        [self.tableView setBackgroundView:view];
+        
+       [self addSubview:_tableView];
         
         _headView=[[UIView alloc]init];
+        
         _headView.frame=CGRectMake(0, 0, frame.size.width, kSizeFrom720(300));
-        _headView.backgroundColor=[UIColor grayColor];
         [self.tableView setHeadView:_headView];
         
         _headImage=[[UIImageView alloc]init];

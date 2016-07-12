@@ -22,7 +22,9 @@
 @property(nonatomic,assign)NSInteger refreshCount;
 @property (nonatomic, assign) NSInteger lastTimeid;
 @property (nonatomic, strong) NSMutableArray<NewsListItems *> *newsListArray;
+//背景图
 @property(nonatomic,strong)UIImageView *bgImageV;
+//加载动画
 @property(nonatomic,strong)FeHandwriting *handWriting;
 @end
 
@@ -30,7 +32,7 @@
 -(UIImageView*)bgImageV
 {
     if (_bgImageV==nil) {
-        _bgImageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photosetBackGround"]];
+        _bgImageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"zz1"]];
         _bgImageV.center=self.view.center;
         [_bgImageV sizeToFit];
         [self.view addSubview:_bgImageV];
@@ -68,6 +70,7 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.bgImageV];
     self.view.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:self.handWriting];
     self.refreshCount=1;
@@ -132,7 +135,7 @@
 {
     [HttpTool getTopicNewsListWithPgmid:self.pgmid count:1 timeid:self.lastTimeid complete:^(NSArray *array) {
         [self.handWriting removeFromSuperview];
-        
+        [self.bgImageV removeFromSuperview];
         if (array!=nil) {
             [self.newsListArray removeAllObjects];
             [self.newsListArray addObjectsFromArray:array];

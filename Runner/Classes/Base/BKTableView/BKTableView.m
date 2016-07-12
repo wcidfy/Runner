@@ -17,7 +17,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         _dataTableView = [UITableView new];
-        _dataTableView.backgroundColor = [UIColor whiteColor];
+//        _dataTableView.backgroundColor = [UIColor whiteColor];
+      
         self.header=_dataTableView.mj_header;
         [self addSubview:_dataTableView];
         [_dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,5 +92,9 @@
     _dataTableView = nil;
     
 }
+-(void)setBackgroundView:(UIView *)view
+{
+    _dataTableView.backgroundView=view;
 
+}
 @end
