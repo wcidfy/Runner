@@ -26,7 +26,6 @@
         _titleLable=[UILabel new];
         _titleLable.frame=CGRectMake(40, 10, kScreenWidth-80, 20);
         _titleLable.font=[UIFont systemFontOfSize:15];
-        _titleLable.alpha=0;
         [_topView addSubview:_titleLable];
         
         _rightBtn=[UIButton buttonWithType:UIButtonTypeCustom];

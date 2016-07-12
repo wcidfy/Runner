@@ -14,16 +14,31 @@
 #import "NewsHeadView.h"
 #import "NewsHeadModel.h"
 #import "NewsPhotoController.h"
+#import "FeHandwriting.h"
 @interface NewsListController ()
 {
     NSString *ss;
 }
+@property(nonatomic,assign)NSInteger refreshCount;
 @property (nonatomic, assign) NSInteger lastTimeid;
 @property (nonatomic, strong) NSMutableArray<NewsListItems *> *newsListArray;
-
+@property(nonatomic,strong)UIImageView *bgImageV;
+@property(nonatomic,strong)FeHandwriting *handWriting;
 @end
 
 @implementation NewsListController
+-(UIImageView*)bgImageV
+{
+    if (_bgImageV==nil) {
+        _bgImageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photosetBackGround"]];
+        _bgImageV.center=self.view.center;
+        [_bgImageV sizeToFit];
+        [self.view addSubview:_bgImageV];
+        
+    }
+
+    return _bgImageV;
+}
 -(NSMutableArray*)newsListArray
 {
     if (_newsListArray==nil) {
@@ -31,16 +46,37 @@
     }
     return _newsListArray;
 }
+-(FeHandwriting *)handWriting
+{
+    if (_handWriting==nil) {
+        _handWriting=[[FeHandwriting alloc]initWithView:self.view];
+       
+        [self.view addSubview:_handWriting];
+        
+        [_handWriting showWhileExecutingBlock:^{
+//            [self myTask];
+        } completion:^{
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
+    return _handWriting;
+}
+//- (void)myTask
+//{
+//    // Do something usefull in here instead of sleeping ...
+//    sleep(12);
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
-  
-    
+    [self.view addSubview:self.handWriting];
+    self.refreshCount=1;
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
-   
-    [self lanuchRefresh];
-    [self.tableView setRowHeight:100];
+    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
 
+    [self.tableView.mj_header beginRefreshing];
+        [self.tableView setRowHeight:100];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(networkStat:)
                                                  name:@"networkState"
@@ -87,6 +123,7 @@
         [self setHeadView];
         self.lastTimeid=self.newsListArray.lastObject.timeid;
         [self.tableView reloadData];
+        self.tableView.separatorStyle = UITableViewCellStyleDefault;
     }];
 
 }
@@ -94,7 +131,7 @@
 -(void)downRefresh
 {
     [HttpTool getTopicNewsListWithPgmid:self.pgmid count:1 timeid:self.lastTimeid complete:^(NSArray *array) {
-        
+        [self.handWriting removeFromSuperview];
         
         if (array!=nil) {
             [self.newsListArray removeAllObjects];
@@ -106,6 +143,17 @@
         self.lastTimeid=self.newsListArray.lastObject.timeid;
         [self.tableView reloadData];
     }];
+}
+-(void)topRefresh
+{
+    [HttpTool getTopicNewsListWithPgmid:self.pgmid count:++self.refreshCount timeid:self.lastTimeid complete:^(NSArray *array) {
+        [self.newsListArray addObjectsFromArray:array];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+        self.lastTimeid=self.newsListArray.lastObject.timeid;
+    }];
+
+
 }
 #pragma mark - Table view data source
 

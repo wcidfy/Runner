@@ -64,7 +64,8 @@ static NSString *cellId=@"AVVideoIdd";
     [self.tableView.mj_header beginRefreshing];
     [self.tableView setRowHeight:200];
     
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
 }
 
@@ -76,6 +77,7 @@ static NSString *cellId=@"AVVideoIdd";
        self.AVVideoArray=array;
        [self.tableView.mj_header endRefreshing];
            [self.tableView reloadData];
+       self.tableView.separatorStyle = UITableViewCellStyleDefault;
    }];
 
 }
@@ -226,27 +228,7 @@ static NSString *cellId=@"AVVideoIdd";
         }
         if (_avPlayVc==nil) return;
       
-//        if (-self.tableView.contentOffset.y<=-200*(self.previousIndexPath.row+1)) {
-//            
-//            self.avPlayItem=nil;
-//            self.avPlayer=nil;
-//            [self.avPlayVc.view removeFromSuperview];
-//            [self.avPlayVc removeFromParentViewController];
-//            self.avPlayVc.player=nil;
-//            self.avPlayVc=nil;
-//
-//        }
-//        if(self.tableView.contentOffset.y==0)
-//        {
-//            self.avPlayItem=nil;
-//            self.avPlayer=nil;
-//            [self.avPlayVc.view removeFromSuperview];
-//            [self.avPlayVc removeFromParentViewController];
-//            self.avPlayVc.player=nil;
-//            self.avPlayVc=nil;
-//        }
-//         XXLog(@"%f   %f",self.tableView.contentOffset.y,firstY);
-//
+
 //        判断cell移除屏幕释放播放器控件
         AVVideoListCell *cell=[self.tableView cellForRowAtIndexPath:self.previousIndexPath];
         if(cell==nil)

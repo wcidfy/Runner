@@ -26,6 +26,7 @@
 		B560A5BA1D33919D00A14DA0 /* TalkAskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5B91D33919D00A14DA0 /* TalkAskDetail.m */; };
 		B560A5BD1D33924100A14DA0 /* TalkAnswerDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */; };
 		B560A5C01D3392E300A14DA0 /* AskAndAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */; };
+		B560A5C41D34946C00A14DA0 /* FeHandwriting.m in Sources */ = {isa = PBXBuildFile; fileRef = B560A5C31D34946C00A14DA0 /* FeHandwriting.m */; };
 		B56245F81D3266D00058D355 /* TalkController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245F71D3266D00058D355 /* TalkController.m */; };
 		B56245FC1D3271210058D355 /* TalkListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FB1D3271210058D355 /* TalkListItem.m */; };
 		B56246001D3274120058D355 /* TalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FF1D3274120058D355 /* TalkListCell.m */; };
@@ -141,6 +142,8 @@
 		B560A5BC1D33924100A14DA0 /* TalkAnswerDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkAnswerDetail.m; sourceTree = "<group>"; };
 		B560A5BE1D3392E300A14DA0 /* AskAndAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskAndAnswer.h; sourceTree = "<group>"; };
 		B560A5BF1D3392E300A14DA0 /* AskAndAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskAndAnswer.m; sourceTree = "<group>"; };
+		B560A5C21D34946C00A14DA0 /* FeHandwriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHandwriting.h; sourceTree = "<group>"; };
+		B560A5C31D34946C00A14DA0 /* FeHandwriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHandwriting.m; sourceTree = "<group>"; };
 		B56245F61D3266D00058D355 /* TalkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkController.h; sourceTree = "<group>"; };
 		B56245F71D3266D00058D355 /* TalkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkController.m; sourceTree = "<group>"; };
 		B56245FA1D3271210058D355 /* TalkListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListItem.h; sourceTree = "<group>"; };
@@ -372,6 +375,15 @@
 				B531A4461D1ABB02005E5A9F /* circularButton.m */,
 			);
 			path = Catagory;
+			sourceTree = "<group>";
+		};
+		B560A5C11D3493E200A14DA0 /* AddDataBefore */ = {
+			isa = PBXGroup;
+			children = (
+				B560A5C21D34946C00A14DA0 /* FeHandwriting.h */,
+				B560A5C31D34946C00A14DA0 /* FeHandwriting.m */,
+			);
+			path = AddDataBefore;
 			sourceTree = "<group>";
 		};
 		B56245F51D3266880058D355 /* Talk */ = {
@@ -666,6 +678,7 @@
 		B5A035C51D2DF526002DA9A9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B560A5C11D3493E200A14DA0 /* AddDataBefore */,
 				B5A035C61D2DF526002DA9A9 /* AFNHttp */,
 				B5A035CD1D2DF526002DA9A9 /* JCTopic */,
 				B5A035D01D2DF526002DA9A9 /* MBProgressHUD+HM.h */,
@@ -907,6 +920,7 @@
 				B5A035D61D2DF526002DA9A9 /* BKTableViewCell.m in Sources */,
 				B5A035681D2DF3CE002DA9A9 /* NewsBaseController.m in Sources */,
 				B5A035691D2DF3CE002DA9A9 /* NewsController.m in Sources */,
+				B560A5C41D34946C00A14DA0 /* FeHandwriting.m in Sources */,
 				B560A5AE1D328D6C00A14DA0 /* TalkListFrame.m in Sources */,
 				B5A035701D2DF3CE002DA9A9 /* NewsPhotoController.m in Sources */,
 				B5A035A81D2DF436002DA9A9 /* User.m in Sources */,

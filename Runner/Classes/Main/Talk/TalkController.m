@@ -33,17 +33,17 @@
     [super viewDidLoad];
     [self setTittle];
     [self setTableView];
-    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
+//    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshClick)];
     [self.tableView.mj_header beginRefreshing];
-
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 #pragma mark 设置标题
 -(void)setTittle
 {
     UILabel *titleLable=[UILabel new];
     titleLable.font=[UIFont systemFontOfSize:18];
-    titleLable.text=@"视听";
+    titleLable.text=@"话题";
     titleLable.centerx=self.view.centerx;
     titleLable.size=CGSizeMake(200, 44);
     titleLable.y=20;
@@ -71,6 +71,7 @@
          NSLog(@"%@",self.talkArray);
          [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
+        self.tableView.separatorStyle = UITableViewCellStyleDefault;
     }];
 
 }
@@ -93,7 +94,7 @@
         cell=[[TalkListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
    
-    
+    cell.selectionStyle=UITableViewCellSeparatorStyleNone;
         cell.talkListFrame=self.talkArray[indexPath.row];
    
     [cell setButtonClick:^(TalkListItem *list) {

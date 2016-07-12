@@ -133,29 +133,22 @@
         
         UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
         if (!rightTableVC.tableView.window) {
-            [self.contentScrollView addSubview:rightTableVC.view];
-            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
-            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+
+            [self setLayout:rightTableVC.tableView index:index+1];
         }
     } else if (index == self.childViewControllers.count-1) {
         UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
         if (!leftTableVC.tableView.window) {
-            [self.contentScrollView addSubview:leftTableVC.view];
-            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
-            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+            [self setLayout:leftTableVC.tableView index:index-1];
         }
     } else {
         UITableViewController *rightTableVC = (UITableViewController*)self.childViewControllers[index+1];
         if (!rightTableVC.tableView.window) {
-            [self.contentScrollView addSubview:rightTableVC.view];
-            rightTableVC.view.frame = CGRectMake(kScreenWidth * (index+1), 0, kScreenWidth, kScreenHeight);
-            rightTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+             [self setLayout:rightTableVC.tableView index:index+1];
         }
         UITableViewController *leftTableVC = (UITableViewController*)self.childViewControllers[index-1];
         if (!leftTableVC.tableView.window) {
-            [self.contentScrollView addSubview:leftTableVC.view];
-            leftTableVC.view.frame = CGRectMake(kScreenWidth * (index-1), 0, kScreenWidth, kScreenHeight);
-            leftTableVC.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+             [self setLayout:leftTableVC.tableView index:index-1];
         }
     }
 }
@@ -163,8 +156,8 @@
 -(void)setLayout:(UITableView*)tableView index:(NSInteger)index
 {
  
-    tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-64-35-49+20);
-        tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    tableView.frame=CGRectMake(kScreenWidth*index, 0, kScreenWidth, kScreenHeight-99);
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
     XXLog(@"XXXXXX%@   %@",NSStringFromCGRect(tableView.frame),NSStringFromCGRect(_contentScrollView.frame));
     [self.contentScrollView addSubview:tableView];
 }

@@ -16,7 +16,7 @@
     
     NSInteger isNew;
 }
-
+@property (nonatomic, assign) NSInteger refreshCount;
 @property(nonatomic,strong)TalkDetailView *talkDetailView;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray <AskAndAnswer*>*AskAnswerarray;
@@ -58,8 +58,11 @@
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(bottonRefresh)];
+    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.mj_header.hidden=YES;
+     
+    
     [_talkDetailView.leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
 
 }
@@ -77,7 +80,16 @@
     }];
     
 }
+#pragma mark 上啦操作
+-(void)topRefresh
+{
+     [HttpTool getTalkDetailWithExpertId:_listItem.expertId isNew:isNew pageCount:++self.refreshCount complete:^(NSMutableArray *array) {
+         [self.AskAnswerarray addObjectsFromArray:array];
+         [self.tableView.mj_footer endRefreshing];
+         [self.tableView reloadData];
+     }];
 
+}
 
 #pragma mark 返回按钮
 -(void)leftBtnClick
@@ -106,7 +118,10 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.AskAnswerarray[indexPath.row].cellHeight==0)
+    {
     self.AskAnswerarray[indexPath.row].cellHeight=[TalkDetailCell cellHeightWithItem:self.AskAnswerarray[indexPath.row]];
+    }
     return self.AskAnswerarray[indexPath.row].cellHeight;
 
 }
@@ -133,6 +148,7 @@
     }
 
     _talkDetailView.imageBottonView.alpha = 1 - (scrollView.contentOffset.y+136)/100.0;
+    _talkDetailView.lableTop.alpha=1-(scrollView.contentOffset.y+136)/100.0;
     //标题透明度
     self.talkDetailView.titleLable.alpha=(scrollView.contentOffset.y+136)/100;
     XXLog(@"%f",scrollView.contentOffset.y);
