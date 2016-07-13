@@ -18,18 +18,14 @@
     self=[super initWithFrame:frame];
     if (self) {
        
-      
-        _tableView=[[BKTableView alloc]init];
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"zz1"]];
-        [self.tableView setBackgroundView:view];
-        
-       [self addSubview:_tableView];
+        [self setBackgroundView:view];
+
         
         _headView=[[UIView alloc]init];
-        
-        _headView.frame=CGRectMake(0, 0, frame.size.width, kSizeFrom720(300));
-        [self.tableView setHeadView:_headView];
+        _headView.frame=CGRectMake(0, 0, kScreenWidth, kSizeFrom720(300));
+        self.dataTableView.tableHeaderView=_headView;
         
         _headImage=[[UIImageView alloc]init];
         _headImage.image=[UIImage imageNamed:@"login_QQ_icon_click"];
@@ -63,7 +59,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    _tableView.frame=CGRectMake(0, 0, ViewWidth-50, ViewHeight);
+//    _tableView.frame=CGRectMake(0, 0, ViewWidth-50, ViewHeight);
     [_headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(kSizeFrom720(40));
         make.centerY.equalTo(_headView.centerY).offset(-kSizeFrom720(20));

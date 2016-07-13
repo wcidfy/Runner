@@ -23,7 +23,7 @@
         [_leftButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 
         [_topView addSubview:_leftButton];
-        _tableView=[UITableView new];
+        _tableView=[BKTableView new];
         [self addSubview:_tableView];
     }
    

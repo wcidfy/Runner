@@ -15,7 +15,8 @@
 #import "LoginController.h"
 #import "MainController.h"
 #import "SettingView.h"
-@interface SettingController ()<UITableViewDelegate,UITableViewDataSource>
+#import "SettingAdapter.h"
+@interface SettingController ()<BKTableViewAdapterDelegate>
 {
     UIView *_topView;
     UIButton *_leftButton;
@@ -24,6 +25,7 @@
 }
 @property(nonatomic,strong)NSArray *arrayTable;
 @property(nonatomic,strong)SettingView *settingview;
+@property(nonatomic,strong)SettingAdapter *settingAdapter;
 
 @end
 
@@ -41,13 +43,22 @@
 {
     _settingview=[SettingView new];
     self.view=_settingview;
-    _settingview.tableView.delegate=self;
-    _settingview.tableView.dataSource=self;
+  
+   
+    
+    
 
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-      _settingview.tableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
+    _settingAdapter=[SettingAdapter new];
+    _settingAdapter.delegate=self;
+    [_settingview.tableView setAdapter:_settingAdapter];
+    _settingAdapter.dataArray=(NSMutableArray*)self.arrayTable;
+    
+    
+    
+      _settingview.tableView.dataTableView.mj_header=[EatGifRefresh headerWithRefreshingTarget:self refreshingAction:@selector(loadDate)];
     self.navigationController.navigationBar.hidden=YES;
     [_settingview.leftButton addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [SlideNavigationController sharedInstance].navigationBar.backgroundColor=[UIColor redColor];
@@ -72,50 +83,25 @@
 {
 
     sleep(3);
-    [_settingview.tableView.mj_header endRefreshing];
+    [_settingview.tableView.dataTableView.mj_header endRefreshing];
 }
 
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrayTable.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellId=@"cellId";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    cell.textLabel.textAlignment=NSTextAlignmentCenter;
-    cell.textLabel.text=self.arrayTable[indexPath.row];
-    cell.opaque=NO;
-    cell.textLabel.backgroundColor=[UIColor clearColor];
-    cell.backgroundColor=[UIColor clearColor];
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark 点击方法
+-(void)didTableViewSelected:(NSInteger)index
 {
-    if (indexPath.row==0) {
+    if (index==0) {
         [self.navigationController pushViewController:[OneController new] animated:YES];
-    }else if (indexPath.row==1) {
+    }else if (index==1) {
         BaseWebController *web=[[BaseWebController alloc]init];
-       web.urlString=@"http://www.cocoachina.com/bbs/read.php?tid=5917";
-    
-//        web.rootTitle=@"122";
+        web.urlString=@"http://www.cocoachina.com/bbs/read.php?tid=5917";
+        
+        //        web.rootTitle=@"122";
         [self.navigationController pushViewController:web animated:YES];
     }
 
 
-
 }
-
+-(void)didTableViewCellSelected:(UITableViewCell *)aCellData
+{}
 @end

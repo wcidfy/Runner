@@ -16,7 +16,6 @@
 @interface LeftViewController ()<BKTableViewAdapterDelegate>
 @property(nonatomic,strong)LeftView *leftView;
 @property(nonatomic,strong)LeftAdapter *leftAdapter;
-@property(nonatomic,strong)BKTableView *tableView;
 @property(nonatomic,strong)NSMutableArray *tableArray;
 @end
 
@@ -33,14 +32,14 @@
     [super loadView];
     _leftView=[[LeftView alloc]init];
     self.view=_leftView;
-    self.tableView=_leftView.tableView;
+    
+    
     _leftAdapter=[[LeftAdapter alloc]init];
     _leftAdapter.delegate=self;
-    [self.tableView setAdapter:_leftAdapter];
+    [_leftView setAdapter:_leftAdapter];
     _leftAdapter.dataArray=self.tableArray;
     
     
-    [self.tableView setFootView:[UIView new]];
 
 }
 - (void)viewDidLoad {

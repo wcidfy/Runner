@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface SettingView : UIView
 @property(nonatomic,strong)UIView *topView;
 
 @property(nonatomic,strong)UIButton *leftButton;
 @property(nonatomic,strong)UIButton *rightButton;
-@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)BKTableView *tableView;
 
 @end

@@ -1,16 +1,17 @@
 //
-//  LeftAdapter.m
+//  SettingAdapter.m
 //  Runner
 //
-//  Created by lxx on 16/6/23.
+//  Created by lxx on 16/7/13.
 //  Copyright © 2016年 lxx. All rights reserved.
 //
 
-#import "LeftAdapter.h"
+#import "SettingAdapter.h"
 
-@implementation LeftAdapter
+@implementation SettingAdapter
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -18,14 +19,16 @@
 
     return self.dataArray.count;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(UITableViewCell *)tableView:(UITableView *)tableView  cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell=REUSED_CELL(tableView, UITableViewCell);
+   
     cell.textLabel.text=self.dataArray[indexPath.row];
-    cell.imageView.image=[UIImage imageNamed:@"tabBar_essence_icon"];
-    cell.detailTextLabel.text=@"123";
-   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;//cell的右边有一个小箭头，距离右边有
+     cell.textLabel.textAlignment=NSTextAlignmentRight;
+    cell.opaque=NO;
+    cell.textLabel.backgroundColor=[UIColor clearColor];
     cell.backgroundColor=[UIColor clearColor];
+    
     return cell;
 }
 

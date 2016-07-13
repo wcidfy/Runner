@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftView : UIView
-@property(nonatomic,strong)BKTableView *tableView;
+@interface LeftView : BKTableView
 /**
  *  头部 view
  */

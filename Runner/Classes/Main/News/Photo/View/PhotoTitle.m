@@ -44,7 +44,7 @@
     [super layoutSubviews];
     CGSize detalSize=[self.detaLable.text boundingRectWithSize:CGSizeMake(kScreenWidth-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     self.detaLable.frame=CGRectMake(10, 0, detalSize.width, detalSize.height);
-    self.pageCountL.frame=CGRectMake(kScreenWidth-60, detalSize.height, 60, 10);
+    self.pageCountL.frame=CGRectMake(kScreenWidth-60, detalSize.height, 60, 15);
 }
 +(CGFloat)heightWithPhoto:(NewsPhotoModel *)photoSet
 {
