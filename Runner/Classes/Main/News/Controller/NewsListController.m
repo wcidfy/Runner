@@ -15,6 +15,7 @@
 #import "NewsHeadModel.h"
 #import "NewsPhotoController.h"
 #import "FeHandwriting.h"
+#import "NewsDetailController.h"
 @interface NewsListController ()
 {
     NSString *ss;
@@ -194,6 +195,31 @@
         photoVc.photoUrl=listItem.photosetID;
         photoVc.listItem=listItem;
         [self.navigationController pushViewController:photoVc animated:YES];
+    }else
+    {
+        NewsDetailController *detailVc=[[NewsDetailController alloc]init];
+        
+        detailVc.listItem=listItem;
+                 [HttpTool getNewsdetailWithDocid:listItem.docid complete:^(NewsDetailModel *detailList) {
+                
+                [HttpTool getHotReplyWithDetailItem:detailList complete:^(NSArray *array) {
+                    if (array) {
+                        detailList.replys=array;
+                    }
+                    detailVc.detailItem=detailList;
+                     [self.navigationController pushViewController:detailVc animated:YES];
+                }];
+                
+            }];
+        
+        
+        
+            
+       
+        
+       
+       
+
     }
     
 

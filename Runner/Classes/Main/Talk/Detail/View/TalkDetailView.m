@@ -20,7 +20,7 @@
         
         _leftBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         _leftBtn.frame=CGRectMake(10, 10, 20, 20);
-        [_leftBtn setImage:[UIImage imageNamed:@"weather_back"] forState:UIControlStateNormal];
+        [_leftBtn setImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
         [_topView addSubview:_leftBtn];
         
         _titleLable=[UILabel new];
@@ -32,6 +32,11 @@
         _rightBtn.frame=CGRectMake(kScreenWidth-30, 10, 20, 20);
         [_rightBtn setImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
         [_topView addSubview:_rightBtn];
+        
+        _line =[UIView new];
+        _line.frame=CGRectMake(0, 43, kScreenWidth, 1);
+        _line.backgroundColor=[UIColor lightGrayColor];
+        [_topView addSubview:_line];
         
         _headBgV=[UIImageView new];
         _headBgV.frame=CGRectMake(0, 0, kScreenWidth, 200);

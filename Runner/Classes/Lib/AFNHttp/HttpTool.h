@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NewsDetailModel.h"
 @interface HttpTool : NSObject
 
 //获取新闻列表/
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete;
 //获取图集列表/
 +(void)getNewsDetailWithPhotoid:(NSString *)photoid complete:(void(^)(id))complete;
+
+// 获取新闻详情列表
++(void)getNewsdetailWithDocid:(NSString *)docid complete:(void(^)(id))complete;
+//获取最热评论
++(void)getHotReplyWithDetailItem:(NewsDetailModel *)detailList complete:(void(^)(id))complete;
 //获取视听列表标题栏/
 +(void)getAllAVVideoController:(void(^)(NSArray *))complete;
 //获取标题栏上title对应数据

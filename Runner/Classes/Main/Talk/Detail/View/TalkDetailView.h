@@ -16,7 +16,7 @@
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)UILabel *titleLable;
-
+@property(nonatomic,strong)UIView *line;
 @property(nonatomic,strong)UIImageView *headBgV;
 
 @property(nonatomic,strong)UITableView *tableView;

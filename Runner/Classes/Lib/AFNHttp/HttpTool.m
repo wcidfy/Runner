@@ -15,12 +15,13 @@
 #import "AVVideoList.h"
 #import "TalkListItem.h"
 #import "AskAndAnswer.h"
-
+#import "NewsDetailModel.h"
+#import "NewsHotReplyItems.h"
 @implementation HttpTool
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete
 {
-    NSInteger loc = [pgmid rangeOfString:@"/"].location+1;
-    NSString *newPgmid = [NSString stringWithFormat:@"%@FNNewsListItem", [pgmid substringFromIndex:loc]];
+//    NSInteger loc = [pgmid rangeOfString:@"/"].location+1;
+//    NSString *newPgmid = [NSString stringWithFormat:@"%@FNNewsListItem", [pgmid substringFromIndex:loc]];
     
 
     
@@ -63,7 +64,48 @@
         
     }];
 }
++(void)getNewsdetailWithDocid:(NSString *)docid complete:(void(^)(id))complete
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",docid];
 
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NewsDetailModel *detailitem=[NewsDetailModel mj_objectWithKeyValues:responseObject[docid]];
+        complete(detailitem);
+        //获取最热评论
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        XXLog(@"%@",error);
+    }];
+
+
+}
+
++(void)getHotReplyWithDetailItem:(NewsDetailModel *)detailList complete:(void(^)(id))complete
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",detailList.replyBoard,detailList.docid];
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+       
+        NSMutableArray *hotArray=[[NSMutableArray alloc]init];
+        //通过block两次遍历列表拿到数组 转换模型数组
+        [responseObject[@"hotPosts"]enumerateObjectsUsingBlock:^(id  _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSMutableArray *itemArray=[[NSMutableArray alloc]init];
+            [obj1 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj2, BOOL * _Nonnull stop) {
+                if([key isEqualToString:@"NON"])
+                {
+                [itemArray addObject:[NewsHotReplyItems mj_objectWithKeyValues:obj2]];
+                }
+            
+            }];
+            [hotArray addObject:itemArray];
+             }];
+        complete(hotArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 +(void)getAllAVVideoController:(void (^)(NSArray *))complete
 {
     [XXNetWorking GET:@"http://c.m.163.com/nc/video/topiclist.html" parameters:nil progress:^(NSProgress *progress) {
@@ -75,6 +117,7 @@
     }];
 
 }
+
 +(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete
 {
     NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount];
