@@ -29,6 +29,7 @@
     CGSize souceSize=[detailList.source sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}];
     _souceF=(CGRect){souceX,souceY,souceSize};
     
+    
 // 文字内容 加图片内容
     XXLog(@"______________________________%@",detailList.img[0][@"pixel"]);
 //    for(int i=0;i<detailList.img.count;i++)
