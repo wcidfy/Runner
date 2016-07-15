@@ -89,7 +89,7 @@
 
     self.tableView.dataTableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     [ self.tableView.dataTableView.mj_header beginRefreshing];
-    
+//    [self.view addSubview:self.bgImageV];
     [self.view addSubview:self.handWriting];
 }
 #pragma mark 设置标题

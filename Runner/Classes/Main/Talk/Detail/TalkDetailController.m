@@ -61,10 +61,11 @@
     self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.mj_header.hidden=YES;
-     
+    self.tableView.tableFooterView=[UIView new];
     
     [_talkDetailView.leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
+    
+    
 }
 #pragma mark 下拉
 -(void)bottonRefresh
@@ -134,13 +135,11 @@
         if(scrollView.contentOffset.y>0)return;
         
         _talkDetailView.headBgV.frame=CGRectMake(0,-64+(scrollView.contentOffset.y+136)/136*64, kScreenWidth, 200);
-        self.tableView.mj_header.hidden=YES;
-       
+     
     }
     else if (scrollView.contentOffset.y<-136)
     {
         _talkDetailView.headBgV.frame=CGRectMake(0, 0, kScreenWidth, 200);
-       
     }
     else if(scrollView.contentOffset.y==-136)
     {
@@ -152,6 +151,9 @@
     //标题透明度
     self.talkDetailView.titleLable.alpha=(scrollView.contentOffset.y+136)/100;
     XXLog(@"%f",scrollView.contentOffset.y);
+    
+    
+   
     
 }
 @end
