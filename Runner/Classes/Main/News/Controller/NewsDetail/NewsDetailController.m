@@ -25,7 +25,9 @@
 {
     [super loadView];
   
-    _detailView=[NewsDetailView new];
+    _detailView=[[NewsDetailView alloc]init];
+//    _detailView.frame=CGRectMake(0, 0, kScreenWidth, kScreenHeight-64-49);
+//    _detailView.contentSize=CGSizeMake(kScreenWidth, 1000);
     _detailView.detailItem=self.detailItem;
 
     self.view=_detailView;
@@ -38,6 +40,11 @@
     XXLog(@"%@  %@",self.detailItem,self.listItem);
     self.view.backgroundColor=[UIColor whiteColor];
     [self setTopView];
+//    _detailView=[[NewsDetailView alloc]init];
+//    _detailView.frame=CGRectMake(0, 64, kScreenWidth, kScreenHeight-64);
+//    _detailView.contentSize=CGSizeMake(kScreenWidth, 10000);
+//    _detailView.detailItem=self.detailItem;
+//    [self.view addSubview:_detailView];
 }
 #pragma mark 自定义顶部view
 -(void)setTopView
@@ -72,5 +79,9 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 
+}
+-(void)viewDidLayoutSubviews
+{
+    _detailView.scrollView.contentSize=CGSizeMake(kScreenWidth, _detailView.viewHeight);
 }
 @end

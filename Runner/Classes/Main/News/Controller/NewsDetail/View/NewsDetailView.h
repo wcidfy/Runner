@@ -11,6 +11,9 @@
 /**
  *  创建可滚动的cel点击之后详情界面view
  */
-@interface NewsDetailView : UIScrollView
+@interface NewsDetailView : UIView
 @property(nonatomic,strong)NewsDetailModel *detailItem;
+@property(nonatomic,strong)UIScrollView *scrollView;
+@property(nonatomic,assign)CGFloat viewHeight;
+
 @end

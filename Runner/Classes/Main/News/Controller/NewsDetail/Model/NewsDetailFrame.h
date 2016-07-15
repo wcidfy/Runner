@@ -33,5 +33,6 @@
 @property (nonatomic, assign) CGRect replyF;
 // 相关
 @property (nonatomic, assign) CGRect relativeF;
-
+// 总高度
+@property (nonatomic, assign) CGFloat totalHeight;
 @end
