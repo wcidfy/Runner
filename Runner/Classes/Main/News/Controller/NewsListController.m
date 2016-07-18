@@ -81,18 +81,9 @@
     [self.tableView.mj_header beginRefreshing];
         [self.tableView setRowHeight:100];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(networkStat:)
-                                                 name:@"networkState"
-                                               object:nil];
+  
 }
--(void)networkStat:(NSNotification *)notification
-{
-    
-   ss= [notification object];
-    XXLog(@"___%@",ss);
 
-}
 #pragma mark 设置头部view
 -(void)setHeadView
 {
@@ -198,7 +189,8 @@
     }else
     {
         NewsDetailController *detailVc=[[NewsDetailController alloc]init];
-        
+        [self.navigationController pushViewController:detailVc animated:YES];
+
         detailVc.listItem=listItem;
                  [HttpTool getNewsdetailWithDocid:listItem.docid complete:^(NewsDetailModel *detailList) {
                 
@@ -207,7 +199,6 @@
                         detailList.replys=array;
                     }
                     detailVc.detailItem=detailList;
-                     [self.navigationController pushViewController:detailVc animated:YES];
                 }];
                 
             }];

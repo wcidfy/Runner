@@ -9,7 +9,7 @@
 #import "NewsDetailFrame.h"
 #define DetailLeftX 10
 #define DetailTopY 15
-#define TopBarH 64
+#define TopBarH 0
 @implementation NewsDetailFrame
 -(NSMutableArray *)pictureFs
 {
@@ -80,6 +80,6 @@
     CGSize contentsize=[detailList.body boundingRectWithSize:CGSizeMake(kScreenWidth-DetailLeftX*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     _contentF=(CGRect){contentX,contentY,contentsize};
     
-    _totalHeight=contentY+contentsize.height+souceY+souceSize.height;
+    _totalHeight=contentY+contentsize.height+souceY+souceSize.height+titleSize.height;
 }
 @end

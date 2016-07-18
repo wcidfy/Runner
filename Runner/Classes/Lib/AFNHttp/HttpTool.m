@@ -53,6 +53,8 @@
 
 +(void)getNewsDetailWithPhotoid:(NSString *)photoid complete:(void(^)(id))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     NSArray *param=[[photoid substringFromIndex:4]componentsSeparatedByString:@"|"];
      NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@/%@.json",param.firstObject,param.lastObject];
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
@@ -66,6 +68,8 @@
 }
 +(void)getNewsdetailWithDocid:(NSString *)docid complete:(void(^)(id))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",docid];
 
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
@@ -84,6 +88,8 @@
 
 +(void)getHotReplyWithDetailItem:(NewsDetailModel *)detailList complete:(void(^)(id))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     NSString *urlStr = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",detailList.replyBoard,detailList.docid];
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
     } success:^(id responseObject, NSURLSessionDataTask *task) {
@@ -120,6 +126,8 @@
 
 +(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount];
     [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
         
@@ -134,6 +142,8 @@
 
 +(void)getTalkListWithPageCount:(NSInteger)pageCount complete:(void(^)(id))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
     NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/expert/%ld0-10.html",pageCount+1];
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
         
@@ -159,6 +169,8 @@
 
 +(void)getTalkNewTalkDetailwithExpertId:(NSString *)expertId pageCount:(NSInteger)pageCount complete:(void(^)(NSMutableArray *))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
      NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/latestqa/%@/%ld0-10.html",expertId,(long)pageCount+1];
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
         
@@ -182,6 +194,8 @@
 }
 +(void)getTalkHotTalkDetailwithExpertId:(NSString *)expertId pageCount:(NSInteger)pageCount complete:(void(^)(NSMutableArray *))complete
 {
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr startMonitoring];
      NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/newstopic/list/latestqa/%@/%ld0-10.html",expertId,(long)pageCount];
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
         

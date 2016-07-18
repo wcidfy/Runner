@@ -38,19 +38,16 @@
     {
     self.window.rootViewController=[LoginController new];
     }
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkMonitor:) name:@"networkMonitor" object:nil];
     
     
     [self networkMonitor];
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"networkState" object:self userInfo:@{@"networkMonitor":networkStr}];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"networkState" object:networkStr];
     return YES;
 }
 -(void)networkMonitor
 {
    
-   __weak typeof(self) weakSelf = self;
+//   __weak typeof(self) weakSelf = self;
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     // 2.设置网络状态改变后的处理
     [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -58,21 +55,25 @@
         switch (status) {
             case AFNetworkReachabilityStatusUnknown: // 未知网络
                 NSLog(@"未知网络");
+                [MBProgressHUD showError:@"未知网络"];
                 networkStr=@"未知网络";
                 break;
                 
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
                 NSLog(@"没有网络(断网)");
+                [MBProgressHUD showError:@"没有网络(断网)"];
                  networkStr=@"没有网络(断网)";
                 break;
                 
             case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
                 NSLog(@"手机自带网络");
+                 [MBProgressHUD showError:@"手机自带网络"];
                  networkStr=@"手机自带网络";
                 break;
                 
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 NSLog(@"WIFI");
+                [MBProgressHUD showError:@"WIFI"];
                  networkStr=@"WIFI";
                 break;
         }

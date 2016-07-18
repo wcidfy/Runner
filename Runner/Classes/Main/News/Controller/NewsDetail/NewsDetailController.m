@@ -21,18 +21,6 @@
 @property(nonatomic,strong)NewsDetailView *detailView;
 @end
 @implementation NewsDetailController
--(void)loadView
-{
-    [super loadView];
-  
-    _detailView=[[NewsDetailView alloc]init];
-//    _detailView.frame=CGRectMake(0, 0, kScreenWidth, kScreenHeight-64-49);
-//    _detailView.contentSize=CGSizeMake(kScreenWidth, 1000);
-    _detailView.detailItem=self.detailItem;
-
-    self.view=_detailView;
-
-}
 
 -(void)viewDidLoad
 {
@@ -40,11 +28,25 @@
     XXLog(@"%@  %@",self.detailItem,self.listItem);
     self.view.backgroundColor=[UIColor whiteColor];
     [self setTopView];
-//    _detailView=[[NewsDetailView alloc]init];
-//    _detailView.frame=CGRectMake(0, 64, kScreenWidth, kScreenHeight-64);
-//    _detailView.contentSize=CGSizeMake(kScreenWidth, 10000);
-//    _detailView.detailItem=self.detailItem;
-//    [self.view addSubview:_detailView];
+
+}
+-(void)setDetailItem:(NewsDetailModel *)detailItem
+{
+    if(detailItem==nil)
+    {
+        return;
+    }
+//    数据返回之后赋值
+    _detailItem=detailItem;
+//    加载数据视图
+    _detailView=[[NewsDetailView alloc]init];
+    _detailView.frame=CGRectMake(0, 64, kScreenWidth, kScreenHeight-64);
+    _detailView.detailItem=_detailItem;
+    [self.view addSubview:_detailView];
+    
+//设置标题
+    _titleLable.text=_detailItem.title;
+
 }
 #pragma mark 自定义顶部view
 -(void)setTopView
