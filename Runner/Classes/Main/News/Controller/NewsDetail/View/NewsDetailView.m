@@ -10,6 +10,7 @@
 #import "NewsDetailFrame.h"
 #import "NewsDetailItem.h"
 #import "HotsView.h"
+#import "RelatedNewsView.h"
 @interface NewsDetailView()
 //标题 时间 来源
 @property(nonatomic,strong)UILabel *titleLable;
@@ -24,6 +25,7 @@
 @property(nonatomic,strong)UILabel *ecL;
 //评论
 @property(nonatomic,strong)HotsView *hotsView;
+@property(nonatomic,strong)RelatedNewsView *relatedView;
 @end
 @implementation NewsDetailView
 -(NSMutableArray<UIImageView *>*)imgVs
@@ -112,6 +114,13 @@
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchClick)];
     [_hotsView addGestureRecognizer:tap];
     [_scrollView addSubview:_hotsView];
+    
+    _relatedView=[RelatedNewsView new];
+    _relatedView.layer.borderWidth=1;
+    _relatedView.layer.borderColor=[UIColor grayColor].CGColor;
+    UITapGestureRecognizer *tap1=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(relatedClick)];
+    [_relatedView addGestureRecognizer:tap1];
+    [_scrollView addSubview:_relatedView];
 }
 
 -(void)setDetailItem:(NewsDetailModel *)detailItem
@@ -142,9 +151,14 @@ XXLog(@"2");
         self.hotsView.hotArray=_detailItem.replys;
    
    
-//    if (_detailItem.relative_sys.count!=0) {
-//       
-//    }
+    if (_detailItem.relative_sys.count!=0) {
+        self.relatedView.detailList=_detailItem;
+
+    }else
+    {
+        self.relatedView.hidden=YES;
+    }
+    
 }
 #pragma mark 图片通过NSMutableArray 循环添加图片 并赋值
 -(void)setPics
@@ -181,6 +195,7 @@ XXLog(@"2");
     
     _shareView.frame=detailF.shareF;
     _hotsView.frame=detailF.replyF;
+    _relatedView.frame=detailF.relativeF;
     _viewHeight=detailF.totalHeight;
 }
 #pragma mark 图片 和图片描述布局
@@ -206,5 +221,11 @@ XXLog(@"2");
         self.hotBlock();
     }
 
+}
+-(void)relatedClick
+{
+    if (self.relatedBlock) {
+        self.relatedBlock(_detailItem.relative_sys[0][@"id"]);
+    }
 }
 @end

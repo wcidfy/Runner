@@ -23,4 +23,5 @@
 @property(nonatomic,strong)ShareBut *qqButton;
 
 @property(nonatomic,strong)void(^hotBlock)();
+@property(nonatomic,strong)void(^relatedBlock)(NSString *);
 @end

@@ -8,6 +8,7 @@
 
 #import "NewsDetailFrame.h"
 #import "HotsView.h"
+#import "RelatedNewsView.h"
 #define DetailLeftX 10
 #define DetailTopY 15
 #define TopBarH 0
@@ -101,7 +102,14 @@
     }
     _replyF=(CGRect){replyX,replyY,replyW,replyH};
     
-    
-    _totalHeight=+replyH+DetailTopY*3+shareH+ecSize.height+contentsize.height+_totalPicH+souceSize.height+titleSize.height+64;
+    CGFloat relatedX=DetailLeftX;
+    CGFloat relatedY=replyY+replyH+DetailTopY;
+    CGFloat relatedW=kScreenWidth-DetailLeftX*2;
+    CGFloat relatedH=0;
+    if (_detailList.relative_sys.count!=0) {
+        relatedH=[RelatedNewsView heightWithDetailItem:_detailList];
+    }
+    _relativeF=(CGRect){relatedX,relatedY,relatedW,relatedH};
+    _totalHeight=relatedH +replyH+DetailTopY*4+shareH+ecSize.height+contentsize.height+_totalPicH+souceSize.height+titleSize.height+64;
 }
 @end

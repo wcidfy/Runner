@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  热门评论总View
+ */
 @interface HotsView : UIView
 @property(nonatomic,strong)NSArray *hotArray;
 @property(nonatomic,assign)CGFloat hotsHeight;

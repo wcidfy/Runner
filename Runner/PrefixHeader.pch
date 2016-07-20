@@ -48,7 +48,7 @@
 #import "MBProgressHUD+HM.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
-
+#import "MJExtension.h"
 #endif /* PrefixHeader_pch */
 
 

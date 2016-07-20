@@ -49,6 +49,10 @@
     {
         [weakSelf HotTouchClick];
     };
+    self.detailView.relatedBlock=^(NSString *docid)
+    {
+        [weakSelf relatedWithDocid:docid];
+    };
     
 //设置标题
     _titleLable.text=_detailItem.title;
@@ -96,6 +100,22 @@
     comment.boardid=_detailItem.replyBoard;
     [self.navigationController pushViewController:comment animated:YES];
     
+}
+-(void)relatedWithDocid:(NSString *)docid
+{
+    NewsDetailController *detail=[NewsDetailController new];
+    [self.navigationController pushViewController:detail animated:YES];
+    [HttpTool getNewsdetailWithDocid:docid complete:^(NewsDetailModel *detailList) {
+        
+        [HttpTool getHotReplyWithDetailItem:detailList complete:^(NSArray *array) {
+            if (array) {
+                detailList.replys=array;
+            }
+            detail.detailItem=detailList;
+        }];
+        
+    }];
+
 }
 -(void)viewDidLayoutSubviews
 {
