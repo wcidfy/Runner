@@ -26,7 +26,7 @@ PODS:
   - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
-  - AFNetworking (= 3.1.0)
+  - AFNetworking
   - iOS-Slide-Menu (= 1.5)
   - JGProgressHUD (= 1.3.3)
   - Masonry (= 1.0.1)
@@ -34,7 +34,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh (= 3.1.9)
   - RegexKitLite (= 4.0)
-  - SDWebImage
+  - SDWebImage (= 3.8.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -47,6 +47,6 @@ SPEC CHECKSUMS:
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 219c22bbbaae5e0ff356a661a482dcc330b68b18
+PODFILE CHECKSUM: 3ebb6904f7860b57d9ce0f5e63838d6666811d18
 
 COCOAPODS: 1.0.0.beta.4

@@ -22,6 +22,7 @@
         [self addSubview:_iconV];
         
         _titleL=[UILabel new];
+        _titleL.font=[UIFont systemFontOfSize:10];
         _titleL.textAlignment=NSTextAlignmentCenter;
         [self addSubview:_titleL];
     }
