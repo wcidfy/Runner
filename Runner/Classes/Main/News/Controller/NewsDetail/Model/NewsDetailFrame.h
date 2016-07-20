@@ -27,7 +27,7 @@
 
 // 分享
 @property (nonatomic, assign) CGRect shareF;
-// 评论
+// 编辑
 @property (nonatomic, assign) CGRect ecF;
 // 评论
 @property (nonatomic, assign) CGRect replyF;

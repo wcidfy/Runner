@@ -19,7 +19,6 @@
         _dataTableView = [UITableView new];
 //        _dataTableView.backgroundColor = [UIColor whiteColor];
       
-        self.header=_dataTableView.mj_header;
         [self addSubview:_dataTableView];
         [_dataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

@@ -18,7 +18,6 @@
 @interface BKTableView : UIView
 
 @property (nonatomic, strong, readonly) UITableView *dataTableView;
-@property (nonatomic, strong) MJRefreshHeader *header;
 
 - (void)setAdapter:(BKTableViewAdapter *)tableViewAdapter;
 /**

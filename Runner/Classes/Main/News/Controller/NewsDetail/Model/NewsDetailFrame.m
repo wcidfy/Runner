@@ -7,6 +7,7 @@
 //
 
 #import "NewsDetailFrame.h"
+#import "HotsView.h"
 #define DetailLeftX 10
 #define DetailTopY 15
 #define TopBarH 0
@@ -80,6 +81,27 @@
     CGSize contentsize=[detailList.body boundingRectWithSize:CGSizeMake(kScreenWidth-DetailLeftX*2, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     _contentF=(CGRect){contentX,contentY,contentsize};
     
-    _totalHeight=contentY+contentsize.height+souceY+souceSize.height+titleSize.height;
+    CGSize ecSize=[detailList.ec sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}];
+    CGFloat ecX=kScreenWidth-ecSize.width-DetailLeftX;
+    CGFloat ecY=contentY+contentsize.height;
+    _ecF=(CGRect){ecX,ecY,ecSize};
+    
+    CGFloat shareX=0;
+    CGFloat shareY=ecY+ecSize.height+DetailTopY;
+    CGFloat shareW=kScreenWidth;
+    CGFloat shareH=80;
+    _shareF=(CGRect){shareX,shareY,shareW,shareH};
+    
+    CGFloat replyX=DetailLeftX;
+    CGFloat replyY=shareY+shareH+DetailTopY;
+    CGFloat replyW=kScreenWidth-2*DetailLeftX;
+    CGFloat replyH=0;
+    if (_detailList.replys.count!=0) {
+        replyH=[HotsView HeightWithHotsArray:_detailList.replys];
+    }
+    _replyF=(CGRect){replyX,replyY,replyW,replyH};
+    
+    
+    _totalHeight=+replyH+DetailTopY*3+shareH+ecSize.height+contentsize.height+_totalPicH+souceSize.height+titleSize.height+64;
 }
 @end

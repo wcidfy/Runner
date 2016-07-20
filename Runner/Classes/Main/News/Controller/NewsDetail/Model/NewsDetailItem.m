@@ -48,6 +48,7 @@
 
         }
     }
+    item.ec=[item.ec stringByReplacingOccurrencesOfString:item.ec withString:[NSString stringWithFormat:@"责任编辑：%@",item.ec]];
     return item;
 }
 

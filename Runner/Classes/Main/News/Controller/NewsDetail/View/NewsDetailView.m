@@ -9,6 +9,7 @@
 #import "NewsDetailView.h"
 #import "NewsDetailFrame.h"
 #import "NewsDetailItem.h"
+#import "HotsView.h"
 @interface NewsDetailView()
 //标题 时间 来源
 @property(nonatomic,strong)UILabel *titleLable;
@@ -19,7 +20,10 @@
 @property(nonatomic,strong)NSMutableArray <UILabel *>*altLs;
 @property(nonatomic,strong)NSMutableArray <NSValue *>*attrRanges;
 @property(nonatomic,strong)UILabel *contentL;
-
+//责任编辑
+@property(nonatomic,strong)UILabel *ecL;
+//评论
+@property(nonatomic,strong)HotsView *hotsView;
 @end
 @implementation NewsDetailView
 -(NSMutableArray<UIImageView *>*)imgVs
@@ -39,6 +43,7 @@
     }
     return self;
 }
+#pragma mark 添加子控件
 -(void)setAllView
 {
     _scrollView=[UIScrollView new];
@@ -70,6 +75,43 @@
     _contentL.numberOfLines=0;
     [_scrollView addSubview:_contentL];
     
+    _ecL=[UILabel new];
+    _ecL.font=[UIFont systemFontOfSize:15];
+    _ecL.textColor=[UIColor blackColor];
+    [_scrollView addSubview:_ecL];
+    
+    _shareView=[UIView new];
+    [_scrollView addSubview:_shareView];
+    
+    _sinaButton=[ShareBut buttonWithType:UIButtonTypeCustom];
+    [_sinaButton setImage:[UIImage imageNamed:@"share_platform_sina"] forState:UIControlStateNormal];
+    [_sinaButton setTitle:@"新浪" forState:UIControlStateNormal];
+    [_sinaButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    _sinaButton.frame=CGRectMake(0, 0, kScreenWidth/3, 80);
+    [_shareView addSubview:_sinaButton];
+    
+    _wxButton=[ShareBut buttonWithType:UIButtonTypeCustom];
+    [_wxButton setImage:[UIImage imageNamed:@"share_platform_wechattimeline"] forState:UIControlStateNormal];
+    [_wxButton setTitle:@"微信" forState:UIControlStateNormal];
+    [_wxButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    _wxButton.frame=CGRectMake(kScreenWidth/3, 0, kScreenWidth/3, 80);
+    [_shareView addSubview:_wxButton];
+    
+    _qqButton=[ShareBut buttonWithType:UIButtonTypeCustom];
+    [_qqButton setImage:[UIImage imageNamed:@"share_platform_qzone"] forState:UIControlStateNormal];
+    [_qqButton setTitle:@"扣扣" forState:UIControlStateNormal];
+    [_qqButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _qqButton.frame=CGRectMake(kScreenWidth/3*2, 0, kScreenWidth/3, 80);
+    [_shareView addSubview:_qqButton];
+    
+    _hotsView=[HotsView new];
+    _hotsView.layer.borderWidth=1;
+    _hotsView.layer.borderColor=[UIColor grayColor].CGColor;
+    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchClick)];
+    [_hotsView addGestureRecognizer:tap];
+    [_scrollView addSubview:_hotsView];
 }
 
 -(void)setDetailItem:(NewsDetailModel *)detailItem
@@ -91,12 +133,18 @@ XXLog(@"2");
     _souceLable.text=_detailItem.source;
     [self setPics];
      NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:_detailItem.body];
-//    for (int i=0; i<self.attrRanges.count; i++) {
-//        [attr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:[self.attrRanges[i] rangeValue]];
-//        [attr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:[self.attrRanges[i] rangeValue]];
-//    }
+
     _contentL.attributedText=attr;
+    _ecL.text=_detailItem.ec;
     XXLog(@"______________________%@",attr);
+    
+    
+        self.hotsView.hotArray=_detailItem.replys;
+   
+   
+//    if (_detailItem.relative_sys.count!=0) {
+//       
+//    }
 }
 #pragma mark 图片通过NSMutableArray 循环添加图片 并赋值
 -(void)setPics
@@ -113,6 +161,8 @@ XXLog(@"2");
         altL.numberOfLines=0;
         [self.altLs addObject:altL];
         [_scrollView addSubview:altL];
+        
+       
     }
 
 }
@@ -127,7 +177,10 @@ XXLog(@"2");
     _souceLable.frame=detailF.souceF;
     [self setpicFrame:detailF];
     _contentL.frame=detailF.contentF;
+    _ecL.frame=detailF.ecF;
     
+    _shareView.frame=detailF.shareF;
+    _hotsView.frame=detailF.replyF;
     _viewHeight=detailF.totalHeight;
 }
 #pragma mark 图片 和图片描述布局
@@ -147,5 +200,11 @@ XXLog(@"2");
     
     
 }
+-(void)touchClick
+{
+    if (self.hotBlock) {
+        self.hotBlock();
+    }
 
+}
 @end

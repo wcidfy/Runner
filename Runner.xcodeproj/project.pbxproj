@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52140D21D3CBE830069F80F /* ShareBut.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140D11D3CBE830069F80F /* ShareBut.m */; };
+		B52140D51D3CCA3D0069F80F /* HotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140D41D3CCA3D0069F80F /* HotView.m */; };
+		B52140DB1D3CDA890069F80F /* HotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140DA1D3CDA890069F80F /* HotsView.m */; };
+		B52140DF1D3DD0120069F80F /* CommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140DE1D3DD0120069F80F /* CommentController.m */; };
+		B52140E31D3DD39A0069F80F /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140E21D3DD39A0069F80F /* CommentView.m */; };
+		B52140E61D3DD5610069F80F /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140E51D3DD5610069F80F /* CommentCell.m */; };
+		B52140E91D3DDC610069F80F /* CommentAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B52140E81D3DDC610069F80F /* CommentAdapter.m */; };
 		B531A3E11D1A6C21005E5A9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3E01D1A6C21005E5A9F /* main.m */; };
 		B531A3EC1D1A6C21005E5A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B531A3EB1D1A6C21005E5A9F /* Assets.xcassets */; };
 		B531A3FA1D1A6C22005E5A9F /* RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3F91D1A6C22005E5A9F /* RunnerTests.m */; };
@@ -112,6 +119,20 @@
 
 /* Begin PBXFileReference section */
 		28FABEBDBDE854AE32998544 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52140D01D3CBE830069F80F /* ShareBut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareBut.h; sourceTree = "<group>"; };
+		B52140D11D3CBE830069F80F /* ShareBut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareBut.m; sourceTree = "<group>"; };
+		B52140D31D3CCA3D0069F80F /* HotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotView.h; sourceTree = "<group>"; };
+		B52140D41D3CCA3D0069F80F /* HotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotView.m; sourceTree = "<group>"; };
+		B52140D91D3CDA890069F80F /* HotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotsView.h; sourceTree = "<group>"; };
+		B52140DA1D3CDA890069F80F /* HotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotsView.m; sourceTree = "<group>"; };
+		B52140DD1D3DD0120069F80F /* CommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentController.h; sourceTree = "<group>"; };
+		B52140DE1D3DD0120069F80F /* CommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentController.m; sourceTree = "<group>"; };
+		B52140E11D3DD39A0069F80F /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		B52140E21D3DD39A0069F80F /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		B52140E41D3DD5610069F80F /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		B52140E51D3DD5610069F80F /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		B52140E71D3DDC610069F80F /* CommentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentAdapter.h; sourceTree = "<group>"; };
+		B52140E81D3DDC610069F80F /* CommentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentAdapter.m; sourceTree = "<group>"; };
 		B531A3DC1D1A6C21005E5A9F /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B531A3E01D1A6C21005E5A9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B531A3EB1D1A6C21005E5A9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -314,6 +335,30 @@
 				CB6C538040033D745330C8C3 /* Pods-Runner.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B52140DC1D3DCFD20069F80F /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				B52140DD1D3DD0120069F80F /* CommentController.h */,
+				B52140DE1D3DD0120069F80F /* CommentController.m */,
+				B52140E01D3DD0410069F80F /* View */,
+			);
+			name = Comment;
+			path = ../Comment;
+			sourceTree = "<group>";
+		};
+		B52140E01D3DD0410069F80F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B52140E11D3DD39A0069F80F /* CommentView.h */,
+				B52140E21D3DD39A0069F80F /* CommentView.m */,
+				B52140E41D3DD5610069F80F /* CommentCell.h */,
+				B52140E51D3DD5610069F80F /* CommentCell.m */,
+				B52140E71D3DDC610069F80F /* CommentAdapter.h */,
+				B52140E81D3DDC610069F80F /* CommentAdapter.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B531A3D31D1A6C21005E5A9F = {
@@ -554,6 +599,7 @@
 				B5A0355D1D2DF3CE002DA9A9 /* View */,
 				B5A0354E1D2DF3CE002DA9A9 /* Model */,
 				B5ADC4081D389CB700522BA0 /* NewsDetail */,
+				B52140DC1D3DCFD20069F80F /* Comment */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -799,6 +845,12 @@
 			children = (
 				B5ADC4201D38B4C700522BA0 /* NewsDetailView.h */,
 				B5ADC4211D38B4C700522BA0 /* NewsDetailView.m */,
+				B52140D01D3CBE830069F80F /* ShareBut.h */,
+				B52140D11D3CBE830069F80F /* ShareBut.m */,
+				B52140D31D3CCA3D0069F80F /* HotView.h */,
+				B52140D41D3CCA3D0069F80F /* HotView.m */,
+				B52140D91D3CDA890069F80F /* HotsView.h */,
+				B52140DA1D3CDA890069F80F /* HotsView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1014,6 +1066,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5ADC4121D389D6D00522BA0 /* NewsPhotoModel.m in Sources */,
+				B52140E91D3DDC610069F80F /* CommentAdapter.m in Sources */,
 				B5A035981D2DF436002DA9A9 /* LoginController.m in Sources */,
 				B5A0359D1D2DF436002DA9A9 /* LeftViewController.m in Sources */,
 				B5ADC4191D389E1900522BA0 /* NewsDetailController.m in Sources */,
@@ -1023,7 +1076,9 @@
 				B5DD0FA71D30DA3300328FB4 /* ShareButton.m in Sources */,
 				B5A035D41D2DF526002DA9A9 /* BKTableView.m in Sources */,
 				B56245F81D3266D00058D355 /* TalkController.m in Sources */,
+				B52140DB1D3CDA890069F80F /* HotsView.m in Sources */,
 				B5A035B11D2DF456002DA9A9 /* ChooseWindow.m in Sources */,
+				B52140D51D3CCA3D0069F80F /* HotView.m in Sources */,
 				B5A0356A1D2DF3CE002DA9A9 /* NewsListController.m in Sources */,
 				B531A4471D1ABB02005E5A9F /* circularButton.m in Sources */,
 				B5A035DC1D2DF526002DA9A9 /* MBProgressHUD+HM.m in Sources */,
@@ -1035,6 +1090,7 @@
 				B560A5C41D34946C00A14DA0 /* FeHandwriting.m in Sources */,
 				B560A5AE1D328D6C00A14DA0 /* TalkListFrame.m in Sources */,
 				B5ADC4131D389D6D00522BA0 /* NewsPhotoController.m in Sources */,
+				B52140DF1D3DD0120069F80F /* CommentController.m in Sources */,
 				B5A035A81D2DF436002DA9A9 /* User.m in Sources */,
 				B5A035A31D2DF436002DA9A9 /* OneController.m in Sources */,
 				B5A035A51D2DF436002DA9A9 /* SettingView.m in Sources */,
@@ -1044,6 +1100,7 @@
 				B5ADC3F61D35C68300522BA0 /* TalkView.m in Sources */,
 				B5A035711D2DF3CE002DA9A9 /* GetNewsListCell.m in Sources */,
 				B5A035721D2DF3CE002DA9A9 /* Messagecell.m in Sources */,
+				B52140D21D3CBE830069F80F /* ShareBut.m in Sources */,
 				B5A035D51D2DF526002DA9A9 /* BKTableViewAdapter.m in Sources */,
 				B5DD0FA41D30D80100328FB4 /* ShareView.m in Sources */,
 				B5A035741D2DF3CE002DA9A9 /* ThreeViewCell.m in Sources */,
@@ -1063,6 +1120,7 @@
 				B5A035DB1D2DF526002DA9A9 /* JCTopic.m in Sources */,
 				B5ADC3F91D35CBB100522BA0 /* TalkAdapter.m in Sources */,
 				B5A035661D2DF3CE002DA9A9 /* AVVideoController.m in Sources */,
+				B52140E31D3DD39A0069F80F /* CommentView.m in Sources */,
 				B5ADC4041D35E45000522BA0 /* TalkDetailController.m in Sources */,
 				B5A035A71D2DF436002DA9A9 /* TopModel.m in Sources */,
 				B53936A81D2E342200EA7674 /* AVVideoList.m in Sources */,
@@ -1081,6 +1139,7 @@
 				B5A035D81D2DF526002DA9A9 /* HttpTool.m in Sources */,
 				B56246001D3274120058D355 /* TalkListCell.m in Sources */,
 				B531A4431D1A8954005E5A9F /* UIImage+Extention.m in Sources */,
+				B52140E61D3DD5610069F80F /* CommentCell.m in Sources */,
 				B5A035D21D2DF526002DA9A9 /* BaseViewController.m in Sources */,
 				B5A0359E1D2DF436002DA9A9 /* MainController.m in Sources */,
 				B5A035991D2DF436002DA9A9 /* LoginView.m in Sources */,

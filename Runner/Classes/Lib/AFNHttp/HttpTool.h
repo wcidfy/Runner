@@ -19,6 +19,9 @@
 +(void)getNewsdetailWithDocid:(NSString *)docid complete:(void(^)(id))complete;
 //获取最热评论
 +(void)getHotReplyWithDetailItem:(NewsDetailModel *)detailList complete:(void(^)(id))complete;
+//获取最新评论
++(void)getNewsReplyWithDetailItem:(NewsDetailModel *)detailList pageCount:(NSInteger)pageCount complete:(void(^)(id))complete;
+
 //获取视听列表标题栏/
 +(void)getAllAVVideoController:(void(^)(NSArray *))complete;
 //获取标题栏上title对应数据

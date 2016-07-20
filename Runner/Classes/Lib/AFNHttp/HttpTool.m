@@ -94,12 +94,12 @@
     [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
     } success:^(id responseObject, NSURLSessionDataTask *task) {
        
-        NSMutableArray *hotArray=[[NSMutableArray alloc]init];
+        NSMutableArray *hotArray=[NSMutableArray array];
         //通过block两次遍历列表拿到数组 转换模型数组
         [responseObject[@"hotPosts"]enumerateObjectsUsingBlock:^(id  _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
             NSMutableArray *itemArray=[[NSMutableArray alloc]init];
             [obj1 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj2, BOOL * _Nonnull stop) {
-                if([key isEqualToString:@"NON"])
+                if(![key isEqualToString:@"NON"])
                 {
                 [itemArray addObject:[NewsHotReplyItems mj_objectWithKeyValues:obj2]];
                 }
@@ -111,6 +111,33 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+}
++(void)getNewsReplyWithDetailItem:(NewsDetailModel *)detailList pageCount:(NSInteger)pageCount complete:(void (^)(id))complete
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/normal/%@/%@/desc/0/%ld0/10/2/2",detailList.replyBoard,detailList.docid,pageCount+1];
+    [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSMutableArray *replyArray = [NSMutableArray array];
+        
+        // 数组中放模型数组,这样来存储评论数据
+        [responseObject[@"newPosts"] enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj1, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSMutableArray *itemArray = [NSMutableArray array];
+            [obj1 enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj2, BOOL * _Nonnull stop) {
+                if (![key isEqualToString:@"NON"]) {
+                    [itemArray addObject:[NewsHotReplyItems mj_objectWithKeyValues:obj2]];
+                }
+            }];
+            [replyArray addObject:itemArray];
+            
+        }];
+        complete(replyArray);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
+
 }
 +(void)getAllAVVideoController:(void (^)(NSArray *))complete
 {

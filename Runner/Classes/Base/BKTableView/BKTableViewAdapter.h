@@ -28,7 +28,8 @@
  */
 @interface BKTableViewAdapter : NSObject <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSArray *dataArray1;
 @property (nonatomic, weak) id<BKTableViewAdapterDelegate> delegate;
 
 - (UITableViewCell *)tableView:(UITableView*)tableView reusedCellOfClass:(Class)class;

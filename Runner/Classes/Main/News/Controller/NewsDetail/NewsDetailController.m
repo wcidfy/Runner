@@ -9,6 +9,7 @@
 #import "NewsDetailController.h"
 #import "NewsDetailView.h"
 #import "HttpTool.h"
+#import "CommentController.h"
 @interface NewsDetailController()
 {
     UIView *_topView;
@@ -43,6 +44,11 @@
     _detailView.frame=CGRectMake(0, 64, kScreenWidth, kScreenHeight-64);
     _detailView.detailItem=_detailItem;
     [self.view addSubview:_detailView];
+    __weak typeof(self) weakSelf=self;
+    self.detailView.hotBlock=^
+    {
+        [weakSelf HotTouchClick];
+    };
     
 //设置标题
     _titleLable.text=_detailItem.title;
@@ -82,8 +88,18 @@
     [self.navigationController popViewControllerAnimated:YES];
 
 }
+#pragma mark 热门评论点击
+-(void)HotTouchClick
+{
+    CommentController *comment=[CommentController new];
+    comment.docid=_detailItem.docid;
+    comment.boardid=_detailItem.replyBoard;
+    [self.navigationController pushViewController:comment animated:YES];
+    
+}
 -(void)viewDidLayoutSubviews
 {
     _detailView.scrollView.contentSize=CGSizeMake(kScreenWidth, _detailView.viewHeight);
 }
+
 @end
