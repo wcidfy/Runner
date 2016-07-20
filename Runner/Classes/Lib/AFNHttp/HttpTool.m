@@ -17,6 +17,7 @@
 #import "AskAndAnswer.h"
 #import "NewsDetailModel.h"
 #import "NewsHotReplyItems.h"
+#import "ItemsModel.h"
 @implementation HttpTool
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete
 {
@@ -241,5 +242,21 @@
     }];
     
     
+}
++(void)getItemsCount:(void(^)(NSArray *))complete
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"square";
+    parameters[@"c"] = @"topic";
+    NSString *urlStr=@"http://api.budejie.com/api/api_open.php";
+    [XXNetWorking GET:urlStr parameters:parameters progress:^(NSProgress *progress) {
+        
+    } success:^(id responseObject, NSURLSessionDataTask *task) {
+        NSArray *itemArray=[ItemsModel mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
+        complete(itemArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
 }
 @end

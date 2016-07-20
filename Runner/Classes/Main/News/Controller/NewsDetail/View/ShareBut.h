@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  图片文字上下布局的button
+ */
 @interface ShareBut : UIButton
 
 @end

@@ -30,4 +30,6 @@
 +(void)getTalkListWithPageCount:(NSInteger)pageCount complete:(void(^)(id))complete;
 //获取话题明细界面 最热和最新评论
 +(void)getTalkDetailWithExpertId:(NSString *)expertId isNew:(NSInteger)isNew pageCount:(NSInteger)pageCount complete:(void(^)(NSMutableArray *))complete;
+//获取我界面items
++(void)getItemsCount:(void(^)(NSArray *))complete;
 @end

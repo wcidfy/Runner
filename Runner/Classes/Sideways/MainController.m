@@ -14,6 +14,7 @@
 #import "AVVideoController.h"
 #import "DiscoverController.h"
 #import "TalkController.h"
+#import "MeController.h"
 
 
 #define CZVersionKey @"version"
@@ -28,6 +29,7 @@
 @property(nonatomic,strong)AVVideoController *AVVideo;
 @property(nonatomic,strong)DiscoverController *discover;
 @property(nonatomic,strong)TalkController *talk;
+@property(nonatomic,strong)MeController *me;
 //是否准备好刷新 （判断tabbar是否再次点击）
 @property (nonatomic, assign) BOOL isReady;
 @property (nonatomic, strong) UITabBarItem *selectedItem;
@@ -85,6 +87,9 @@
     
     _discover=[DiscoverController new];
     [self addController:_discover imageNol:[UIImage imageNamed:@"tabBar_friendTrends_icon"] imageSelected:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] titleStr:@"发现"];
+    
+    _me=[MeController new];
+    [self addController:_me imageNol:[UIImage imageNamed:@"tabBar_me_icon"] imageSelected:[UIImage imageNamed:@"tabBar_me_click_icon"] titleStr:@"我"];
 }
 
 -(void)addController:(UIViewController *)vc imageNol:(UIImage *)imageNol imageSelected:(UIImage *)imageSelected titleStr:(NSString *)titleStr
