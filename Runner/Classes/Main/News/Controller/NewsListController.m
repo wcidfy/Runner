@@ -28,6 +28,9 @@
 @property(nonatomic,strong)UIImageView *bgImageV;
 //加载动画
 @property(nonatomic,strong)FeHandwriting *handWriting;
+//动画图片数组
+@property(nonatomic,strong)NSArray *imagesArray;
+
 @end
 
 @implementation NewsListController
@@ -70,17 +73,43 @@
 //    // Do something usefull in here instead of sleeping ...
 //    sleep(12);
 //}
+-(NSArray *)imagesArray
+{
+    if (_imagesArray==nil) {
+       _imagesArray = @[[UIImage imageNamed:@"image1.png"],[UIImage imageNamed:@"image3.png"],
+                                [UIImage imageNamed:@"image1.png"],[UIImage imageNamed:@"image3.png"],
+                                [UIImage imageNamed:@"image2.png"],[UIImage imageNamed:@"image4.png"],
+                                [UIImage imageNamed:@"image2.png"],[UIImage imageNamed:@"image4.png"]];
+    }
+    return _imagesArray;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.bgImageV];
     self.view.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:self.handWriting];
     self.refreshCount=1;
-    self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
-    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
+//    普通刷新
+//    self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
+//    self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
 
+//    [self.tableView.mj_header beginRefreshing];
+    
+    MJRefreshGifHeader *header=[MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
+    //刷新时间面板隐藏
+    header.lastUpdatedTimeLabel.hidden=YES;
+    //刷新状态隐藏
+    header.stateLabel.hidden=YES;
+    //普通状态
+    [header setImages:self.imagesArray forState:MJRefreshStateIdle];
+    //松开进行刷新
+    [header setImages:self.imagesArray forState:MJRefreshStatePulling];
+    //正在刷新
+    [header setImages:self.imagesArray forState:MJRefreshStateRefreshing];
+    self.tableView.mj_header=header;
     [self.tableView.mj_header beginRefreshing];
-        [self.tableView setRowHeight:100];
+    
+    [self.tableView setRowHeight:100];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
 }
