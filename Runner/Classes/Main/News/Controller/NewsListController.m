@@ -16,6 +16,7 @@
 #import "NewsPhotoController.h"
 #import "FeHandwriting.h"
 #import "NewsDetailController.h"
+#import "ORIndicatorView.h"
 @interface NewsListController ()
 {
     NSString *ss;
@@ -125,6 +126,7 @@
 #pragma mark 下拉刷新
 -(void)downRefresh
 {
+    [ORIndicatorView showLoading];
     [HttpTool getTopicNewsListWithPgmid:self.pgmid count:1 timeid:self.lastTimeid complete:^(NSArray *array) {
         [self.handWriting removeFromSuperview];
         [self.bgImageV removeFromSuperview];
@@ -134,6 +136,7 @@
         }
           if (self.newsListArray.count == 0)return ;
         [self.tableView.mj_header endRefreshing];
+        [ORIndicatorView hideLoading];
         [self setHeadView];
         self.lastTimeid=self.newsListArray.lastObject.timeid;
         [self.tableView reloadData];

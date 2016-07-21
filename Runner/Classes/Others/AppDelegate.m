@@ -73,7 +73,7 @@
                 
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 NSLog(@"WIFI");
-                [MBProgressHUD showError:@"WIFI"];
+//                [MBProgressHUD showError:@"WIFI"];
                  networkStr=@"WIFI";
                 break;
         }
