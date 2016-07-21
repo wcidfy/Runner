@@ -111,7 +111,7 @@
 }
 +(UIBezierPath *) dotShapeBezierPath
 {
-    UIColor* color0 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
+//    UIColor* color0 = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1];
     
     //// Bezier 4 Drawing
     UIBezierPath* bezier4Path = [UIBezierPath bezierPath];

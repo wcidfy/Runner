@@ -17,6 +17,8 @@
 #import "FeHandwriting.h"
 #import "NewsDetailController.h"
 #import "ORIndicatorView.h"
+#import "EatGifRefresh.h"
+#import "RabbitGifHeader.h"
 @interface NewsListController ()
 {
     NSString *ss;
@@ -73,16 +75,7 @@
 //    // Do something usefull in here instead of sleeping ...
 //    sleep(12);
 //}
--(NSArray *)imagesArray
-{
-    if (_imagesArray==nil) {
-       _imagesArray = @[[UIImage imageNamed:@"image1.png"],[UIImage imageNamed:@"image3.png"],
-                                [UIImage imageNamed:@"image1.png"],[UIImage imageNamed:@"image3.png"],
-                                [UIImage imageNamed:@"image2.png"],[UIImage imageNamed:@"image4.png"],
-                                [UIImage imageNamed:@"image2.png"],[UIImage imageNamed:@"image4.png"]];
-    }
-    return _imagesArray;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.bgImageV];
@@ -95,20 +88,10 @@
 
 //    [self.tableView.mj_header beginRefreshing];
     
-    MJRefreshGifHeader *header=[MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
-    //刷新时间面板隐藏
-    header.lastUpdatedTimeLabel.hidden=YES;
-    //刷新状态隐藏
-    header.stateLabel.hidden=YES;
-    //普通状态
-    [header setImages:self.imagesArray forState:MJRefreshStateIdle];
-    //松开进行刷新
-    [header setImages:self.imagesArray forState:MJRefreshStatePulling];
-    //正在刷新
-    [header setImages:self.imagesArray forState:MJRefreshStateRefreshing];
-    self.tableView.mj_header=header;
+    RabbitGifHeader *head=[RabbitGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
+    self.tableView.mj_header=head;
     [self.tableView.mj_header beginRefreshing];
-    
+  
     [self.tableView setRowHeight:100];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   

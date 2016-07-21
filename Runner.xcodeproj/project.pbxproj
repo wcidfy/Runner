@@ -25,6 +25,7 @@
 		B521410D1D406FAC0069F80F /* ORLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B52141061D406FAC0069F80F /* ORLoadingIndicator.m */; };
 		B521410E1D406FAC0069F80F /* Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = B52141091D406FAC0069F80F /* Observer.m */; };
 		B521410F1D406FAC0069F80F /* ViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B521410B1D406FAC0069F80F /* ViewUtil.m */; };
+		B52141121D40912E0069F80F /* RabbitGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B52141111D40912E0069F80F /* RabbitGifHeader.m */; };
 		B531A3E11D1A6C21005E5A9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3E01D1A6C21005E5A9F /* main.m */; };
 		B531A3EC1D1A6C21005E5A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B531A3EB1D1A6C21005E5A9F /* Assets.xcassets */; };
 		B531A3FA1D1A6C22005E5A9F /* RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B531A3F91D1A6C22005E5A9F /* RunnerTests.m */; };
@@ -166,6 +167,8 @@
 		B52141091D406FAC0069F80F /* Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observer.m; sourceTree = "<group>"; };
 		B521410A1D406FAC0069F80F /* ViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtil.h; sourceTree = "<group>"; };
 		B521410B1D406FAC0069F80F /* ViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtil.m; sourceTree = "<group>"; };
+		B52141101D40912E0069F80F /* RabbitGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RabbitGifHeader.h; sourceTree = "<group>"; };
+		B52141111D40912E0069F80F /* RabbitGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RabbitGifHeader.m; sourceTree = "<group>"; };
 		B531A3DC1D1A6C21005E5A9F /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B531A3E01D1A6C21005E5A9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B531A3EB1D1A6C21005E5A9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -813,6 +816,8 @@
 				B5A035BA1D2DF526002DA9A9 /* BKTableView */,
 				B5A035C31D2DF526002DA9A9 /* EatGifRefresh.h */,
 				B5A035C41D2DF526002DA9A9 /* EatGifRefresh.m */,
+				B52141101D40912E0069F80F /* RabbitGifHeader.h */,
+				B52141111D40912E0069F80F /* RabbitGifHeader.m */,
 			);
 			name = Base;
 			path = Classes/Base;
@@ -1231,6 +1236,7 @@
 				B5A0359A1D2DF436002DA9A9 /* NewFeatureController.m in Sources */,
 				B5A035B01D2DF456002DA9A9 /* AppDelegate.m in Sources */,
 				B5A0359C1D2DF436002DA9A9 /* LeftView.m in Sources */,
+				B52141121D40912E0069F80F /* RabbitGifHeader.m in Sources */,
 				B560A5BD1D33924100A14DA0 /* TalkAnswerDetail.m in Sources */,
 				B52140FA1D3F8B240069F80F /* MeTableAdapter.m in Sources */,
 				B5A035D31D2DF526002DA9A9 /* BaseWebController.m in Sources */,
