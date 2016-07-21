@@ -47,13 +47,13 @@
     HotView *hot1=[HotView HotViewWithNewsHotReplyItems:item];
     hot1.frame=CGRectMake(0, 30, kScreenWidth, hot1.hotHeight);
     [self addSubview:hot1];
-    
+    self.hotsHeight=hot1.size.height+30;
     if (hotArray.count==1) return;
     NewsHotReplyItems *item2=hotArray[1][0];
     HotView *hot2=[HotView HotViewWithNewsHotReplyItems:item2];
     hot2.frame=CGRectMake(0, 30+hot1.size.height, kScreenWidth, hot2.hotHeight);
     [self addSubview:hot2];
-    
+    self.hotsHeight=hot1.size.height+30+hot2.size.height;
     if (hotArray.count==2) return;
     NewsHotReplyItems *item3=hotArray[2][0];
     HotView *hot3=[HotView HotViewWithNewsHotReplyItems:item3];
