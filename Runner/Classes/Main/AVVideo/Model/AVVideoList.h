@@ -39,5 +39,6 @@
 @property (nonatomic, strong) NSString *replyBoard;
 
 @property (nonatomic, assign) NSInteger playCount;
-
+//时间唯一标识符
+@property (nonatomic, assign) NSInteger timeid;
 @end

@@ -49,9 +49,10 @@ static FMDatabaseQueue *_baseQueue;
         if (param.timeid==0) {
             NSString *sql= [NSString stringWithFormat:@"select *from %@ order by timeid desc limit 0,%ld;",t_name,param.count];
             result=[db executeQuery:sql];
-        }else
+        }
+        else if(param.timeid!=0)
         {
-            NSString *sql= [NSString stringWithFormat:@"select *from %@ order by timeid desc limit 0,%ld;",t_name,param.count];
+          NSString   *sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE timeid  <%ld ORDER BY idstr DESC LIMIT 20;",t_name, param.timeid];
             result=[db executeQuery:sql];
         
         }
@@ -62,7 +63,7 @@ static FMDatabaseQueue *_baseQueue;
         }
        
     }];
-    
+    [_baseQueue close];
     return  statusArray;
 
 }

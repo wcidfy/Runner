@@ -52,6 +52,7 @@
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
             }];
+            return;
         }
         //无网络 有缓存读取缓存
         else
@@ -74,8 +75,9 @@
         StatesParam *param=[[StatesParam alloc]init];
         param.modelName=newPgmid;
         param.count=20;
-        param.timeid=0;
+        param.timeid=timeid;
         NSMutableArray *dictArray=[StateCacheTool getStatusCache:param];
+        
         if (dictArray.count) {
             complete(dictArray);
             return;
@@ -202,18 +204,51 @@
 
 +(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete
 {
+    //视听数据库中 的表区分
+    NSString *newTid=[NSString stringWithFormat:@"%@AVVideoList",tid];
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     [mgr startMonitoring];
-    NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount];
-    [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
+    if (pageCount==0) {
+        if (mgr.isReachable) {
+            NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount];
+            [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
+                
+            } success:^(id responseObject, NSURLSessionDataTask *task) {
+                NSArray<AVVideoList *> *array=[AVVideoList mj_objectArrayWithKeyValuesArray:responseObject[tid]];
+                [AVVideoList setTimeidAttributeWithModelArray:array timeName:@"ptime"];
+                [StateCacheTool addStateCache:array tname:newTid];
+                complete(array);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                XXLog(@"%@",error);
+            }];
+        }
+        //无网络 从数据库中取
+        else
+        {
+            StatesParam *prama=[[StatesParam alloc]init];
+            prama.modelName=newTid;
+            prama.count=10;
+            prama.timeid=0;
         
-    } success:^(id responseObject, NSURLSessionDataTask *task) {
-        NSArray<AVVideoList *> *array=[AVVideoList mj_objectArrayWithKeyValuesArray:responseObject[tid]];
-        complete(array);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        XXLog(@"%@",error);
-    }];
-
+        }
+       
+ 
+    }
+    //上拉刷新
+    else
+    {
+        NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount*2];
+        [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
+            
+        } success:^(id responseObject, NSURLSessionDataTask *task) {
+            NSArray<AVVideoList *> *array=[AVVideoList mj_objectArrayWithKeyValuesArray:responseObject[tid]];
+            complete(array);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            XXLog(@"%@",error);
+        }];
+    
+    }
+    
 }
 
 +(void)getTalkListWithPageCount:(NSInteger)pageCount complete:(void(^)(id))complete

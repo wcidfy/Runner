@@ -9,6 +9,7 @@
 #import "AVVideoList.h"
 #import "MJExtension.h"
 @implementation AVVideoList
+MJCodingImplementation
 +(NSDictionary *)mj_replacedKeyFromPropertyName
 {
 

@@ -16,7 +16,7 @@
 #import "FeHandwriting.h"
 static NSString *cellId=@"AVVideoIdd";
 @interface AVVideoListController()
-@property(nonatomic,strong)NSArray<AVVideoList *> *AVVideoArray;
+@property(nonatomic,strong)NSMutableArray<AVVideoList *> *AVVideoArray;
 //毛玻璃
 @property(nonatomic,strong)UIToolbar *blurView;
 @property(nonatomic,strong)ShareView *shareView;
@@ -31,6 +31,8 @@ static NSString *cellId=@"AVVideoIdd";
 //上一次存在的 indexPath
 @property(nonatomic,strong)NSIndexPath *previousIndexPath;
 
+@property(nonatomic,assign)NSInteger refreshCount;
+@property(nonatomic,assign)NSInteger lastTime;
 
 @end
 
@@ -59,10 +61,10 @@ static NSString *cellId=@"AVVideoIdd";
     }
     return _feHandWriting;
 }
--(NSArray *)AVVideoArray
+-(NSMutableArray *)AVVideoArray
 {
     if (_AVVideoArray==nil) {
-        _AVVideoArray=[[NSArray alloc]init];
+        _AVVideoArray=[[NSMutableArray alloc]init];
     }
     return _AVVideoArray;
 }
@@ -87,11 +89,12 @@ static NSString *cellId=@"AVVideoIdd";
 {
     [super viewDidLoad];
     
-
+    self.lastTime=0;
+    self.refreshCount=0;
     self.tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(bottonRefresh)];
     [self.tableView.mj_header beginRefreshing];
     [self.tableView setRowHeight:200];
-    
+    self.tableView.mj_footer=[MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     [self.view addSubview:self.imageBgV];
@@ -103,7 +106,7 @@ static NSString *cellId=@"AVVideoIdd";
 {
    [HttpTool getAVVidelListWithTid:self.tid pageCount:0 complete:^(NSArray *array) {
        XXLog(@"————%@",array);
-       self.AVVideoArray=array;
+       self.AVVideoArray=(NSMutableArray *)array;
        [self.imageBgV removeFromSuperview];
        [self.feHandWriting removeFromSuperview];
        [self.tableView.mj_header endRefreshing];
@@ -112,7 +115,22 @@ static NSString *cellId=@"AVVideoIdd";
    }];
 
 }
+#pragma mark 上拉刷新
+-(void)topRefresh
+{
+    [HttpTool getAVVidelListWithTid:self.tid pageCount:++self.refreshCount complete:^(NSArray *array) {
+        XXLog(@"————%@",array);
+        [self.AVVideoArray addObjectsFromArray:array];
+        self.lastTime=self.AVVideoArray.lastObject.timeid;
+        [self.imageBgV removeFromSuperview];
+        [self.feHandWriting removeFromSuperview];
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+        self.tableView.separatorStyle = UITableViewCellStyleDefault;
+    }];
+    ++self.refreshCount;
 
+}
 -(void)back
 {
     [self.blurView removeFromSuperview];
