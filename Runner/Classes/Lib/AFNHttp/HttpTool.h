@@ -25,7 +25,7 @@
 //获取视听列表标题栏/
 +(void)getAllAVVideoController:(void(^)(NSArray *))complete;
 //获取标题栏上title对应数据
-+(void)getAVVidelListWithTid:(NSString *)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete;
++(void)getAVVidelListWithTid:(NSString *)tid pageCount:(NSInteger)pageCount timeid:(NSInteger)timeid complete:(void(^)(id))complete;
 //获取话题列表
 +(void)getTalkListWithPageCount:(NSInteger)pageCount complete:(void(^)(id))complete;
 //获取话题明细界面 最热和最新评论

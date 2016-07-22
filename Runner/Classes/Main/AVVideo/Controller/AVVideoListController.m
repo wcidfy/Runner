@@ -104,13 +104,14 @@ static NSString *cellId=@"AVVideoIdd";
 #pragma mark 下拉刷新
 -(void)bottonRefresh
 {
-   [HttpTool getAVVidelListWithTid:self.tid pageCount:0 complete:^(NSArray *array) {
+   [HttpTool getAVVidelListWithTid:self.tid pageCount:0 timeid:self.lastTime complete:^(NSArray *array)  {
        XXLog(@"————%@",array);
        self.AVVideoArray=(NSMutableArray *)array;
        [self.imageBgV removeFromSuperview];
        [self.feHandWriting removeFromSuperview];
        [self.tableView.mj_header endRefreshing];
            [self.tableView reloadData];
+       self.lastTime=self.AVVideoArray.lastObject.timeid;
        self.tableView.separatorStyle = UITableViewCellStyleDefault;
    }];
 
@@ -118,7 +119,7 @@ static NSString *cellId=@"AVVideoIdd";
 #pragma mark 上拉刷新
 -(void)topRefresh
 {
-    [HttpTool getAVVidelListWithTid:self.tid pageCount:++self.refreshCount complete:^(NSArray *array) {
+    [HttpTool getAVVidelListWithTid:self.tid pageCount:++self.refreshCount timeid:self.lastTime complete:^(NSArray *array) {
         XXLog(@"————%@",array);
         [self.AVVideoArray addObjectsFromArray:array];
         self.lastTime=self.AVVideoArray.lastObject.timeid;
@@ -126,6 +127,7 @@ static NSString *cellId=@"AVVideoIdd";
         [self.feHandWriting removeFromSuperview];
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
+        self.lastTime=self.AVVideoArray.lastObject.timeid;
         self.tableView.separatorStyle = UITableViewCellStyleDefault;
     }];
     ++self.refreshCount;

@@ -202,7 +202,7 @@
 
 }
 
-+(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount complete:(void(^)(id))complete
++(void)getAVVidelListWithTid:(NSString*)tid pageCount:(NSInteger)pageCount timeid:(NSInteger)timeid complete:(void(^)(id))complete
 {
     //视听数据库中 的表区分
     NSString *newTid=[NSString stringWithFormat:@"%@AVVideoList",tid];
@@ -229,6 +229,12 @@
             prama.modelName=newTid;
             prama.count=10;
             prama.timeid=0;
+            
+            NSMutableArray *dictArray=[StateCacheTool getStatusCache:prama];
+            if (dictArray.count) {
+                complete(dictArray);
+                return;
+            }
         
         }
        
@@ -237,6 +243,16 @@
     //上拉刷新
     else
     {
+        StatesParam *prama=[[StatesParam alloc]init];
+        prama.modelName=newTid;
+        prama.count=10;
+        prama.timeid=timeid;
+        
+        NSMutableArray *dictArray=[StateCacheTool getStatusCache:prama];
+        if (dictArray.count) {
+            complete(dictArray);
+            return;
+        }
         NSString *url=[NSString stringWithFormat:@"http://c.m.163.com/nc/video/Tlist/%@/%ld0-10.html",tid,pageCount*2];
         [XXNetWorking GET:url parameters:nil progress:^(NSProgress *progress) {
             
