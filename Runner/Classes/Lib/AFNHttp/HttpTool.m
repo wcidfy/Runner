@@ -221,6 +221,7 @@
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 XXLog(@"%@",error);
             }];
+            return;
         }
         //无网络 从数据库中取
         else

@@ -29,16 +29,21 @@
     if (self) {
       
         
-        _iconV=[UIImageView new];
-        _iconV.backgroundColor=[UIColor redColor];
-         _iconV.frame=CGRectMake(10, 10, 40, 40);
-        [self.contentView addSubview:_iconV];
+       
         
         _nameL=[UILabel new];
         [self.contentView addSubview:_nameL];
         
         _imageV=[UIImageView new];
         [self.contentView addSubview:_imageV];
+        
+        _iconV=[UIImageView new];
+        _iconV.layer.borderWidth=1;
+        _iconV.layer.borderColor=[UIColor redColor].CGColor;
+        _iconV.layer.masksToBounds=YES;
+        _iconV.layer.cornerRadius=20;
+        _iconV.frame=CGRectMake(10, 10, 40, 40);
+        [self.contentView addSubview:_iconV];
         
         _deatiL=[UILabel new];
         _deatiL.font=[UIFont systemFontOfSize:15];

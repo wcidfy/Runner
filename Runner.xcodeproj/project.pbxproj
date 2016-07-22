@@ -48,6 +48,7 @@
 		B56245F81D3266D00058D355 /* TalkController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245F71D3266D00058D355 /* TalkController.m */; };
 		B56245FC1D3271210058D355 /* TalkListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FB1D3271210058D355 /* TalkListItem.m */; };
 		B56246001D3274120058D355 /* TalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B56245FF1D3274120058D355 /* TalkListCell.m */; };
+		B59ECCE91D4255AA00C0AA11 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59ECCE81D4255AA00C0AA11 /* CellModel.m */; };
 		B5A035661D2DF3CE002DA9A9 /* AVVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035401D2DF3CE002DA9A9 /* AVVideoController.m */; };
 		B5A035671D2DF3CE002DA9A9 /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035451D2DF3CE002DA9A9 /* DiscoverController.m */; };
 		B5A035681D2DF3CE002DA9A9 /* NewsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A035491D2DF3CE002DA9A9 /* NewsBaseController.m */; };
@@ -217,6 +218,8 @@
 		B56245FB1D3271210058D355 /* TalkListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkListItem.m; sourceTree = "<group>"; };
 		B56245FE1D3274120058D355 /* TalkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkListCell.h; sourceTree = "<group>"; };
 		B56245FF1D3274120058D355 /* TalkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkListCell.m; sourceTree = "<group>"; };
+		B59ECCE71D4255AA00C0AA11 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		B59ECCE81D4255AA00C0AA11 /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
 		B5A0353F1D2DF3CE002DA9A9 /* AVVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVVideoController.h; sourceTree = "<group>"; };
 		B5A035401D2DF3CE002DA9A9 /* AVVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVVideoController.m; sourceTree = "<group>"; };
 		B5A035441D2DF3CE002DA9A9 /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 			children = (
 				B52140FC1D3F8F900069F80F /* ItemsModel.h */,
 				B52140FD1D3F8F900069F80F /* ItemsModel.m */,
+				B59ECCE71D4255AA00C0AA11 /* CellModel.h */,
+				B59ECCE81D4255AA00C0AA11 /* CellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1201,6 +1206,7 @@
 				B5ADC4051D35E45000522BA0 /* TalkDetailCell.m in Sources */,
 				B5A035681D2DF3CE002DA9A9 /* NewsBaseController.m in Sources */,
 				B5A035691D2DF3CE002DA9A9 /* NewsController.m in Sources */,
+				B59ECCE91D4255AA00C0AA11 /* CellModel.m in Sources */,
 				B560A5C41D34946C00A14DA0 /* FeHandwriting.m in Sources */,
 				B560A5AE1D328D6C00A14DA0 /* TalkListFrame.m in Sources */,
 				B5ADC4131D389D6D00522BA0 /* NewsPhotoController.m in Sources */,
