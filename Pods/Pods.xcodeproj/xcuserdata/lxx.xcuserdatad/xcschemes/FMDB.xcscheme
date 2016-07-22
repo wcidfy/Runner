@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CCF1D821ED831C56702C40EADF0242BD'
-               BlueprintName = 'RegexKitLite'
+               BlueprintIdentifier = '23CF27B2BA6AC7125EFFEDA8C5AA819F'
+               BlueprintName = 'FMDB'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RegexKitLite.framework'>
+               BuildableName = 'FMDB.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

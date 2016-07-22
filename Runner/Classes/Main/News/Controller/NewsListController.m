@@ -91,7 +91,7 @@
     RabbitGifHeader *head=[RabbitGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(downRefresh)];
     self.tableView.mj_header=head;
     [self.tableView.mj_header beginRefreshing];
-  
+      self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(topRefresh)];
     [self.tableView setRowHeight:100];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
@@ -154,6 +154,7 @@
         [self.tableView reloadData];
     }];
 }
+#pragma mark 上拉刷新
 -(void)topRefresh
 {
     [HttpTool getTopicNewsListWithPgmid:self.pgmid count:++self.refreshCount timeid:self.lastTimeid complete:^(NSArray *array) {

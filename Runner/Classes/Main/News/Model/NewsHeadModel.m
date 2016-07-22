@@ -9,5 +9,5 @@
 #import "NewsHeadModel.h"
 
 @implementation NewsHeadModel
-
+MJCodingImplementation
 @end

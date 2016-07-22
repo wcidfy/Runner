@@ -14,11 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - iOS-Slide-Menu (1.5)
   - JGProgressHUD (1.3.3)
   - Masonry (1.0.1)
   - MBProgressHUD (0.9.2)
-  - MJExtension (3.0.11)
+  - MJExtension (3.0.12)
   - MJRefresh (3.1.9)
   - RegexKitLite (4.0)
   - SDWebImage (3.8.1):
@@ -26,7 +29,8 @@ PODS:
   - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (= 3.1.0)
+  - FMDB
   - iOS-Slide-Menu (= 1.5)
   - JGProgressHUD (= 1.3.3)
   - Masonry (= 1.0.1)
@@ -38,15 +42,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   iOS-Slide-Menu: 40b0cbd8916c42afc755f0869793cd09e7a32102
   JGProgressHUD: c89d1a8369a6253967a2c4194be06661033f83ed
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
+  MJExtension: 61bcf70d30acf0a09dde48e68502da0fde8eeafa
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
   RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 3ebb6904f7860b57d9ce0f5e63838d6666811d18
+PODFILE CHECKSUM: f37424cb904e93963afc26e00ffcef166686b762
 
 COCOAPODS: 1.0.0.beta.4

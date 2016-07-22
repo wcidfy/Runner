@@ -9,6 +9,7 @@
 #import "NewsListItems.h"
 #import "MJExtension.h"
 @implementation NewsListItems
+MJCodingImplementation
 + (NSDictionary *)mj_objectClassInArray
 {
     return @{@"ads":@"NewsHeadModel"};

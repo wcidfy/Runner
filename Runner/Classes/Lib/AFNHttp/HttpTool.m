@@ -18,20 +18,24 @@
 #import "NewsDetailModel.h"
 #import "NewsHotReplyItems.h"
 #import "ItemsModel.h"
+#import "StateCacheTool.h"
+#import "StatesParam.h"
 @implementation HttpTool
 +(void)getTopicNewsListWithPgmid:(NSString *)pgmid count:(NSInteger)count timeid:(NSInteger)timeid complete:(void(^)(NSArray *))complete
 {
-//    NSInteger loc = [pgmid rangeOfString:@"/"].location+1;
-//    NSString *newPgmid = [NSString stringWithFormat:@"%@FNNewsListItem", [pgmid substringFromIndex:loc]];
+    //数句库 表名
+    NSInteger loc = [pgmid rangeOfString:@"/"].location+1;
+    NSString *newPgmid = [NSString stringWithFormat:@"%@FNNewsListItem", [pgmid substringFromIndex:loc]];
     
 
     
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     [mgr startMonitoring];
+    //下拉刷新
     if (count == 1) {
    
         // 如果有网络则刷新最新数据
-        if (mgr.networkReachabilityStatus==AFNetworkReachabilityStatusReachableViaWiFi|| AFNetworkReachabilityStatusReachableViaWWAN) {
+        if (mgr.isReachable) {
             NSString *urlStr = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/%ld0-20.html",pgmid,count*2];
         XXLog(@"%@",pgmid);
             [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
@@ -43,15 +47,59 @@
                 // 给timeid赋值
                 [NewsListItems setTimeidAttributeWithModelArray:arrayItem timeName:@"ptime"];
                 
-
+                [StateCacheTool addStateCache:arrayItem tname:newPgmid];
                 complete(arrayItem);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
             }];
         }
-    }
-    }
+        //无网络 有缓存读取缓存
+        else
+        {
+            StatesParam *param=[[StatesParam alloc]init];
+            param.modelName=newPgmid;
+            param.count=20;
+            param.timeid=0;
+            NSMutableArray *dictArray=[StateCacheTool getStatusCache:param];
+            if (dictArray.count) {
+                complete(dictArray);
+                return;
+            }
+        }
+        
+}
+    //新闻页上拉刷新
+    else
+    {
+        StatesParam *param=[[StatesParam alloc]init];
+        param.modelName=newPgmid;
+        param.count=20;
+        param.timeid=0;
+        NSMutableArray *dictArray=[StateCacheTool getStatusCache:param];
+        if (dictArray.count) {
+            complete(dictArray);
+            return;
+        }
 
+        NSString *urlStr = [NSString stringWithFormat:@"http://c.3g.163.com/nc/article/%@/%ld0-20.html",pgmid,count*2];
+        XXLog(@"%@",pgmid);
+        [XXNetWorking GET:urlStr parameters:nil progress:^(NSProgress *progress) {
+            
+        } success:^(id responseObject, NSURLSessionDataTask *task) {
+            NSInteger loc = [pgmid rangeOfString:@"/"].location+1;
+            NSArray *dicArray = responseObject[[pgmid substringFromIndex:loc]];
+            NSMutableArray<NewsListItems*> *arrayItem=[NewsListItems mj_objectArrayWithKeyValuesArray:dicArray];
+            // 给timeid赋值
+            [NewsListItems setTimeidAttributeWithModelArray:arrayItem timeName:@"ptime"];
+            
+            [StateCacheTool addStateCache:arrayItem tname:newPgmid];
+            complete(arrayItem);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+    
+    }
+}
 +(void)getNewsDetailWithPhotoid:(NSString *)photoid complete:(void(^)(id))complete
 {
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];

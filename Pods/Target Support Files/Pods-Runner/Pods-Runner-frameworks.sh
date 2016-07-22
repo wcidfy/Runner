@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/FMDB/FMDB.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/JGProgressHUD/JGProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJExtension/MJExtension.framework"
@@ -96,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/FMDB/FMDB.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/JGProgressHUD/JGProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJExtension/MJExtension.framework"
